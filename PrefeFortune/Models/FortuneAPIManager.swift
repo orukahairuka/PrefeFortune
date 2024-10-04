@@ -48,7 +48,6 @@ class FortuneAPIManager: ObservableObject {
                         if let jsonString = String(data: data, encoding: .utf8) {
                             print("Response JSON: \(jsonString)")
                         }
-                        
                         // 成功かエラーレスポンスかを判別する
                         if let decodedError = try? JSONDecoder().decode(ErrorResponse.self, from: data), decodedError.error {
                             // エラーレスポンスの場合の処理
@@ -61,6 +60,13 @@ class FortuneAPIManager: ObservableObject {
                             // 正常レスポンスのデコード
                             let decodedResponse = try JSONDecoder().decode(FortuneResponse.self, from: data)
                             self.fortuneResponse = decodedResponse
+
+                                if let logoURL = decodedResponse.logoURL {
+                                    print("Logo URL: \(logoURL)")
+                                } else {
+                                    print("Logo URL is not valid.")
+                                }
+
                         } catch {
                             // デコードエラー時の処理
                             print("Failed to decode response: \(error)")

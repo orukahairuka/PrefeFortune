@@ -32,7 +32,7 @@ struct FortuneResponse: Codable {
     let capital: String
     let citizenDay: MonthDay?
     let hasCoastLine: Bool
-    let logoURL: String
+    let logoURL: URL?
     let brief: String
 
     enum CodingKeys: String, CodingKey {
