@@ -8,11 +8,14 @@
 import Foundation
 import Alamofire
 
-class FortuneAPIManager {
 
+class FortuneAPIManager: ObservableObject {
     private let baseURL = "https://ios-junior-engineer-codecheck.yumemi.jp"
     private let endPoint = "/my_fortune"
 
+    @Published var fortuneResponse: FortuneResponse?
+    @Published var errorMessage: String? 
+    @Published var isLoading = false
     func fetchFortune(name: String, birthday: YearMonthDay, bloodType: String, today: YearMonthDay) {
         
         let requestParameters = FortuneRequest(
@@ -29,32 +32,47 @@ class FortuneAPIManager {
         ]
 
         AF.request(url, method: .post, parameters: requestParameters, encoder: JSONParameterEncoder.default, headers: headers)
-            .responseDecodable(of: FortuneResponse.self) { response in
-                switch response.result {
-                case .success(let data):
-                    // 成功時に結果を表示
-                    self.handleSuccess(result: data)
-                case .failure(let error):
-                    // 失敗時のエラー処理
-                    self.handleError(error: error)
+            .responseData { response in
+                DispatchQueue.main.async {
+                    // リクエスト完了後にローディングを終了
+                    self.isLoading = false
+                    switch response.result {
+                    case .success(let data):
+                        // レスポンスデータをデバッグ用に出力
+                        if let jsonString = String(data: data, encoding: .utf8) {
+                            print("Response JSON: \(jsonString)")
+                        }
+                        
+                        // 成功かエラーレスポンスかを判別する
+                        if let decodedError = try? JSONDecoder().decode(ErrorResponse.self, from: data), decodedError.error {
+                            // エラーレスポンスの場合の処理
+                            self.errorMessage = decodedError.reason
+                            self.fortuneResponse = nil
+                            return
+                        }
+                        
+                        do {
+                            // 正常レスポンスのデコード
+                            let decodedResponse = try JSONDecoder().decode(FortuneResponse.self, from: data)
+                            self.fortuneResponse = decodedResponse
+                        } catch {
+                            // デコードエラー時の処理
+                            print("Failed to decode response: \(error)")
+                            self.errorMessage = "データの読み込みに失敗しました。再度お試しください。"
+                            self.fortuneResponse = nil
+                        }
+                        
+                    case .failure(let error):
+                        // ネットワークエラー時の処理
+                        print("Request failed with error: \(error)")
+                        if let data = response.data, let jsonString = String(data: data, encoding: .utf8) {
+                            print("Error response: \(jsonString)")
+                        }
+                        self.errorMessage = "リクエストに失敗しました。ネットワークの状態を確認してください。"
+                        self.fortuneResponse = nil
+                    }
                 }
             }
     }
 
-    private func handleSuccess(result: FortuneResponse) {
-        print("占い結果:")
-        print("都道府県: \(result.name)")
-        print("県庁所在地: \(result.capital)")
-        if let citizenDay = result.citizenDay {
-            print("県民の日: \(citizenDay.month)月\(citizenDay.day)日")
-        } else {
-            print("県民の日: 設定されていません")
-        }
-        print("海岸線の有無: \(result.hasCoastLine ? "あり" : "なし")")
-        print("概要: \(result.brief)")
-    }
-
-    private func handleError(error: Error) {
-        print("API取得失敗: \(error.localizedDescription)")
-    }
 }
