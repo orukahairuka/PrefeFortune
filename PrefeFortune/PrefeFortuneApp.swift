@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct PrefeFortuneApp: App {
+    private let fortuneAPIManager = FortuneAPIManager()
     var body: some Scene {
         WindowGroup {
             ContentView()
