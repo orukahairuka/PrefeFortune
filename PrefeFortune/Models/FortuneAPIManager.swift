@@ -10,14 +10,22 @@ import Alamofire
 
 class FortuneAPIManager {
 
-    func fetchFortune(name: String, birthday: YearMonthDay, bloodType: String, today: YearMonthDay) {
-        let url = "https://ios-junior-engineer-codecheck.yumemi.jp/my_fortune"
+    private let baseURL = "https://ios-junior-engineer-codecheck.yumemi.jp"
+    private let endPoint = "/my_fortune"
 
-        let requestParameters = FortuneRequest(name: name, birthday: birthday, bloodType: bloodType, today: today)
+    func fetchFortune(name: String, birthday: YearMonthDay, bloodType: String, today: YearMonthDay) {
+        
+        let requestParameters = FortuneRequest(
+            name: name,
+            birthday: birthday,
+            bloodType: bloodType,
+            today: today
+        )
+
+        let url = baseURL + endPoint
 
         let headers: HTTPHeaders = [
             "API-Version": "v1",
-            "Content-Type": "application/json"
         ]
 
         AF.request(url, method: .post, parameters: requestParameters, encoder: JSONParameterEncoder.default, headers: headers)
