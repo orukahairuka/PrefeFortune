@@ -31,6 +31,12 @@ class FortuneAPIManager: ObservableObject {
             "API-Version": "v1",
         ]
 
+        // UI更新のため
+        DispatchQueue.main.async {
+            self.isLoading = true
+            self.errorMessage = nil
+        }
+        
         AF.request(url, method: .post, parameters: requestParameters, encoder: JSONParameterEncoder.default, headers: headers)
             .responseData { response in
                 DispatchQueue.main.async {
