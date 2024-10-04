@@ -49,3 +49,9 @@ struct MonthDay: Codable {
     let month: Int
     let day: Int
 }
+
+// エラーレスポンス用
+struct ErrorResponse: Codable {
+    let error: Bool
+    let reason: String
+}
