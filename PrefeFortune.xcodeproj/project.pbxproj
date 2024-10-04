@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3BB4BF532CAF889B00AD4C29 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 3BB4BF522CAF889B00AD4C29 /* Lottie */; };
+		3BB4BF562CAF88E700AD4C29 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3BB4BF552CAF88E700AD4C29 /* Alamofire */; };
 		3BF76F0C2CAF80CD009EC2B2 /* PrefeFortuneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF76F0B2CAF80CD009EC2B2 /* PrefeFortuneApp.swift */; };
 		3BF76F0E2CAF80CD009EC2B2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF76F0D2CAF80CD009EC2B2 /* ContentView.swift */; };
 		3BF76F102CAF80CE009EC2B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BF76F0F2CAF80CE009EC2B2 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BB4BF532CAF889B00AD4C29 /* Lottie in Frameworks */,
+				3BB4BF562CAF88E700AD4C29 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +159,7 @@
 			name = PrefeFortune;
 			packageProductDependencies = (
 				3BB4BF522CAF889B00AD4C29 /* Lottie */,
+				3BB4BF552CAF88E700AD4C29 /* Alamofire */,
 			);
 			productName = PrefeFortune;
 			productReference = 3BF76F082CAF80CD009EC2B2 /* PrefeFortune.app */;
@@ -232,6 +235,7 @@
 			mainGroup = 3BF76EFF2CAF80CD009EC2B2;
 			packageReferences = (
 				3BB4BF502CAF888600AD4C29 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				3BB4BF542CAF88D200AD4C29 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 3BF76F092CAF80CD009EC2B2 /* Products */;
 			projectDirPath = "";
@@ -643,6 +647,14 @@
 				minimumVersion = 4.5.0;
 			};
 		};
+		3BB4BF542CAF88D200AD4C29 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -650,6 +662,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3BB4BF502CAF888600AD4C29 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		3BB4BF552CAF88E700AD4C29 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BB4BF542CAF88D200AD4C29 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
