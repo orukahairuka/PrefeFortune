@@ -20,8 +20,7 @@ struct TouristCardView: View {
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 16) {
-                    // `ForEach`を使って、`placesManager.nearbyPlaces`内の各`place`を表示
-                    ForEach(placesManager.nearbyPlaces, id: \.id) { place in
+                    ForEach(placesManager.nearbyPlaces) { place in
                         VStack(alignment: .leading) {
                             // 画像の表示
                             if let photoReference = place.photoReference {
