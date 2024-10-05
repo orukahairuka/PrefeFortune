@@ -10,9 +10,10 @@ import SwiftUI
 @main
 struct PrefeFortuneApp: App {
     private let fortuneAPIManager = FortuneAPIManager()
+    @StateObject private var placesAPIManager = PlacesAPIManager()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TouristCardView(placesManager: placesAPIManager)
         }
     }
 }
