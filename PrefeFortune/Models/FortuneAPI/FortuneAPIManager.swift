@@ -16,6 +16,7 @@ class FortuneAPIManager: ObservableObject {
     @Published var fortuneResponse: FortuneResponse?
     @Published var errorMessage: String? 
     @Published var isLoading = false
+    @Published var prefectureName: String?
     func fetchFortune(name: String, birthday: YearMonthDay, bloodType: String, today: YearMonthDay) {
         
         let requestParameters = FortuneRequest(
@@ -67,6 +68,7 @@ class FortuneAPIManager: ObservableObject {
                                     print("Logo URL is not valid.")
                                 }
 
+                            self.prefectureName = decodedResponse.name
                         } catch {
                             // デコードエラー時の処理
                             print("Failed to decode response: \(error)")

@@ -11,7 +11,10 @@ struct SearchPrefectureView: View {
     @State private var birthday = YearMonthDay(year: 0, month: 0, day: 0)
     @State private var name: String = ""
     @State private var bloodType: String = "A型"
-    @StateObject var fortuneAPIManager: FortuneAPIManager
+    @State private var latitude: Double? = nil
+    @State private var longitude: Double? = nil
+    @ObservedObject var fortuneAPIManager: FortuneAPIManager
+    @StateObject var latLonManager: LatLonManager
     private let currentDay = today()
 
     var isFormComplete: Bool {
@@ -89,6 +92,27 @@ struct SearchPrefectureView: View {
             .disabled(!isFormComplete)
         }
         .padding()
+        .onChange(of: fortuneAPIManager.prefectureName) { newName in
+
+            print("🐈")
+            // 新しいonChange形式を使用して変更を監視
+            guard let prefectureName = newName else {
+                latitude = nil
+                longitude = nil
+                print("無理でした")
+                return
+            }
+
+            if let location = latLonManager.getLatLon(forPrefecture: prefectureName) {
+                latitude = location.latitude
+                longitude = location.longitude
+                print("\(prefectureName)のlatitude: \(latitude!), longitude: \(longitude!)")
+            } else {
+                latitude = nil
+                longitude = nil
+                print("無理でした")
+            }
+        }
     }
 }
 

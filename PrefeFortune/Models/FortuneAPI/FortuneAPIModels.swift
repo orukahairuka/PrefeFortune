@@ -29,6 +29,7 @@ struct FortuneResponse: Codable {
     let hasCoastLine: Bool
     let logoURL: URL?
     let brief: String
+    let prefectureName: String?
 
     enum CodingKeys: String, CodingKey {
         case name
@@ -37,6 +38,7 @@ struct FortuneResponse: Codable {
         case hasCoastLine = "has_coast_line"
         case logoURL = "logo_url"
         case brief
+        case prefectureName
     }
 }
 

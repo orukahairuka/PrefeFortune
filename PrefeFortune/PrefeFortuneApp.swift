@@ -11,9 +11,10 @@ import SwiftUI
 struct PrefeFortuneApp: App {
     @StateObject var fortuneAPIManager = FortuneAPIManager()
     @StateObject var placesAPIManager = PlacesAPIManager()
+    @StateObject var latLogAPIManager = LatLonManager()
     var body: some Scene {
         WindowGroup {
-            SearchPrefectureView(fortuneAPIManager: fortuneAPIManager)
+            SearchPrefectureView(fortuneAPIManager: fortuneAPIManager, latLonManager: latLogAPIManager)
         }
     }
 }
