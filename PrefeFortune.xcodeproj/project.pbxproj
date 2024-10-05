@@ -20,6 +20,7 @@
 		3BB4BF562CAF88E700AD4C29 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3BB4BF552CAF88E700AD4C29 /* Alamofire */; };
 		3BB4BF5C2CAF8B4400AD4C29 /* FortuneAPIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB4BF5B2CAF8B4400AD4C29 /* FortuneAPIModels.swift */; };
 		3BB4BF5E2CAF8B7C00AD4C29 /* FortuneAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB4BF5D2CAF8B7C00AD4C29 /* FortuneAPIManager.swift */; };
+		3BD7798A2CB12DD20010D8E1 /* PrefectureImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD779892CB12DD20010D8E1 /* PrefectureImageView.swift */; };
 		3BF76F0C2CAF80CD009EC2B2 /* PrefeFortuneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF76F0B2CAF80CD009EC2B2 /* PrefeFortuneApp.swift */; };
 		3BF76F0E2CAF80CD009EC2B2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF76F0D2CAF80CD009EC2B2 /* ContentView.swift */; };
 		3BF76F102CAF80CE009EC2B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BF76F0F2CAF80CE009EC2B2 /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pref_lat_lon.csv; sourceTree = "<group>"; };
 		3BB4BF5B2CAF8B4400AD4C29 /* FortuneAPIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneAPIModels.swift; sourceTree = "<group>"; };
 		3BB4BF5D2CAF8B7C00AD4C29 /* FortuneAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneAPIManager.swift; sourceTree = "<group>"; };
+		3BD779892CB12DD20010D8E1 /* PrefectureImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefectureImageView.swift; sourceTree = "<group>"; };
 		3BF76F082CAF80CD009EC2B2 /* PrefeFortune.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrefeFortune.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BF76F0B2CAF80CD009EC2B2 /* PrefeFortuneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefeFortuneApp.swift; sourceTree = "<group>"; };
 		3BF76F0D2CAF80CD009EC2B2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -115,15 +117,6 @@
 			path = CSV;
 			sourceTree = "<group>";
 		};
-		3B50A1C52CB01ECA00539F07 /* TourPrefecture */ = {
-			isa = PBXGroup;
-			children = (
-				3B50A1C62CB01F1500539F07 /* PlacesAPI */,
-				3B20674F2CB0006500941274 /* CSV */,
-			);
-			path = TourPrefecture;
-			sourceTree = "<group>";
-		};
 		3B50A1C62CB01F1500539F07 /* PlacesAPI */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,7 +145,8 @@
 		3BB4BF572CAF895700AD4C29 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3B50A1C52CB01ECA00539F07 /* TourPrefecture */,
+				3B20674F2CB0006500941274 /* CSV */,
+				3B50A1C62CB01F1500539F07 /* PlacesAPI */,
 				3B20674E2CAFFF9300941274 /* FortuneAPI */,
 			);
 			path = Models;
@@ -162,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				3BF76F0D2CAF80CD009EC2B2 /* ContentView.swift */,
+				3BD779892CB12DD20010D8E1 /* PrefectureImageView.swift */,
 				3B50A1CD2CB0E12A00539F07 /* SearchPrefectureView.swift */,
 				3B50A1C92CB0D0DC00539F07 /* TouristCardView.swift */,
 			);
@@ -397,6 +392,7 @@
 				3BF76F0C2CAF80CD009EC2B2 /* PrefeFortuneApp.swift in Sources */,
 				3B50A1C82CB0CC4200539F07 /* PlacesAPIManager.swift in Sources */,
 				3B2067532CB000D200941274 /* LatLonManager.swift in Sources */,
+				3BD7798A2CB12DD20010D8E1 /* PrefectureImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

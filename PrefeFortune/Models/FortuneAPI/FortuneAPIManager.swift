@@ -14,9 +14,10 @@ class FortuneAPIManager: ObservableObject {
     private let endPoint = "/my_fortune"
 
     @Published var fortuneResponse: FortuneResponse?
-    @Published var errorMessage: String? 
+    @Published var errorMessage: String?
     @Published var isLoading = false
     @Published var prefectureName: String?
+    @Published var decodedLogoURL: URL?
     func fetchFortune(name: String, birthday: YearMonthDay, bloodType: String, today: YearMonthDay) {
         
         let requestParameters = FortuneRequest(
@@ -45,48 +46,49 @@ class FortuneAPIManager: ObservableObject {
                     self.isLoading = false
                     switch response.result {
                     case .success(let data):
-                        // レスポンスデータをデバッグ用に出力
-                        if let jsonString = String(data: data, encoding: .utf8) {
-                            print("Response JSON: \(jsonString)")
-                        }
-                        // 成功かエラーレスポンスかを判別する
-                        if let decodedError = try? JSONDecoder().decode(ErrorResponse.self, from: data), decodedError.error {
-                            // エラーレスポンスの場合の処理
-                            self.errorMessage = decodedError.reason
-                            self.fortuneResponse = nil
-                            return
-                        }
-                        
-                        do {
-                            // 正常レスポンスのデコード
-                            let decodedResponse = try JSONDecoder().decode(FortuneResponse.self, from: data)
-                            self.fortuneResponse = decodedResponse
-
-                                if let logoURL = decodedResponse.logoURL {
-                                    print("Logo URL: \(logoURL)")
-                                } else {
-                                    print("Logo URL is not valid.")
-                                }
-
-                            self.prefectureName = decodedResponse.name
-                        } catch {
-                            // デコードエラー時の処理
-                            print("Failed to decode response: \(error)")
-                            self.errorMessage = "データの読み込みに失敗しました。再度お試しください。"
-                            self.fortuneResponse = nil
-                        }
-                        
+                        self.handleSuccessResponse(data: data)
                     case .failure(let error):
-                        // ネットワークエラー時の処理
-                        print("Request failed with error: \(error)")
-                        if let data = response.data, let jsonString = String(data: data, encoding: .utf8) {
-                            print("Error response: \(jsonString)")
-                        }
-                        self.errorMessage = "リクエストに失敗しました。ネットワークの状態を確認してください。"
-                        self.fortuneResponse = nil
+                        self.handleErrorResponse(error: error, data: response.data)
                     }
                 }
             }
+    }
+
+    private func handleSuccessResponse(data: Data){
+        // レスポンスデータをデバッグ用に出力
+        if let jsonString = String(data: data, encoding: .utf8) {
+            print("Response JSON: \(jsonString)")
+        }
+        // 成功かエラーレスポンスかを判別する
+        if let decodedError = try? JSONDecoder().decode(ErrorResponse.self, from: data), decodedError.error {
+            // エラーレスポンスの場合の処理
+            self.errorMessage = decodedError.reason
+            self.fortuneResponse = nil
+            return
+        }
+
+        do {
+            // 正常レスポンスのデコード
+            let decodedResponse = try JSONDecoder().decode(FortuneResponse.self, from: data)
+            self.fortuneResponse = decodedResponse
+            self.decodedLogoURL = decodedResponse.logoURL
+            self.prefectureName = decodedResponse.name
+        } catch {
+            // デコードエラー時の処理
+            print("Failed to decode response: \(error)")
+            self.errorMessage = "データの読み込みに失敗しました。再度お試しください。"
+            self.fortuneResponse = nil
+        }
+    }
+
+    private func handleErrorResponse(error: AFError, data: Data?){
+        // ネットワークエラー時の処理
+        print("Request failed with error: \(error)")
+        if let data = data, let jsonString = String(data: data, encoding: .utf8) {
+            print("Error response: \(jsonString)")
+        }
+        self.errorMessage = "リクエストに失敗しました。ネットワークの状態を確認してください。"
+        self.fortuneResponse = nil
     }
 
 }
