@@ -17,19 +17,21 @@ struct Place: Codable, Identifiable {
     let vicinity: String
     let rating: Double?
     let geometry: Geometry?
-    let openingHours: OpeningHours?
-    let types: [String]?
-    let userRatingsTotal: Int?
+    let photos: [Photo]?
 
+    // `Identifiable`に準拠するためのID
     enum CodingKeys: String, CodingKey {
         case id = "place_id"
         case name
         case vicinity
         case rating
         case geometry
-        case openingHours = "opening_hours"
-        case types
-        case userRatingsTotal = "user_ratings_total"
+        case photos
+    }
+
+    // 画像の参照を取り出すための計算プロパティ
+    var photoReference: String? {
+        photos?.first?.photoReference
     }
 }
 
@@ -40,6 +42,14 @@ struct Geometry: Codable {
 struct Location: Codable {
     let lat: Double
     let lng: Double
+}
+
+struct Photo: Codable {
+    let photoReference: String
+
+    enum CodingKeys: String, CodingKey {
+        case photoReference = "photo_reference"
+    }
 }
 
 struct OpeningHours: Codable {
