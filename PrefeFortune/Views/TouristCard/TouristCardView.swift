@@ -83,3 +83,11 @@ struct TouristCardView: View {
         }
     }
 }
+
+#Preview {
+    TouristCardView(
+        placesManager: PlacesAPIManager(),
+        latitude: .constant(35.6895),
+        longitude: .constant(139.6917)
+    )
+}
