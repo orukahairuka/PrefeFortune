@@ -11,12 +11,10 @@ struct PrefectureImageView: View {
     let imageUrl: URL?
 
     var body: some View {
-        Group {
-            if let validUrl = imageUrl {
-                AsyncImageLoadingView(url: validUrl)
-            } else {
-                PlaceholderView()
-            }
+        if let validUrl = imageUrl {
+            AsyncImageLoadingView(url: validUrl)
+        } else {
+            PlaceholderView()
         }
     }
 }

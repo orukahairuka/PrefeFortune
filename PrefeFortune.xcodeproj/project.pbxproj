@@ -17,7 +17,6 @@
 		3B9420A72CB118FB00218C84 /* pref_lat_lon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */; };
 		3BA804742CB16E2500BEDC1C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804732CB16E2500BEDC1C /* MainView.swift */; };
 		3BA804882CB16FEE00BEDC1C /* TouristCardViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804822CB16FEE00BEDC1C /* TouristCardViewContainer.swift */; };
-		3BA804892CB16FEE00BEDC1C /* PrefectureImageViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804832CB16FEE00BEDC1C /* PrefectureImageViewContainer.swift */; };
 		3BA8048A2CB16FEE00BEDC1C /* BirthdayInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */; };
 		3BA8048B2CB16FEE00BEDC1C /* BloodTypePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804852CB16FEE00BEDC1C /* BloodTypePickerView.swift */; };
 		3BA8048C2CB16FEE00BEDC1C /* NameInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804862CB16FEE00BEDC1C /* NameInputField.swift */; };
@@ -65,7 +64,6 @@
 		3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pref_lat_lon.csv; sourceTree = "<group>"; };
 		3BA804732CB16E2500BEDC1C /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3BA804822CB16FEE00BEDC1C /* TouristCardViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouristCardViewContainer.swift; sourceTree = "<group>"; };
-		3BA804832CB16FEE00BEDC1C /* PrefectureImageViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefectureImageViewContainer.swift; sourceTree = "<group>"; };
 		3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayInputView.swift; sourceTree = "<group>"; };
 		3BA804852CB16FEE00BEDC1C /* BloodTypePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodTypePickerView.swift; sourceTree = "<group>"; };
 		3BA804862CB16FEE00BEDC1C /* NameInputField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameInputField.swift; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				3BD779892CB12DD20010D8E1 /* PrefectureImageView.swift */,
-				3BA804832CB16FEE00BEDC1C /* PrefectureImageViewContainer.swift */,
 				3BA8048F2CB1709C00BEDC1C /* AsyncImageLoadingView.swift */,
 				3BA804912CB170BE00BEDC1C /* FailureView.swift */,
 				3BA804932CB170E000BEDC1C /* PlaceholderView.swift */,
@@ -422,7 +419,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BA804742CB16E2500BEDC1C /* MainView.swift in Sources */,
-				3BA804892CB16FEE00BEDC1C /* PrefectureImageViewContainer.swift in Sources */,
 				3B50A1CA2CB0D0DC00539F07 /* TouristCardView.swift in Sources */,
 				3BA8048B2CB16FEE00BEDC1C /* BloodTypePickerView.swift in Sources */,
 				3B50A1D32CB0EA8C00539F07 /* dayModel.swift in Sources */,

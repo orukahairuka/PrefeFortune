@@ -33,7 +33,7 @@ struct SearchPrefectureView: View {
             VStack(alignment: .leading, spacing: 20) {
                 Spacer()
 
-                PrefectureImageViewContainer(fortuneAPIManager: fortuneAPIManager)
+                PrefectureImageView(imageUrl: fortuneAPIManager.decodedLogoURL)
                 TouristCardViewContainer(placesAPIManager: placesAPIManager, latitude: $latitude, longitude: $longitude)
 
                 NameInputField(name: $name)
