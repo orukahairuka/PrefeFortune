@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B2067532CB000D200941274 /* LatLonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2067522CB000D200941274 /* LatLonManager.swift */; };
+		3B2067562CB0049C00941274 /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2067552CB0049C00941274 /* SwiftCSV */; };
+		3B50A1C82CB0CC4200539F07 /* PlacesAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1C72CB0CC4200539F07 /* PlacesAPIManager.swift */; };
+		3B50A1CA2CB0D0DC00539F07 /* TouristCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1C92CB0D0DC00539F07 /* TouristCardView.swift */; };
+		3B50A1CC2CB0D22000539F07 /* PlacesAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1CB2CB0D22000539F07 /* PlacesAPIModel.swift */; };
+		3B50A1CE2CB0E12A00539F07 /* SearchPrefectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1CD2CB0E12A00539F07 /* SearchPrefectureView.swift */; };
+		3B50A1D12CB0E41100539F07 /* today.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1D02CB0E41100539F07 /* today.swift */; };
+		3B50A1D32CB0EA8C00539F07 /* dayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1D22CB0EA8C00539F07 /* dayModel.swift */; };
+		3B9420A72CB118FB00218C84 /* pref_lat_lon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */; };
 		3BB4BF532CAF889B00AD4C29 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 3BB4BF522CAF889B00AD4C29 /* Lottie */; };
 		3BB4BF562CAF88E700AD4C29 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3BB4BF552CAF88E700AD4C29 /* Alamofire */; };
 		3BB4BF5C2CAF8B4400AD4C29 /* FortuneAPIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB4BF5B2CAF8B4400AD4C29 /* FortuneAPIModels.swift */; };
@@ -38,6 +47,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B2067522CB000D200941274 /* LatLonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatLonManager.swift; sourceTree = "<group>"; };
+		3B50A1C72CB0CC4200539F07 /* PlacesAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesAPIManager.swift; sourceTree = "<group>"; };
+		3B50A1C92CB0D0DC00539F07 /* TouristCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristCardView.swift; sourceTree = "<group>"; };
+		3B50A1CB2CB0D22000539F07 /* PlacesAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesAPIModel.swift; sourceTree = "<group>"; };
+		3B50A1CD2CB0E12A00539F07 /* SearchPrefectureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPrefectureView.swift; sourceTree = "<group>"; };
+		3B50A1D02CB0E41100539F07 /* today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = today.swift; sourceTree = "<group>"; };
+		3B50A1D22CB0EA8C00539F07 /* dayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dayModel.swift; sourceTree = "<group>"; };
+		3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pref_lat_lon.csv; sourceTree = "<group>"; };
 		3BB4BF5B2CAF8B4400AD4C29 /* FortuneAPIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneAPIModels.swift; sourceTree = "<group>"; };
 		3BB4BF5D2CAF8B7C00AD4C29 /* FortuneAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneAPIManager.swift; sourceTree = "<group>"; };
 		3BF76F082CAF80CD009EC2B2 /* PrefeFortune.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrefeFortune.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B2067562CB0049C00941274 /* SwiftCSV in Frameworks */,
 				3BB4BF532CAF889B00AD4C29 /* Lottie in Frameworks */,
 				3BB4BF562CAF88E700AD4C29 /* Alamofire in Frameworks */,
 			);
@@ -80,6 +98,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B20674E2CAFFF9300941274 /* FortuneAPI */ = {
+			isa = PBXGroup;
+			children = (
+				3BB4BF5D2CAF8B7C00AD4C29 /* FortuneAPIManager.swift */,
+				3BB4BF5B2CAF8B4400AD4C29 /* FortuneAPIModels.swift */,
+			);
+			path = FortuneAPI;
+			sourceTree = "<group>";
+		};
+		3B20674F2CB0006500941274 /* CSV */ = {
+			isa = PBXGroup;
+			children = (
+				3B2067522CB000D200941274 /* LatLonManager.swift */,
+			);
+			path = CSV;
+			sourceTree = "<group>";
+		};
+		3B50A1C52CB01ECA00539F07 /* TourPrefecture */ = {
+			isa = PBXGroup;
+			children = (
+				3B50A1C62CB01F1500539F07 /* PlacesAPI */,
+				3B20674F2CB0006500941274 /* CSV */,
+			);
+			path = TourPrefecture;
+			sourceTree = "<group>";
+		};
+		3B50A1C62CB01F1500539F07 /* PlacesAPI */ = {
+			isa = PBXGroup;
+			children = (
+				3B50A1C72CB0CC4200539F07 /* PlacesAPIManager.swift */,
+				3B50A1CB2CB0D22000539F07 /* PlacesAPIModel.swift */,
+			);
+			path = PlacesAPI;
+			sourceTree = "<group>";
+		};
+		3B50A1CF2CB0E3FB00539F07 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				3B50A1D02CB0E41100539F07 /* today.swift */,
+				3B50A1D22CB0EA8C00539F07 /* dayModel.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		3BB4BF512CAF889B00AD4C29 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,8 +152,8 @@
 		3BB4BF572CAF895700AD4C29 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3BB4BF5B2CAF8B4400AD4C29 /* FortuneAPIModels.swift */,
-				3BB4BF5D2CAF8B7C00AD4C29 /* FortuneAPIManager.swift */,
+				3B50A1C52CB01ECA00539F07 /* TourPrefecture */,
+				3B20674E2CAFFF9300941274 /* FortuneAPI */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -100,6 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				3BF76F0D2CAF80CD009EC2B2 /* ContentView.swift */,
+				3B50A1CD2CB0E12A00539F07 /* SearchPrefectureView.swift */,
+				3B50A1C92CB0D0DC00539F07 /* TouristCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -142,12 +206,14 @@
 		3BF76F0A2CAF80CD009EC2B2 /* PrefeFortune */ = {
 			isa = PBXGroup;
 			children = (
+				3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */,
 				3BF76F0B2CAF80CD009EC2B2 /* PrefeFortuneApp.swift */,
 				3BB4BF572CAF895700AD4C29 /* Models */,
 				3BB4BF582CAF897D00AD4C29 /* Views */,
 				3BB4BF5A2CAF8A7900AD4C29 /* Extensions */,
 				3BB4BF592CAF898A00AD4C29 /* Components */,
 				3BF76F122CAF80CE009EC2B2 /* Preview Content */,
+				3B50A1CF2CB0E3FB00539F07 /* Util */,
 				3BF76F0F2CAF80CE009EC2B2 /* Assets.xcassets */,
 				3BF76F112CAF80CE009EC2B2 /* PrefeFortune.entitlements */,
 			);
@@ -198,6 +264,7 @@
 			packageProductDependencies = (
 				3BB4BF522CAF889B00AD4C29 /* Lottie */,
 				3BB4BF552CAF88E700AD4C29 /* Alamofire */,
+				3B2067552CB0049C00941274 /* SwiftCSV */,
 			);
 			productName = PrefeFortune;
 			productReference = 3BF76F082CAF80CD009EC2B2 /* PrefeFortune.app */;
@@ -274,6 +341,7 @@
 			packageReferences = (
 				3BB4BF502CAF888600AD4C29 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				3BB4BF542CAF88D200AD4C29 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				3B2067542CB0048100941274 /* XCRemoteSwiftPackageReference "SwiftCSV" */,
 			);
 			productRefGroup = 3BF76F092CAF80CD009EC2B2 /* Products */;
 			projectDirPath = "";
@@ -292,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BF76F142CAF80CE009EC2B2 /* Preview Assets.xcassets in Resources */,
+				3B9420A72CB118FB00218C84 /* pref_lat_lon.csv in Resources */,
 				3BF76F102CAF80CE009EC2B2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,10 +386,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B50A1CA2CB0D0DC00539F07 /* TouristCardView.swift in Sources */,
+				3B50A1D32CB0EA8C00539F07 /* dayModel.swift in Sources */,
 				3BF76F0E2CAF80CD009EC2B2 /* ContentView.swift in Sources */,
+				3B50A1CC2CB0D22000539F07 /* PlacesAPIModel.swift in Sources */,
 				3BB4BF5C2CAF8B4400AD4C29 /* FortuneAPIModels.swift in Sources */,
+				3B50A1CE2CB0E12A00539F07 /* SearchPrefectureView.swift in Sources */,
+				3B50A1D12CB0E41100539F07 /* today.swift in Sources */,
 				3BB4BF5E2CAF8B7C00AD4C29 /* FortuneAPIManager.swift in Sources */,
 				3BF76F0C2CAF80CD009EC2B2 /* PrefeFortuneApp.swift in Sources */,
+				3B50A1C82CB0CC4200539F07 /* PlacesAPIManager.swift in Sources */,
+				3B2067532CB000D200941274 /* LatLonManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,6 +755,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3B2067542CB0048100941274 /* XCRemoteSwiftPackageReference "SwiftCSV" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftcsv/SwiftCSV.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.0;
+			};
+		};
 		3BB4BF502CAF888600AD4C29 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios";
@@ -698,6 +782,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3B2067552CB0049C00941274 /* SwiftCSV */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B2067542CB0048100941274 /* XCRemoteSwiftPackageReference "SwiftCSV" */;
+			productName = SwiftCSV;
+		};
 		3BB4BF522CAF889B00AD4C29 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3BB4BF502CAF888600AD4C29 /* XCRemoteSwiftPackageReference "lottie-ios" */;
