@@ -79,7 +79,6 @@ struct TouristCardView: View {
 
     private func updatePlaces() {
         if let latitude = latitude, let longitude = longitude {
-            print("いけてる？👦 緯度: \(latitude), 経度: \(longitude)")
             placesManager.fetchNearbyPlaces(latitude: latitude, longitude: longitude)
         }
     }
