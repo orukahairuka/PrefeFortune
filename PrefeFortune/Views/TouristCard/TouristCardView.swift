@@ -17,10 +17,12 @@ struct TouristCardView: View {
     ]
 
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: columns, spacing: 16) {
+        ScrollView (.horizontal, showsIndicators: false){
+            LazyHStack(spacing: 16) {
                 ForEach(placesManager.nearbyPlaces) { place in
                     TouristCard(place: place)
+                        .frame(width: UIScreen.main.bounds.width * 0.8)
+                        .padding(.vertical, 8)
                 }
             }
             .padding()
@@ -31,6 +33,8 @@ struct TouristCardView: View {
                 }
             }
         }
+        .frame(height: 300) // 4. スクロールビュー全体の高さを設定
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always)) // 5. ページング風の表示（必要ならTabViewで包んで実現することも可能）
     }
 }
 
