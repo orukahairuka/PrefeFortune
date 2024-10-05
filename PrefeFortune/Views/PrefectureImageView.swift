@@ -8,18 +8,37 @@
 import SwiftUI
 
 struct PrefectureImageView: View {
-    let imageUrl = URL(string: "https://japan-map.com/wp-content/uploads/okinawa.png")
+    let imageUrl: URL?
 
-        var body: some View {
-            AsyncImage(url: imageUrl) { image in
-                image.resizable()
-            } placeholder: {
-                ProgressView()
+    var body: some View {
+        Group {
+            if let validUrl = imageUrl {
+                AsyncImage(url: validUrl) { phase in
+                    switch phase {
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 240, height: 126)
+                            .clipped()
+                    case .failure:
+                        Image(systemName: "exclamationmark.triangle")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 50, height: 50)
+                            .foregroundColor(.red)
+                    case .empty:
+                        ProgressView()
+                            .frame(width: 240, height: 126)
+                    @unknown default:
+                        EmptyView()
+                    }
+                }
+            } else {
+                Text("画像がありません")
+                    .frame(width: 240, height: 126)
+                    .foregroundColor(.gray)
             }
-            .frame(width: 240, height: 126)
         }
 }
 
-#Preview {
-    PrefectureImageView()
-}
