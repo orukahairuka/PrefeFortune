@@ -13,11 +13,13 @@ class PlacesAPIManager: ObservableObject {
 
     @Published var nearbyPlaces: [Place] = []
 
-    func fetchNearbyPlaces(latitude: Double, longitude: Double, radius: Int = 1000, type: String = "restaurant") {
+    //typeをカスタムできるようにしてもよき
+    func fetchNearbyPlaces(latitude: Double, longitude: Double, radius: Int = 5000, type: String = "tourist_attraction") {
         let parameters: [String: Any] = [
             "location": "\(latitude),\(longitude)",
             "radius": radius,
             "type": type,
+            "keyword": "名所",
             "key": apiKey
         ]
 
