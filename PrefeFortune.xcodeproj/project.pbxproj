@@ -10,7 +10,7 @@
 		3B2067532CB000D200941274 /* LatLonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2067522CB000D200941274 /* LatLonManager.swift */; };
 		3B2067562CB0049C00941274 /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2067552CB0049C00941274 /* SwiftCSV */; };
 		3B50A1C82CB0CC4200539F07 /* PlacesAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1C72CB0CC4200539F07 /* PlacesAPIManager.swift */; };
-		3B50A1CA2CB0D0DC00539F07 /* touristCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1C92CB0D0DC00539F07 /* touristCardView.swift */; };
+		3B50A1CA2CB0D0DC00539F07 /* TouristCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1C92CB0D0DC00539F07 /* TouristCardView.swift */; };
 		3B50A1CC2CB0D22000539F07 /* PlacesAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1CB2CB0D22000539F07 /* PlacesAPIModel.swift */; };
 		3B50A1CE2CB0E12A00539F07 /* SearchPrefectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1CD2CB0E12A00539F07 /* SearchPrefectureView.swift */; };
 		3B50A1D12CB0E41100539F07 /* today.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1D02CB0E41100539F07 /* today.swift */; };
@@ -49,7 +49,7 @@
 /* Begin PBXFileReference section */
 		3B2067522CB000D200941274 /* LatLonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatLonManager.swift; sourceTree = "<group>"; };
 		3B50A1C72CB0CC4200539F07 /* PlacesAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesAPIManager.swift; sourceTree = "<group>"; };
-		3B50A1C92CB0D0DC00539F07 /* touristCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = touristCardView.swift; sourceTree = "<group>"; };
+		3B50A1C92CB0D0DC00539F07 /* TouristCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristCardView.swift; sourceTree = "<group>"; };
 		3B50A1CB2CB0D22000539F07 /* PlacesAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesAPIModel.swift; sourceTree = "<group>"; };
 		3B50A1CD2CB0E12A00539F07 /* SearchPrefectureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPrefectureView.swift; sourceTree = "<group>"; };
 		3B50A1D02CB0E41100539F07 /* today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = today.swift; sourceTree = "<group>"; };
@@ -163,7 +163,7 @@
 			children = (
 				3BF76F0D2CAF80CD009EC2B2 /* ContentView.swift */,
 				3B50A1CD2CB0E12A00539F07 /* SearchPrefectureView.swift */,
-				3B50A1C92CB0D0DC00539F07 /* touristCardView.swift */,
+				3B50A1C92CB0D0DC00539F07 /* TouristCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -386,7 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B50A1CA2CB0D0DC00539F07 /* touristCardView.swift in Sources */,
+				3B50A1CA2CB0D0DC00539F07 /* TouristCardView.swift in Sources */,
 				3B50A1D32CB0EA8C00539F07 /* dayModel.swift in Sources */,
 				3BF76F0E2CAF80CD009EC2B2 /* ContentView.swift in Sources */,
 				3B50A1CC2CB0D22000539F07 /* PlacesAPIModel.swift in Sources */,

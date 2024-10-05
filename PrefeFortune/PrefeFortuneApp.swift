@@ -14,7 +14,7 @@ struct PrefeFortuneApp: App {
     @StateObject var latLogAPIManager = LatLonManager()
     var body: some Scene {
         WindowGroup {
-            SearchPrefectureView(fortuneAPIManager: fortuneAPIManager, latLonManager: latLogAPIManager)
+            SearchPrefectureView(fortuneAPIManager: fortuneAPIManager, latLonManager: latLogAPIManager, placesAPIManager: placesAPIManager)
         }
     }
 }

@@ -16,25 +16,28 @@ struct SearchPrefectureView: View {
     @ObservedObject var fortuneAPIManager: FortuneAPIManager
     @StateObject var latLonManager: LatLonManager
     private let currentDay = today()
+    @StateObject var placesAPIManager: PlacesAPIManager
 
     var isFormComplete: Bool {
         return !name.isEmpty
-            && birthday.year != 0
-            && birthday.month != 0
-            && birthday.day != 0
-            && bloodTypes.contains(bloodType)
+        && birthday.year != 0
+        && birthday.month != 0
+        && birthday.day != 0
+        && bloodTypes.contains(bloodType)
     }
 
     let bloodTypes = ["A", "B", "O", "AB"]
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
-            // 名前入力フィールド
-            Text("名前")
-                .font(.headline)
-            TextField("名前を入力してください", text: $name)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(.bottom, 10)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 20) {
+                TouristCardView(placesManager: placesAPIManager, latitude: $latitude, longitude: $longitude)
+                // 名前入力フィールド
+                Text("名前")
+                    .font(.headline)
+                TextField("名前を入力してください", text: $name)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding(.bottom, 10)
 
             // 生年月日入力フィールド
             Text("生年月日")
@@ -96,21 +99,26 @@ struct SearchPrefectureView: View {
 
             print("🐈")
             // 新しいonChange形式を使用して変更を監視
-            guard let prefectureName = newName else {
-                latitude = nil
-                longitude = nil
                 print("無理でした")
-                return
-            }
-
-            if let location = latLonManager.getLatLon(forPrefecture: prefectureName) {
-                latitude = location.latitude
-                longitude = location.longitude
-                print("\(prefectureName)のlatitude: \(latitude!), longitude: \(longitude!)")
-            } else {
-                latitude = nil
-                longitude = nil
                 print("無理でした")
+                print("🐈")
+                // 新しいonChange形式を使用して変更を監視
+                guard let prefectureName = newName else {
+                    latitude = nil
+                    longitude = nil
+                    print("無理でした")
+                    return
+                }
+                
+                if let location = latLonManager.getLatLon(forPrefecture: prefectureName) {
+                    latitude = location.latitude
+                    longitude = location.longitude
+                    print("\(prefectureName)のlatitude: \(latitude!), longitude: \(longitude!)")
+                } else {
+                    latitude = nil
+                    longitude = nil
+                    print("無理でした")
+                }
             }
         }
     }

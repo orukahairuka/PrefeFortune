@@ -9,6 +9,8 @@ import SwiftUI
 struct TouristCardView: View {
     // PlacesAPIManagerのインスタンスを外部から受け取り監視する
     @ObservedObject var placesManager: PlacesAPIManager
+    @Binding var latitude: Double?
+    @Binding var longitude: Double?
 
     // カードレイアウト用のグリッドアイテム
     let columns = [
@@ -66,10 +68,19 @@ struct TouristCardView: View {
                 .padding()
             }
             .navigationTitle("周辺の施設")
-            .onAppear {
-                // ビューが表示されたときにデータを取得する
-                placesManager.fetchNearbyPlaces(latitude: 35.6895, longitude: 139.6917)
+            .onChange(of: latitude) { newLatitude in
+                updatePlaces()
             }
+            .onChange(of: longitude) { newLongitude in
+                updatePlaces()
+            }
+        }
+    }
+
+    private func updatePlaces() {
+        if let latitude = latitude, let longitude = longitude {
+            print("いけてる？👦 緯度: \(latitude), 経度: \(longitude)")
+            placesManager.fetchNearbyPlaces(latitude: latitude, longitude: longitude)
         }
     }
 }
