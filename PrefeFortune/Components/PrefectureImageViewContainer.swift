@@ -15,3 +15,7 @@ struct PrefectureImageViewContainer: View {
             .padding(.vertical)
     }
 }
+// MARK: - Preview
+#Preview {
+    PrefectureImageViewContainer(fortuneAPIManager: FortuneAPIManager())
+}

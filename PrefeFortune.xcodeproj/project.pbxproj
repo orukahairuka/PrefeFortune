@@ -12,10 +12,16 @@
 		3B50A1C82CB0CC4200539F07 /* PlacesAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1C72CB0CC4200539F07 /* PlacesAPIManager.swift */; };
 		3B50A1CA2CB0D0DC00539F07 /* TouristCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1C92CB0D0DC00539F07 /* TouristCardView.swift */; };
 		3B50A1CC2CB0D22000539F07 /* PlacesAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1CB2CB0D22000539F07 /* PlacesAPIModel.swift */; };
-		3B50A1CE2CB0E12A00539F07 /* SearchPrefectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1CD2CB0E12A00539F07 /* SearchPrefectureView.swift */; };
 		3B50A1D12CB0E41100539F07 /* today.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1D02CB0E41100539F07 /* today.swift */; };
 		3B50A1D32CB0EA8C00539F07 /* dayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1D22CB0EA8C00539F07 /* dayModel.swift */; };
 		3B9420A72CB118FB00218C84 /* pref_lat_lon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */; };
+		3BA804742CB16E2500BEDC1C /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804732CB16E2500BEDC1C /* Search.swift */; };
+		3BA8047B2CB16E5D00BEDC1C /* FortuneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804752CB16E5D00BEDC1C /* FortuneButton.swift */; };
+		3BA8047C2CB16E5D00BEDC1C /* BirthdayInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804762CB16E5D00BEDC1C /* BirthdayInputView.swift */; };
+		3BA8047D2CB16E5D00BEDC1C /* TouristCardViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804772CB16E5D00BEDC1C /* TouristCardViewContainer.swift */; };
+		3BA8047E2CB16E5D00BEDC1C /* PrefectureImageViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804782CB16E5D00BEDC1C /* PrefectureImageViewContainer.swift */; };
+		3BA8047F2CB16E5D00BEDC1C /* BloodTypePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804792CB16E5D00BEDC1C /* BloodTypePickerView.swift */; };
+		3BA804802CB16E5D00BEDC1C /* NameInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8047A2CB16E5D00BEDC1C /* NameInputField.swift */; };
 		3BB4BF532CAF889B00AD4C29 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 3BB4BF522CAF889B00AD4C29 /* Lottie */; };
 		3BB4BF562CAF88E700AD4C29 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3BB4BF552CAF88E700AD4C29 /* Alamofire */; };
 		3BB4BF5C2CAF8B4400AD4C29 /* FortuneAPIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB4BF5B2CAF8B4400AD4C29 /* FortuneAPIModels.swift */; };
@@ -52,10 +58,16 @@
 		3B50A1C72CB0CC4200539F07 /* PlacesAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesAPIManager.swift; sourceTree = "<group>"; };
 		3B50A1C92CB0D0DC00539F07 /* TouristCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristCardView.swift; sourceTree = "<group>"; };
 		3B50A1CB2CB0D22000539F07 /* PlacesAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesAPIModel.swift; sourceTree = "<group>"; };
-		3B50A1CD2CB0E12A00539F07 /* SearchPrefectureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPrefectureView.swift; sourceTree = "<group>"; };
 		3B50A1D02CB0E41100539F07 /* today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = today.swift; sourceTree = "<group>"; };
 		3B50A1D22CB0EA8C00539F07 /* dayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dayModel.swift; sourceTree = "<group>"; };
 		3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pref_lat_lon.csv; sourceTree = "<group>"; };
+		3BA804732CB16E2500BEDC1C /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		3BA804752CB16E5D00BEDC1C /* FortuneButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FortuneButton.swift; path = PrefeFortune/Components/FortuneButton.swift; sourceTree = SOURCE_ROOT; };
+		3BA804762CB16E5D00BEDC1C /* BirthdayInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BirthdayInputView.swift; path = PrefeFortune/Components/BirthdayInputView.swift; sourceTree = SOURCE_ROOT; };
+		3BA804772CB16E5D00BEDC1C /* TouristCardViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TouristCardViewContainer.swift; path = PrefeFortune/Components/TouristCardViewContainer.swift; sourceTree = SOURCE_ROOT; };
+		3BA804782CB16E5D00BEDC1C /* PrefectureImageViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrefectureImageViewContainer.swift; path = PrefeFortune/Components/PrefectureImageViewContainer.swift; sourceTree = SOURCE_ROOT; };
+		3BA804792CB16E5D00BEDC1C /* BloodTypePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BloodTypePickerView.swift; path = PrefeFortune/Components/BloodTypePickerView.swift; sourceTree = SOURCE_ROOT; };
+		3BA8047A2CB16E5D00BEDC1C /* NameInputField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NameInputField.swift; path = PrefeFortune/Components/NameInputField.swift; sourceTree = SOURCE_ROOT; };
 		3BB4BF5B2CAF8B4400AD4C29 /* FortuneAPIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneAPIModels.swift; sourceTree = "<group>"; };
 		3BB4BF5D2CAF8B7C00AD4C29 /* FortuneAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneAPIManager.swift; sourceTree = "<group>"; };
 		3BD779892CB12DD20010D8E1 /* PrefectureImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefectureImageView.swift; sourceTree = "<group>"; };
@@ -157,7 +169,13 @@
 			children = (
 				3BF76F0D2CAF80CD009EC2B2 /* ContentView.swift */,
 				3BD779892CB12DD20010D8E1 /* PrefectureImageView.swift */,
-				3B50A1CD2CB0E12A00539F07 /* SearchPrefectureView.swift */,
+				3BA804732CB16E2500BEDC1C /* Search.swift */,
+				3BA804762CB16E5D00BEDC1C /* BirthdayInputView.swift */,
+				3BA804792CB16E5D00BEDC1C /* BloodTypePickerView.swift */,
+				3BA804752CB16E5D00BEDC1C /* FortuneButton.swift */,
+				3BA8047A2CB16E5D00BEDC1C /* NameInputField.swift */,
+				3BA804782CB16E5D00BEDC1C /* PrefectureImageViewContainer.swift */,
+				3BA804772CB16E5D00BEDC1C /* TouristCardViewContainer.swift */,
 				3B50A1C92CB0D0DC00539F07 /* TouristCardView.swift */,
 			);
 			path = Views;
@@ -381,18 +399,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BA804742CB16E2500BEDC1C /* Search.swift in Sources */,
+				3BA8047D2CB16E5D00BEDC1C /* TouristCardViewContainer.swift in Sources */,
+				3BA8047B2CB16E5D00BEDC1C /* FortuneButton.swift in Sources */,
+				3BA8047C2CB16E5D00BEDC1C /* BirthdayInputView.swift in Sources */,
 				3B50A1CA2CB0D0DC00539F07 /* TouristCardView.swift in Sources */,
 				3B50A1D32CB0EA8C00539F07 /* dayModel.swift in Sources */,
 				3BF76F0E2CAF80CD009EC2B2 /* ContentView.swift in Sources */,
 				3B50A1CC2CB0D22000539F07 /* PlacesAPIModel.swift in Sources */,
+				3BA804802CB16E5D00BEDC1C /* NameInputField.swift in Sources */,
 				3BB4BF5C2CAF8B4400AD4C29 /* FortuneAPIModels.swift in Sources */,
-				3B50A1CE2CB0E12A00539F07 /* SearchPrefectureView.swift in Sources */,
 				3B50A1D12CB0E41100539F07 /* today.swift in Sources */,
 				3BB4BF5E2CAF8B7C00AD4C29 /* FortuneAPIManager.swift in Sources */,
 				3BF76F0C2CAF80CD009EC2B2 /* PrefeFortuneApp.swift in Sources */,
 				3B50A1C82CB0CC4200539F07 /* PlacesAPIManager.swift in Sources */,
 				3B2067532CB000D200941274 /* LatLonManager.swift in Sources */,
 				3BD7798A2CB12DD20010D8E1 /* PrefectureImageView.swift in Sources */,
+				3BA8047E2CB16E5D00BEDC1C /* PrefectureImageViewContainer.swift in Sources */,
+				3BA8047F2CB16E5D00BEDC1C /* BloodTypePickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

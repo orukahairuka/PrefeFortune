@@ -20,3 +20,17 @@ struct NameInputField: View {
         }
     }
 }
+// MARK: - Preview
+
+//#Preview内でStateが使えないためラップビュー追加
+struct NameInputFieldPreviewWrapper: View {
+    @State var name: String = "テストユーザー"
+
+    var body: some View {
+        NameInputField(name: $name)
+    }
+}
+
+#Preview {
+    NameInputFieldPreviewWrapper()
+}

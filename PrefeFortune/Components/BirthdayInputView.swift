@@ -42,3 +42,17 @@ struct BirthdayInputView: View {
         }
     }
 }
+// MARK: - Preview
+
+//#Preview内でStateが使えないためラップビュー追加
+struct BirthdayInputViewPreviewWrapper: View {
+    @State var birthday = YearMonthDay(year: 1990, month: 1, day: 1)
+
+    var body: some View {
+        BirthdayInputView(birthday: $birthday)
+    }
+}
+
+#Preview {
+    BirthdayInputViewPreviewWrapper()
+}

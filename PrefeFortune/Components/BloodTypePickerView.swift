@@ -24,3 +24,17 @@ struct BloodTypePickerView: View {
         }
     }
 }
+// MARK: - Preview
+
+//#Preview内でStateが使えないためラップビュー追加
+struct BloodTypePickerViewPreviewWrapper: View {
+    @State var bloodType: String = "A"
+
+    var body: some View {
+        BloodTypePickerView(bloodType: $bloodType, bloodTypes: ["A", "B", "O", "AB"])
+    }
+}
+
+#Preview {
+    BloodTypePickerViewPreviewWrapper()
+}

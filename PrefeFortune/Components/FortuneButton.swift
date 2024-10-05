@@ -24,3 +24,10 @@ struct FortuneButton: View {
         .disabled(!isFormComplete)
     }
 }
+// MARK: - Preview
+
+#Preview {
+    FortuneButton(isFormComplete: true) {
+        print("占いボタンが押されました")
+    }
+}

@@ -17,3 +17,22 @@ struct TouristCardViewContainer: View {
             .padding(.vertical)
     }
 }
+// MARK: - Preview
+
+//#Preview内でStateが使えないためラップビュー追加
+struct TouristCardViewPreviewWrapper: View {
+    @State var latitude: Double? = 35.6895
+    @State var longitude: Double? = 139.6917
+
+    var body: some View {
+        TouristCardViewContainer(
+            placesAPIManager: PlacesAPIManager(),
+            latitude: $latitude,
+            longitude: $longitude
+        )
+    }
+}
+
+#Preview {
+    TouristCardViewPreviewWrapper()
+}
