@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var fortuneManager = FortuneAPIManager()
+    private var placeAPIManager = PlacesAPIManager()
 
     var body: some View {
         VStack {
@@ -34,6 +35,7 @@ struct ContentView: View {
                     bloodType: "ab",
                     today: YearMonthDay(year: 2023, month: 5, day: 5)
                 )
+                placeAPIManager.fetchNearbyPlaces(latitude: 43.064359, longitude: 141.347449)
             }) {
                 Text("占う")
                     .padding()
