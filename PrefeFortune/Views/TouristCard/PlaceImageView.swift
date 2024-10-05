@@ -19,14 +19,14 @@ struct PlaceImageView: View {
                 case .empty:
                     // ロード中の表示
                     ProgressView()
-                        .frame(width: 150, height: 150)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                 case .success(let image):
                     // 画像が正常にロードされた場合の表示
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: 150, height: 150)
-                        .cornerRadius(8)
+                        .frame(width: UIScreen.main.bounds.width * 0.9, height: 200)
+                        .cornerRadius(16)
                         .clipped()
                 case .failure:
                     // エラーが発生した場合の表示
@@ -37,17 +37,18 @@ struct PlaceImageView: View {
                             .font(.caption)
                             .foregroundColor(.gray)
                     }
-                    .frame(width: 150, height: 150)
+                    .frame(width: UIScreen.main.bounds.width * 0.9, height: 200)
+                    .background(Color.gray)
+                    .cornerRadius(16)
                 @unknown default:
-                    // 未知のケースのためのフォールバック
                     EmptyView()
                 }
             }
         } else {
             // photoReferenceがない場合のプレースホルダー
             Color.gray
-                .frame(width: 150, height: 150)
-                .cornerRadius(8)
+                .frame(width: UIScreen.main.bounds.width * 0.9, height: 200)
+                .cornerRadius(16)
                 .overlay(
                     Text("画像なし")
                         .foregroundColor(.white)
