@@ -21,11 +21,6 @@ struct FortuneRequest: Codable {
     }
 }
 
-struct YearMonthDay: Codable {
-    let year: Int
-    let month: Int
-    let day: Int
-}
 
 struct FortuneResponse: Codable {
     let name: String
