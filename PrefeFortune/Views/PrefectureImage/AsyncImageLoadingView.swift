@@ -30,3 +30,7 @@ struct AsyncImageLoadingView: View {
     }
 }
 
+//MARK: -
+#Preview {
+    AsyncImageLoadingView(url: URL(string: "https://japan-map.com/wp-content/uploads/toyama.png"))
+}

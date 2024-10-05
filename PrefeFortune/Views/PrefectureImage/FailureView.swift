@@ -24,3 +24,12 @@ struct LoadingView: View {
     }
 }
 
+//MARK: - Preview
+
+#Preview("FailureView") {
+    FailureView()
+}
+
+#Preview ("LoadingView"){
+    LoadingView()
+}

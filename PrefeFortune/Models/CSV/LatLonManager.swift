@@ -15,7 +15,6 @@ class LatLonManager: ObservableObject {
         // アプリケーションバンドル内のCSVファイルへのURLを取得
         if let fileURL = Bundle.main.url(forResource: "pref_lat_lon", withExtension: "csv") {
             self.csvFilePath = fileURL.path
-            print("CSVファイルのパス: \(csvFilePath!)") // デバッグ用出力
         } else {
             print("CSVファイルが見つかりませんでした")
             self.csvFilePath = nil

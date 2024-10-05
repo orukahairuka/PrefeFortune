@@ -14,3 +14,8 @@ struct PlaceholderView: View {
             .foregroundColor(.gray)
     }
 }
+
+//MARK: - Preview
+#Preview {
+    PlaceholderView()
+}

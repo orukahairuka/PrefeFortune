@@ -53,7 +53,7 @@ struct SearchPrefectureView: View {
                 guard let prefectureName = newName else {
                     latitude = nil
                     longitude = nil
-                    print("無理でした")
+                    print("🐶緯度と経度が取得できなかった")
                     return
                 }
 
@@ -64,7 +64,7 @@ struct SearchPrefectureView: View {
                 } else {
                     latitude = nil
                     longitude = nil
-                    print("無理でした")
+                    print("🐈緯度と経度がない")
                 }
             }
         }

@@ -21,3 +21,7 @@ struct PrefectureImageView: View {
     }
 }
 
+//MARK: - Preview
+#Preview {
+    PrefectureImageView(imageUrl: URL(string: "https://japan-map.com/wp-content/uploads/toyama.png"))
+}
