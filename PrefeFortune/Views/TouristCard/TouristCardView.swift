@@ -12,21 +12,38 @@ struct TouristCardView: View {
     @Binding var longitude: Double?
 
     var body: some View {
-        TabView {
-            ForEach(placesManager.nearbyPlaces) { place in
-                TouristCard(place: place)
-                    .frame(width: UIScreen.main.bounds.width * 0.9)
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 16)
+        VStack {
+            if placesManager.isLoading {
+                ProgressView("Loading nearby places...")
+                    .frame(height: 360)
+            } else if placesManager.nearbyPlaces.isEmpty {
+                Text("No nearby tourist spots found.")
+                    .frame(height: 360)
+                    .foregroundColor(.gray)
+            } else {
+                TabView {
+                    ForEach(placesManager.nearbyPlaces) { place in
+                        TouristCard(place: place)
+                            .frame(width: UIScreen.main.bounds.width * 0.9)
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 16)
+                    }
+                }
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+                .frame(height: 360)
             }
         }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-        .frame(height: 360)
-        .onAppear {
-            if let lat = latitude, let lon = longitude {
-                placesManager.fetchNearbyPlaces(latitude: lat, longitude: lon)
-            }
+        .onChange(of: latitude) { _ in
+            updatePlaces()
+        }
+        .onChange(of: longitude) { _ in
+            updatePlaces()
+        }
+    }
+
+    private func updatePlaces() {
+        if let lat = latitude, let lon = longitude {
+            placesManager.fetchNearbyPlaces(latitude: lat, longitude: lon)
         }
     }
 }
-

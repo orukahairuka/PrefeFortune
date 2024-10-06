@@ -12,14 +12,16 @@ class PlacesAPIManager: ObservableObject {
     private let baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
 
     @Published var nearbyPlaces: [Place] = []
+    @Published var isLoading: Bool = false
 
-    /// 指定した位置の近隣の施設を取得
     func fetchNearbyPlaces(latitude: Double, longitude: Double, radius: Int = 5000, type: String = "tourist_attraction") {
+        isLoading = true
         let parameters = createRequestParameters(latitude: latitude, longitude: longitude, radius: radius, type: type)
 
         // APIリクエスト
         AF.request(baseURL, parameters: parameters).responseData { [weak self] response in
             guard let self = self else { return }
+            self.isLoading = false
             switch response.result {
             case .success(let data):
                 self.handleSuccessResponse(data)
