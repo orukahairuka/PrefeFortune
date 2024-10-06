@@ -10,38 +10,48 @@ import SwiftUI
 struct BirthdayInputView: View {
     @Binding var birthday: YearMonthDay
 
+    @State private var selectedDate: Date = Calendar.current.date(from: DateComponents(year: 1990, month: 1, day: 1)) ?? Date()
+
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
-            Text("生年月日")
+            Text("あなたの誕生日を入れてね")
                 .font(.headline)
-            HStack {
-                TextField("年", text: Binding(
-                    get: { birthday.year != 0 ? String(birthday.year) : "" },
-                    set: { birthday.year = Int($0) ?? 0 }
-                ))
-                .keyboardType(.numberPad)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .frame(width: 80)
 
-                TextField("月", text: Binding(
-                    get: { birthday.month != 0 ? String(birthday.month) : "" },
-                    set: { birthday.month = Int($0) ?? 0 }
-                ))
-                .keyboardType(.numberPad)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .frame(width: 50)
-
-                TextField("日", text: Binding(
-                    get: { birthday.day != 0 ? String(birthday.day) : "" },
-                    set: { birthday.day = Int($0) ?? 0 }
-                ))
-                .keyboardType(.numberPad)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .frame(width: 50)
-            }
+            DatePicker("選択してください", selection: $selectedDate, displayedComponents: [.date])
+                .datePickerStyle(GraphicalDatePickerStyle())
+                .environment(\.locale, Locale(identifier: "ja_JP"))
+                .onChange(of: selectedDate) { newValue in
+                    updateBirthday(from: newValue)
+                }
+                .padding()
+                .background(RoundedRectangle(cornerRadius: 10).fill(Color(UIColor.systemGray6)))
+                .shadow(radius: 5)
         }
+        .onAppear {
+            selectedDate = birthday.toDate() ?? selectedDate
+        }
+        .padding(.horizontal, 30)
+    }
+
+    private func updateBirthday(from date: Date) {
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: date)
+        birthday.year = components.year ?? 0
+        birthday.month = components.month ?? 0
+        birthday.day = components.day ?? 0
     }
 }
+
+// YearMonthDayからDateに変換する拡張機能
+extension YearMonthDay {
+    func toDate() -> Date? {
+        var components = DateComponents()
+        components.year = year != 0 ? year : nil
+        components.month = month != 0 ? month : nil
+        components.day = day != 0 ? day : nil
+        return Calendar.current.date(from: components)
+    }
+}
+
 // MARK: - Preview
 
 //#Preview内でStateが使えないためラップビュー追加
