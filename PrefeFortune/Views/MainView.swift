@@ -43,28 +43,34 @@ struct SearchPrefectureView: View {
                 Spacer()
 
                 FortuneButton(isFormComplete: isFormComplete) {
-                    let birthdayData = birthday
-                    let todayData = currentDay
-                    fortuneAPIManager.fetchFortune(name: name, birthday: birthdayData, bloodType: bloodType.lowercased(), today: todayData)
+                    fortuneAPIManager.fetchFortune(name: name, birthday: birthday, bloodType: bloodType.lowercased(), today: currentDay)
                 }
             }
             .padding()
             .onChange(of: fortuneAPIManager.prefectureName) { newName in
-                guard let prefectureName = newName else {
+                guard let prefectureName = newName, !prefectureName.isEmpty else {
                     latitude = nil
                     longitude = nil
                     print("🐶緯度と経度が取得できなかった")
                     return
                 }
 
-                if let location = latLonManager.getLatLon(forPrefecture: prefectureName) {
-                    latitude = location.latitude
-                    longitude = location.longitude
-                    print("\(prefectureName)のlatitude: \(latitude!), longitude: \(longitude!)")
-                } else {
-                    latitude = nil
-                    longitude = nil
-                    print("🐈緯度と経度がない")
+                Task {
+                    if let location = await latLonManager.getLatLon(forPrefecture: prefectureName) {
+                        DispatchQueue.main.async {
+                            latitude = location.latitude
+                            longitude = location.longitude
+                            print("\(prefectureName)のlatitude: \(latitude!), longitude: \(longitude!)")
+                            // 場所情報を取得する
+                            placesAPIManager.fetchNearbyPlaces(latitude: location.latitude, longitude: location.longitude)
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            latitude = nil
+                            longitude = nil
+                            print("🐈緯度と経度がない")
+                        }
+                    }
                 }
             }
         }
