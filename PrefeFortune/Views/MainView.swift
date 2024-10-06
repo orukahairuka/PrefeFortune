@@ -34,7 +34,13 @@ struct SearchPrefectureView: View {
                 Spacer()
 
                 PrefectureImageView(imageUrl: fortuneAPIManager.decodedLogoURL)
-                TouristCardViewContainer(placesAPIManager: placesAPIManager, latitude: $latitude, longitude: $longitude)
+                if let latitude = latitude, let longitude = longitude {
+                    TouristCardView(placesManager: placesAPIManager, latitude: $latitude, longitude: $longitude)
+                        .onAppear {
+                            // TouristCardView の表示時に観光地データを取得
+                            placesAPIManager.fetchNearbyPlaces(latitude: latitude, longitude: longitude)
+                        }
+                }
 
                 NameInputField(name: $name)
                 BirthdayInputView(birthday: $birthday)

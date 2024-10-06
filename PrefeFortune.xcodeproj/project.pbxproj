@@ -14,9 +14,10 @@
 		3B50A1CC2CB0D22000539F07 /* PlacesAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1CB2CB0D22000539F07 /* PlacesAPIModel.swift */; };
 		3B50A1D12CB0E41100539F07 /* today.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1D02CB0E41100539F07 /* today.swift */; };
 		3B50A1D32CB0EA8C00539F07 /* dayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1D22CB0EA8C00539F07 /* dayModel.swift */; };
+		3B7044172CB19F2E00EF6553 /* TouristCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7044162CB19F2E00EF6553 /* TouristCard.swift */; };
+		3B7044192CB19F6D00EF6553 /* PlaceImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7044182CB19F6D00EF6553 /* PlaceImageView.swift */; };
 		3B9420A72CB118FB00218C84 /* pref_lat_lon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */; };
 		3BA804742CB16E2500BEDC1C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804732CB16E2500BEDC1C /* MainView.swift */; };
-		3BA804882CB16FEE00BEDC1C /* TouristCardViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804822CB16FEE00BEDC1C /* TouristCardViewContainer.swift */; };
 		3BA8048A2CB16FEE00BEDC1C /* BirthdayInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */; };
 		3BA8048B2CB16FEE00BEDC1C /* BloodTypePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804852CB16FEE00BEDC1C /* BloodTypePickerView.swift */; };
 		3BA8048C2CB16FEE00BEDC1C /* NameInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804862CB16FEE00BEDC1C /* NameInputField.swift */; };
@@ -61,9 +62,10 @@
 		3B50A1CB2CB0D22000539F07 /* PlacesAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesAPIModel.swift; sourceTree = "<group>"; };
 		3B50A1D02CB0E41100539F07 /* today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = today.swift; sourceTree = "<group>"; };
 		3B50A1D22CB0EA8C00539F07 /* dayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dayModel.swift; sourceTree = "<group>"; };
+		3B7044162CB19F2E00EF6553 /* TouristCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristCard.swift; sourceTree = "<group>"; };
+		3B7044182CB19F6D00EF6553 /* PlaceImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceImageView.swift; sourceTree = "<group>"; };
 		3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pref_lat_lon.csv; sourceTree = "<group>"; };
 		3BA804732CB16E2500BEDC1C /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		3BA804822CB16FEE00BEDC1C /* TouristCardViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouristCardViewContainer.swift; sourceTree = "<group>"; };
 		3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayInputView.swift; sourceTree = "<group>"; };
 		3BA804852CB16FEE00BEDC1C /* BloodTypePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodTypePickerView.swift; sourceTree = "<group>"; };
 		3BA804862CB16FEE00BEDC1C /* NameInputField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameInputField.swift; sourceTree = "<group>"; };
@@ -164,7 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				3B50A1C92CB0D0DC00539F07 /* TouristCardView.swift */,
-				3BA804822CB16FEE00BEDC1C /* TouristCardViewContainer.swift */,
+				3B7044162CB19F2E00EF6553 /* TouristCard.swift */,
+				3B7044182CB19F6D00EF6553 /* PlaceImageView.swift */,
 			);
 			path = TouristCard;
 			sourceTree = "<group>";
@@ -423,11 +426,12 @@
 				3BA8048B2CB16FEE00BEDC1C /* BloodTypePickerView.swift in Sources */,
 				3B50A1D32CB0EA8C00539F07 /* dayModel.swift in Sources */,
 				3B50A1CC2CB0D22000539F07 /* PlacesAPIModel.swift in Sources */,
-				3BA804882CB16FEE00BEDC1C /* TouristCardViewContainer.swift in Sources */,
 				3BA804922CB170BE00BEDC1C /* FailureView.swift in Sources */,
 				3BB4BF5C2CAF8B4400AD4C29 /* FortuneAPIModels.swift in Sources */,
 				3B50A1D12CB0E41100539F07 /* today.swift in Sources */,
 				3BB4BF5E2CAF8B7C00AD4C29 /* FortuneAPIManager.swift in Sources */,
+				3B7044172CB19F2E00EF6553 /* TouristCard.swift in Sources */,
+				3B7044192CB19F6D00EF6553 /* PlaceImageView.swift in Sources */,
 				3BA804902CB1709C00BEDC1C /* AsyncImageLoadingView.swift in Sources */,
 				3BF76F0C2CAF80CD009EC2B2 /* PrefeFortuneApp.swift in Sources */,
 				3B50A1C82CB0CC4200539F07 /* PlacesAPIManager.swift in Sources */,
