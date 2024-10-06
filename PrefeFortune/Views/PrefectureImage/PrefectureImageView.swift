@@ -8,16 +8,12 @@
 import SwiftUI
 
 struct PrefectureImageView: View {
-    let imageUrl: URL?
+    @Binding var imageUrl: URL?
 
     var body: some View {
         GeometryReader { geometry in
             if let validUrl = imageUrl {
                 AsyncImageLoadingView(url: validUrl)
-                    .frame(width: geometry.size.width, height: geometry.size.height * 0.9)
-                    .clipped()
-            } else {
-                PlaceholderView()
                     .frame(width: geometry.size.width, height: geometry.size.height * 0.9)
                     .clipped()
             }
@@ -26,7 +22,3 @@ struct PrefectureImageView: View {
     }
 }
 
-//MARK: - Preview
-#Preview {
-    PrefectureImageView(imageUrl: URL(string: "https://japan-map.com/wp-content/uploads/hokkaido.png"))
-}

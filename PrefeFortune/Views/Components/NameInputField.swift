@@ -11,13 +11,25 @@ struct NameInputField: View {
     @Binding var name: String
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            Text("名前")
-                .font(.headline)
-            TextField("名前を入力してください", text: $name)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(.bottom, 10)
+        VStack(alignment: .leading, spacing: 10) {
+            VStack(alignment: .leading, spacing: 5) {
+                Text("名前")
+                    .font(.headline)
+                HStack {
+                    TextField("名前を入力してください", text: $name)
+                        .font(.body)
+                        .padding(.vertical, 12)
+                        .foregroundColor(.primary)
+                    Spacer()
+                }
+                .padding(.horizontal)
+                .background(Color(.systemGray6))
+                .cornerRadius(10)
+                .shadow(radius: 2)
+            }
+            .padding(.horizontal)
         }
+        .padding()
     }
 }
 // MARK: - Preview

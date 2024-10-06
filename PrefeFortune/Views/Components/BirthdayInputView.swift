@@ -10,8 +10,8 @@ import SwiftUI
 struct BirthdayInputView: View {
     @Binding var birthday: YearMonthDay
 
-    @State private var selectedDate: Date = Calendar.current.date(from: DateComponents(year: 1990, month: 1, day: 1)) ?? Date()
 
+    @State private var selectedDate: Date = Calendar.current.date(from: DateComponents(year: 2000, month: 1, day: 1)) ?? Date()
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             Text("あなたの誕生日を入れてね")
@@ -25,10 +25,14 @@ struct BirthdayInputView: View {
                 }
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 10).fill(Color(UIColor.systemGray6)))
-                .shadow(radius: 5)
+                .shadow(radius: 2)
         }
         .onAppear {
-            selectedDate = birthday.toDate() ?? selectedDate
+            if birthday.year == 0 && birthday.month == 0 && birthday.day == 0 {
+                selectedDate = Calendar.current.date(from: DateComponents(year: 2000, month: 1, day: 1)) ?? selectedDate
+            } else {
+                selectedDate = birthday.toDate() ?? selectedDate
+            }
         }
         .padding(.horizontal, 30)
     }
@@ -57,7 +61,7 @@ extension YearMonthDay {
 //#Preview内でStateが使えないためラップビュー追加
 struct BirthdayInputViewPreviewWrapper: View {
     @State var birthday = YearMonthDay(year: 1990, month: 1, day: 1)
-
+    
     var body: some View {
         BirthdayInputView(birthday: $birthday)
     }

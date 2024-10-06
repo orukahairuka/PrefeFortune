@@ -12,26 +12,48 @@ struct BloodTypePickerView: View {
     let bloodTypes: [String]
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            Text("血液型")
-                .font(.headline)
-            Picker("血液型を選択してください", selection: $bloodType) {
-                ForEach(bloodTypes, id: \.self) { type in
-                    Text(type)
+        VStack(alignment: .leading, spacing: 15) {
+            VStack(alignment: .leading, spacing: 5) {
+                Text("血液型を選択してください")
+                    .font(.headline)
+                Menu {
+                    ForEach(bloodTypes, id: \.self) { type in
+                        Button(action: {
+                            bloodType = type
+                        }) {
+                            Text(type)
+                        }
+                    }
+                } label: {
+                    HStack {
+                        Text(bloodType)
+                            .font(.body)
+                            .padding()
+                            .foregroundColor(.primary)
+                        Spacer()
+                        Image(systemName: "chevron.down")
+                            .foregroundColor(.gray)
+                    }
+                    .padding()
+                    .background(Color(.systemGray6))
+                    .cornerRadius(10)
+                    .shadow(radius: 2)
                 }
             }
-            .pickerStyle(SegmentedPickerStyle())
+            .padding()
         }
+        .padding()
     }
 }
-// MARK: - Preview
 
-//#Preview内でStateが使えないためラップビュー追加
+// MARK: - Preview
 struct BloodTypePickerViewPreviewWrapper: View {
-    @State var bloodType: String = "A"
+    @State var bloodType: String = ""
 
     var body: some View {
         BloodTypePickerView(bloodType: $bloodType, bloodTypes: ["A", "B", "O", "AB"])
+            .padding()
+            .background(Color(.systemGroupedBackground))
     }
 }
 

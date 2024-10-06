@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchPrefectureView: View {
     @State private var birthday = YearMonthDay(year: 0, month: 0, day: 0)
     @State private var name: String = ""
-    @State private var bloodType: String = "A型"
+    @State private var bloodType: String = "A"
     @State private var latitude: Double? = nil
     @State private var longitude: Double? = nil
     @StateObject var fortuneAPIManager: FortuneAPIManager = FortuneAPIManager()
@@ -20,10 +20,8 @@ struct SearchPrefectureView: View {
 
     var isFormComplete: Bool {
         return !name.isEmpty
-        && birthday.year != 0
-        && birthday.month != 0
-        && birthday.day != 0
-        && bloodTypes.contains(bloodType)
+        && (birthday.year > 0 && birthday.month > 0 && birthday.day > 0)
+        && !bloodType.isEmpty
     }
 
     let bloodTypes = ["A", "B", "O", "AB"]
@@ -33,13 +31,12 @@ struct SearchPrefectureView: View {
             VStack(alignment: .leading, spacing: 20) {
                 Spacer()
 
-                PrefectureImageView(imageUrl: fortuneAPIManager.decodedLogoURL)
-                if let latitude = latitude, let longitude = longitude {
+                if let logoURL = fortuneAPIManager.decodedLogoURL {
+                    PrefectureImageView(imageUrl: .constant(logoURL))
+                }
+                
+                if latitude != nil && longitude != nil {
                     TouristCardView(placesManager: placesAPIManager, latitude: $latitude, longitude: $longitude)
-                        .onAppear {
-                            // TouristCardView の表示時に観光地データを取得
-                            placesAPIManager.fetchNearbyPlaces(latitude: latitude, longitude: longitude)
-                        }
                 }
 
                 NameInputField(name: $name)
@@ -49,28 +46,34 @@ struct SearchPrefectureView: View {
                 Spacer()
 
                 FortuneButton(isFormComplete: isFormComplete) {
-                    let birthdayData = birthday
-                    let todayData = currentDay
-                    fortuneAPIManager.fetchFortune(name: name, birthday: birthdayData, bloodType: bloodType.lowercased(), today: todayData)
+                    fortuneAPIManager.fetchFortune(name: name, birthday: birthday, bloodType: bloodType.lowercased(), today: currentDay)
                 }
             }
             .padding()
             .onChange(of: fortuneAPIManager.prefectureName) { newName in
-                guard let prefectureName = newName else {
+                guard let prefectureName = newName, !prefectureName.isEmpty else {
                     latitude = nil
                     longitude = nil
                     print("🐶緯度と経度が取得できなかった")
                     return
                 }
 
-                if let location = latLonManager.getLatLon(forPrefecture: prefectureName) {
-                    latitude = location.latitude
-                    longitude = location.longitude
-                    print("\(prefectureName)のlatitude: \(latitude!), longitude: \(longitude!)")
-                } else {
-                    latitude = nil
-                    longitude = nil
-                    print("🐈緯度と経度がない")
+                Task {
+                    if let location = await latLonManager.getLatLon(forPrefecture: prefectureName) {
+                        DispatchQueue.main.async {
+                            latitude = location.latitude
+                            longitude = location.longitude
+                            print("\(prefectureName)のlatitude: \(latitude!), longitude: \(longitude!)")
+                            // 場所情報を取得する
+                            placesAPIManager.fetchNearbyPlaces(latitude: location.latitude, longitude: location.longitude)
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            latitude = nil
+                            longitude = nil
+                            print("🐈緯度と経度がない")
+                        }
+                    }
                 }
             }
         }
