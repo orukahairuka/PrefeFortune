@@ -16,10 +16,6 @@ struct PrefectureImageView: View {
                 AsyncImageLoadingView(url: validUrl)
                     .frame(width: geometry.size.width, height: geometry.size.height * 0.9)
                     .clipped()
-            } else {
-                PlaceholderView()
-                    .frame(width: geometry.size.width, height: geometry.size.height * 0.9)
-                    .clipped()
             }
         }
         .frame(height: UIScreen.main.bounds.height * 0.4)
