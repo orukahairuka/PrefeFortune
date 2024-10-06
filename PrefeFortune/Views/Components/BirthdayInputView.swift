@@ -25,7 +25,7 @@ struct BirthdayInputView: View {
                 }
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 10).fill(Color(UIColor.systemGray6)))
-                .shadow(radius: 3)
+                .shadow(radius: 2)
         }
         .onAppear {
             selectedDate = birthday.toDate() ?? selectedDate

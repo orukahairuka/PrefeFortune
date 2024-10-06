@@ -12,16 +12,25 @@ struct FortuneButton: View {
     let action: () -> Void
 
     var body: some View {
-        Button {
-            action()
-        } label: {
-            Text("占う")
-                .frame(width: 100, height: 100)
-                .background(.pink)
-                .cornerRadius(15)
+        HStack {
+            Spacer()
+            Button {
+                action()
+            } label: {
+                Text("占う")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding(.vertical, 25)
+                    .frame(maxWidth: 200)
+                    .frame(minWidth: 100)
+            }
+            .background(.pink)
+            .cornerRadius(10)
+            .shadow(radius: 3)
+            .frame(height: 100)
+            .disabled(!isFormComplete)
+            Spacer()
         }
-        .padding()
-        .disabled(!isFormComplete)
     }
 }
 // MARK: - Preview

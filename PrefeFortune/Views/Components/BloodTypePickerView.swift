@@ -13,10 +13,9 @@ struct BloodTypePickerView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
-            VStack {
+            VStack(alignment: .leading, spacing: 5) {
                 Text("血液型を選択してください")
                     .font(.headline)
-                    .foregroundColor(.primary)
                 Menu {
                     ForEach(bloodTypes, id: \.self) { type in
                         Button(action: {
@@ -38,7 +37,7 @@ struct BloodTypePickerView: View {
                     .padding()
                     .background(Color(.systemGray6))
                     .cornerRadius(10)
-                    .shadow(radius: 3)
+                    .shadow(radius: 2)
                 }
             }
             .padding()
