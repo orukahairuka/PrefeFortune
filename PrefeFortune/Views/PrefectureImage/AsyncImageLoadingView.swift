@@ -17,12 +17,13 @@ struct AsyncImageLoadingView: View {
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 240, height: 126)
                     .clipped()
             case .failure:
                 FailureView()
+                    .clipped()
             case .empty:
                 LoadingView()
+                    .clipped()
             @unknown default:
                 EmptyView()
             }
@@ -30,7 +31,7 @@ struct AsyncImageLoadingView: View {
     }
 }
 
-//MARK: -
+//MARK: - Preview
 #Preview {
     AsyncImageLoadingView(url: URL(string: "https://japan-map.com/wp-content/uploads/toyama.png"))
 }
