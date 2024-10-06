@@ -33,7 +33,7 @@ struct SearchPrefectureView: View {
             VStack(alignment: .leading, spacing: 20) {
                 Spacer()
 
-                PrefectureImageView(imageUrl: fortuneAPIManager.decodedLogoURL)
+                PrefectureImageView(imageUrl: $fortuneAPIManager.decodedLogoURL)
                 if let latitude = latitude, let longitude = longitude {
                     TouristCardView(placesManager: placesAPIManager, latitude: $latitude, longitude: $longitude)
                         .onAppear {

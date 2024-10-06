@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PrefectureImageView: View {
-    let imageUrl: URL?
+    @Binding var imageUrl: URL?
 
     var body: some View {
         GeometryReader { geometry in
@@ -26,7 +26,3 @@ struct PrefectureImageView: View {
     }
 }
 
-//MARK: - Preview
-#Preview {
-    PrefectureImageView(imageUrl: URL(string: "https://japan-map.com/wp-content/uploads/hokkaido.png"))
-}
