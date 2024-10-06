@@ -27,7 +27,7 @@ struct BloodTypePickerView: View {
                     }
                 } label: {
                     HStack {
-                        Text(bloodType.isEmpty ? "選択してください" : bloodType)
+                        Text(bloodType)
                             .font(.body)
                             .padding()
                             .foregroundColor(.primary)

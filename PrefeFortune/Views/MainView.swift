@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchPrefectureView: View {
     @State private var birthday = YearMonthDay(year: 0, month: 0, day: 0)
     @State private var name: String = ""
-    @State private var bloodType: String = "A型"
+    @State private var bloodType: String = "A"
     @State private var latitude: Double? = nil
     @State private var longitude: Double? = nil
     @StateObject var fortuneAPIManager: FortuneAPIManager = FortuneAPIManager()
@@ -20,10 +20,8 @@ struct SearchPrefectureView: View {
 
     var isFormComplete: Bool {
         return !name.isEmpty
-        && birthday.year != 0
-        && birthday.month != 0
-        && birthday.day != 0
-        && bloodTypes.contains(bloodType)
+        && (birthday.year > 0 && birthday.month > 0 && birthday.day > 0)
+        && !bloodType.isEmpty
     }
 
     let bloodTypes = ["A", "B", "O", "AB"]
