@@ -17,15 +17,18 @@ struct BirthdayInputView: View {
             Text("あなたの誕生日を入れてね")
                 .font(.headline)
 
-            DatePicker("選択してください", selection: $selectedDate, displayedComponents: [.date])
-                .datePickerStyle(GraphicalDatePickerStyle())
-                .environment(\.locale, Locale(identifier: "ja_JP"))
-                .onChange(of: selectedDate) { newValue in
-                    updateBirthday(from: newValue)
-                }
-                .padding()
-                .background(RoundedRectangle(cornerRadius: 10).fill(Color(UIColor.systemGray6)))
-                .shadow(radius: 2)
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color(UIColor.systemGray6))
+                    .shadow(radius: 2)
+                DatePicker("選択してください", selection: $selectedDate, displayedComponents: [.date])
+                    .datePickerStyle(GraphicalDatePickerStyle())
+                    .environment(\.locale, Locale(identifier: "ja_JP"))
+                    .onChange(of: selectedDate) { newValue in
+                        updateBirthday(from: newValue)
+                    }
+                    .padding()
+            }
         }
         .onAppear {
             if birthday.year == 0 && birthday.month == 0 && birthday.day == 0 {
