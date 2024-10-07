@@ -13,7 +13,6 @@ struct SearchPrefectureResultView: View {
     @StateObject var placesAPIManager: PlacesAPIManager = PlacesAPIManager()
     @State private var latitude: Double? = nil
     @State private var longitude: Double? = nil
-    @State private var isLoading: Bool = true
     @State private var retryCount: Int = 0
     private let maxRetryCount: Int = 3 // リトライの最大回数
 
@@ -22,57 +21,49 @@ struct SearchPrefectureResultView: View {
             VStack(alignment: .leading, spacing: 20) {
                 Spacer()
 
-                if isLoading {
-                    ProgressView("データを読み込んでいます...")
-                } else {
-                    if let logoURL = fortuneAPIManager.decodedLogoURL {
-                        PrefectureImageView(imageUrl: .constant(logoURL))
-                    }
+                if let logoURL = fortuneAPIManager.decodedLogoURL {
+                    PrefectureImageView(imageUrl: .constant(logoURL))
+                }
 
-                    if let latitude = latitude, let longitude = longitude, !placesAPIManager.nearbyPlaces.isEmpty {
-                        TouristCardView(placesManager: placesAPIManager, latitude: $latitude, longitude: $longitude)
-                    } else {
+                if let latitude = latitude, let longitude = longitude {
+                    if placesAPIManager.nearbyPlaces.isEmpty && retryCount < maxRetryCount {
                         Text("観光情報が見つかりませんでした。もう一度検索中です...")
                             .onAppear {
-                                if retryCount < maxRetryCount {
-                                    retryLoadLocationData()
-                                } else {
-                                    isLoading = false
-                                    print("リトライの上限に達したため、停止しました。")
-                                }
+                                retryLoadLocationData()
                             }
+                    } else {
+                        TouristCardView(placesManager: placesAPIManager, latitude: $latitude, longitude: $longitude)
                     }
+                } else {
+                    ProgressView("データを読み込んでいます...")
                 }
 
                 Spacer()
             }
             .padding()
             .onAppear {
-                if let prefectureName = fortuneAPIManager.prefectureName, !prefectureName.isEmpty {
-                    loadLocationData()
-                } else {
-                    print("運勢情報が準備されていないため、ロードをスキップ")
-                    isLoading = false // 運勢情報がなければロードを終了
-                }
+                loadLocationData()
             }
         }
     }
 
     private func loadLocationData() {
-        isLoading = true // ロードを開始
-        retryCount = 0 // 初回読み込みのためリトライカウントをリセット
+        retryCount = 0
         executeLoadLocationData()
     }
 
     private func retryLoadLocationData() {
         retryCount += 1
-        print("リトライ中: \(retryCount) 回目")
-        executeLoadLocationData()
+        if retryCount <= maxRetryCount {
+            print("リトライ中: \(retryCount) 回目")
+            executeLoadLocationData()
+        } else {
+            print("リトライの上限に達したため、停止しました。")
+        }
     }
 
     private func executeLoadLocationData() {
         guard let prefectureName = fortuneAPIManager.prefectureName, !prefectureName.isEmpty else {
-            isLoading = false
             print("場所の名前が見つからないため、終了します。")
             return
         }
@@ -95,11 +86,7 @@ struct SearchPrefectureResultView: View {
 
         DispatchQueue.main.async {
             if placesAPIManager.nearbyPlaces.isEmpty && retryCount < maxRetryCount {
-                print("観光地が見つかりませんでした。リトライします。")
                 retryLoadLocationData()
-            } else {
-                isLoading = false
-                print("ロード完了またはリトライの上限に達しました。")
             }
         }
     }
@@ -109,9 +96,8 @@ struct SearchPrefectureResultView: View {
             latitude = nil
             longitude = nil
             if retryCount < maxRetryCount {
-                retryLoadLocationData() // 観光地情報が見つからない場合は再検索
+                retryLoadLocationData()
             } else {
-                isLoading = false // 最大リトライ回数に達した場合はローディングを終了
                 print("🐈 緯度と経度が見つからず、リトライ終了")
             }
         }
