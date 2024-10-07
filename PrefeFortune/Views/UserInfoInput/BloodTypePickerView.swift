@@ -13,35 +13,47 @@ struct BloodTypePickerView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
-            VStack(alignment: .leading, spacing: 5) {
-                Text("血液型を選択してください")
-                    .font(.headline)
-                Menu {
-                    ForEach(bloodTypes, id: \.self) { type in
-                        Button(action: {
-                            bloodType = type
-                        }) {
-                            Text(type)
+            Text("血液型を選択してね")
+                .font(.headline)
+                .foregroundColor(.white)
+
+            ZStack {
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(.ultraThinMaterial)
+                    .shadow(color: .black.opacity(0.2), radius: 10, x: 5, y: 5)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.white.opacity(0.5), lineWidth: 1)
+                    )
+
+                HStack {
+                    Menu {
+                        ForEach(bloodTypes, id: \.self) { type in
+                            Button(action: {
+                                bloodType = type
+                            }) {
+                                Text(type)
+                            }
                         }
+                    } label: {
+                        HStack {
+                            Text(bloodType.isEmpty ? "選択してください" : bloodType)
+                                .font(.body)
+                                .padding()
+                                .foregroundColor(.white)
+                            Spacer()
+                            Image(systemName: "chevron.down")
+                                .foregroundColor(.white)
+                        }
+                        .padding(.horizontal)
                     }
-                } label: {
-                    HStack {
-                        Text(bloodType)
-                            .font(.body)
-                            .padding()
-                            .foregroundColor(.primary)
-                        Spacer()
-                        Image(systemName: "chevron.down")
-                            .foregroundColor(.gray)
-                    }
-                    .padding()
-                    .background(Color(.systemGray6))
-                    .cornerRadius(10)
-                    .shadow(radius: 2)
                 }
+                .padding()
             }
-            .padding()
+            .frame(maxWidth: .infinity, minHeight: 60)
+            .padding(.horizontal, 30)
         }
+        .frame(maxWidth: .infinity)
         .padding()
     }
 }

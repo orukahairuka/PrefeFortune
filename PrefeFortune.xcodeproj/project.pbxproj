@@ -34,6 +34,7 @@
 		3BB4BF562CAF88E700AD4C29 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3BB4BF552CAF88E700AD4C29 /* Alamofire */; };
 		3BB4BF5C2CAF8B4400AD4C29 /* FortuneAPIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB4BF5B2CAF8B4400AD4C29 /* FortuneAPIModels.swift */; };
 		3BB4BF5E2CAF8B7C00AD4C29 /* FortuneAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB4BF5D2CAF8B7C00AD4C29 /* FortuneAPIManager.swift */; };
+		3BCC915C2CB3DE9D00FDB9D1 /* YearMonthDayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCC915B2CB3DE9D00FDB9D1 /* YearMonthDayExtension.swift */; };
 		3BD7798A2CB12DD20010D8E1 /* PrefectureImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD779892CB12DD20010D8E1 /* PrefectureImageView.swift */; };
 		3BF76F0C2CAF80CD009EC2B2 /* PrefeFortuneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF76F0B2CAF80CD009EC2B2 /* PrefeFortuneApp.swift */; };
 		3BF76F102CAF80CE009EC2B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BF76F0F2CAF80CE009EC2B2 /* Assets.xcassets */; };
@@ -85,6 +86,7 @@
 		3BA804912CB170BE00BEDC1C /* FailureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailureView.swift; sourceTree = "<group>"; };
 		3BB4BF5B2CAF8B4400AD4C29 /* FortuneAPIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneAPIModels.swift; sourceTree = "<group>"; };
 		3BB4BF5D2CAF8B7C00AD4C29 /* FortuneAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneAPIManager.swift; sourceTree = "<group>"; };
+		3BCC915B2CB3DE9D00FDB9D1 /* YearMonthDayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearMonthDayExtension.swift; sourceTree = "<group>"; };
 		3BD779892CB12DD20010D8E1 /* PrefectureImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefectureImageView.swift; sourceTree = "<group>"; };
 		3BF76F082CAF80CD009EC2B2 /* PrefeFortune.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrefeFortune.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BF76F0B2CAF80CD009EC2B2 /* PrefeFortuneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefeFortuneApp.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				3B5F71D62CB3D4E300689298 /* ColorExtension.swift */,
+				3BCC915B2CB3DE9D00FDB9D1 /* YearMonthDayExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				3BA804902CB1709C00BEDC1C /* AsyncImageLoadingView.swift in Sources */,
 				3BF76F0C2CAF80CD009EC2B2 /* PrefeFortuneApp.swift in Sources */,
 				3B5F71D52CB3B14E00689298 /* CatTypeAnimationView.swift in Sources */,
+				3BCC915C2CB3DE9D00FDB9D1 /* YearMonthDayExtension.swift in Sources */,
 				3B50A1C82CB0CC4200539F07 /* PlacesAPIManager.swift in Sources */,
 				3B2067532CB000D200941274 /* LatLonManager.swift in Sources */,
 				3BA8048A2CB16FEE00BEDC1C /* BirthdayInputView.swift in Sources */,
