@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SearchPrefectureResultView: View {
+struct FortuneResultView: View {
     @ObservedObject var fortuneAPIManager: FortuneAPIManager
     @StateObject var latLonManager: LatLonManager = LatLonManager()
     @StateObject var placesAPIManager: PlacesAPIManager = PlacesAPIManager()

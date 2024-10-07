@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SearchPrefectureInputView: View {
+struct UserInfoInputView: View {
     @State private var birthday = YearMonthDay(year: 0, month: 0, day: 0)
     @State private var name: String = ""
     @State private var bloodType: String = "A"
@@ -51,7 +51,7 @@ struct SearchPrefectureInputView: View {
                 .padding()
                 .navigationDestination(isPresented: $navigateToResult) {
                     // 結果ビューに遷移し、必要なデータを渡す
-                    SearchPrefectureResultView(fortuneAPIManager: fortuneAPIManager)
+                    FortuneResultView(fortuneAPIManager: fortuneAPIManager)
                 }
             }
         }

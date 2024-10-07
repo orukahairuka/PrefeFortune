@@ -15,7 +15,7 @@ struct PrefeFortuneApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                SearchPrefectureInputView(
+                UserInfoInputView(
                     fortuneAPIManager: fortuneAPIManager
                 )
             }
