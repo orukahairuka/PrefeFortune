@@ -13,7 +13,10 @@ struct TouristCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             PlaceImageView(photoReference: place.photoReference)
-                .frame(height: 200)
+                .frame(maxWidth: .infinity) // 幅を親のサイズに合わせる
+                .frame(height: 250) // 高さを300から250に減少させて全体的にコンテンツが収まるように調整
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .clipped()
 
             VStack(alignment: .leading, spacing: 4) {
                 // 施設名
@@ -21,34 +24,40 @@ struct TouristCard: View {
                     .font(.title2)
                     .fontWeight(.bold)
                     .lineLimit(1)
-                    .foregroundColor(.primary)
+                    .foregroundColor(.white)
 
                 // 住所
                 Text(place.vicinity)
                     .font(.subheadline)
-                    .foregroundColor(.secondary)
+                    .foregroundColor(.white.opacity(0.7))
                     .lineLimit(2)
 
                 // 評価
                 if let rating = place.rating {
                     HStack(spacing: 4) {
-                        ForEach(0..<Int(rating.rounded())) { _ in
+                        ForEach(0..<Int(rating.rounded()), id: \.self) { _ in
                             Image(systemName: "star.fill")
                                 .foregroundColor(.yellow)
                                 .font(.caption)
                         }
                         Text(String(format: "%.1f", rating))
                             .font(.caption)
-                            .foregroundColor(.gray)
+                            .foregroundColor(.white.opacity(0.7))
                     }
                 }
             }
             .padding([.horizontal, .bottom])
         }
-        .frame(width: UIScreen.main.bounds.width * 0.9)
-        .background(Color(.systemBackground))
-        .cornerRadius(16)
-        .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 5)
-        .padding(.horizontal, UIScreen.main.bounds.width * 0.05)
+        .frame(width: UIScreen.main.bounds.width * 0.85) // フレームの幅を85%に縮小して余裕を持たせる
+        .background(
+            RoundedRectangle(cornerRadius: 20)
+                .fill(.ultraThinMaterial)
+                .shadow(color: .black.opacity(0.2), radius: 10, x: 5, y: 5)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.white.opacity(0.5), lineWidth: 1)
+                )
+        )
+        .padding(.horizontal, 10) // 画面端との余裕を確保
     }
 }
