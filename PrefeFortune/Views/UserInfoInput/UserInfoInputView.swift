@@ -19,7 +19,6 @@ struct UserInfoInputView: View {
 
     var isFormComplete: Bool {
         return !name.isEmpty
-        && (birthday.year > 0 && birthday.month > 0 && birthday.day > 0)
         && !bloodType.isEmpty
     }
 

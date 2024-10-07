@@ -10,6 +10,7 @@ import SwiftUI
 extension Color {
     static let customPinkColor = Color("PinkColor").opacity(0.6)
     static let customBlueColor = Color("BlueColor").opacity(0.6)
+    static let customYellowColor = Color("YellowColor").opacity(0.9)
 
     static var customGradient: LinearGradient {
         return LinearGradient(
