@@ -13,8 +13,8 @@ struct TouristCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             PlaceImageView(photoReference: place.photoReference)
-                .frame(maxWidth: .infinity) // 幅を親のサイズに合わせる
-                .frame(height: 250) // 高さを300から250に減少させて全体的にコンテンツが収まるように調整
+                .frame(maxWidth: .infinity)
+                .frame(height: 250)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .clipped()
 
@@ -48,7 +48,7 @@ struct TouristCard: View {
             }
             .padding([.horizontal, .bottom])
         }
-        .frame(width: UIScreen.main.bounds.width * 0.85) // フレームの幅を85%に縮小して余裕を持たせる
+        .frame(width: UIScreen.main.bounds.width * 0.85)
         .background(
             RoundedRectangle(cornerRadius: 20)
                 .fill(.ultraThinMaterial)
@@ -58,6 +58,6 @@ struct TouristCard: View {
                         .stroke(Color.white.opacity(0.5), lineWidth: 1)
                 )
         )
-        .padding(.horizontal, 10) // 画面端との余裕を確保
+        .padding(.horizontal, 10)
     }
 }

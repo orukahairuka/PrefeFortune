@@ -15,7 +15,9 @@ struct FortuneButton: View {
         HStack {
             Spacer()
             Button {
-                action()
+                if isFormComplete {
+                    action()
+                }
             } label: {
                 Text("占う")
                     .font(.headline)
@@ -33,9 +35,9 @@ struct FortuneButton: View {
                             )
                     )
                     .padding(.horizontal, 30)
-                    .disabled(!isFormComplete)
-                    .opacity(isFormComplete ? 0.8 : 0.5)
             }
+            .disabled(!isFormComplete)
+            .opacity(isFormComplete ? 0.8 : 0.5)
             Spacer()
         }
         .frame(height: 60)

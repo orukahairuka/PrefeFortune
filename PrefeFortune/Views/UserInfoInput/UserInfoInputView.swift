@@ -34,17 +34,19 @@ struct UserInfoInputView: View {
                     BloodTypePickerView(bloodType: $bloodType, bloodTypes: bloodTypes)
                     Spacer()
                     FortuneButton(isFormComplete: isFormComplete) {
-                        Task {
-                            await fortuneAPIManager.fetchFortune(
-                                name: name,
-                                birthday: birthday,
-                                bloodType: bloodType.lowercased(),
-                                today: currentDay
-                            )
+                        if isFormComplete {
+                            Task {
+                                await fortuneAPIManager.fetchFortune(
+                                    name: name,
+                                    birthday: birthday,
+                                    bloodType: bloodType.lowercased(),
+                                    today: currentDay
+                                )
 
-                            // 運勢情報の取得が完了したら発火
-                            DispatchQueue.main.async {
-                                navigateToResult = true
+                                // 運勢情報の取得が完了したら発火
+                                DispatchQueue.main.async {
+                                    navigateToResult = true
+                                }
                             }
                         }
                     }
