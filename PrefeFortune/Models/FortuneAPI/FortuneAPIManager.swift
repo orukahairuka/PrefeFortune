@@ -28,8 +28,9 @@ class FortuneAPIManager: ObservableObject {
     private let networkErrorMessage = "リクエストに失敗しました。ネットワークの状態を確認してください。"
     private let decodeErrorMessage = "データの読み込みに失敗しました。再度お試しください。"
 
-    func fetchFortune(name: String, birthday: YearMonthDay, bloodType: String, today: YearMonthDay) {
-        
+    // `async`/`await` に対応した `fetchFortune` メソッド
+    func fetchFortune(name: String, birthday: YearMonthDay, bloodType: String, today: YearMonthDay) async {
+
         // リクエストのパラメータを生成
         let requestParameters = FortuneRequest(
             name: name,
@@ -43,26 +44,28 @@ class FortuneAPIManager: ObservableObject {
         // UI更新: ローディング状態をtrueに
         updateLoadingState(isLoading: true)
 
-        
-        // APIリクエストを実行
-        AF.request(url, method: .post, parameters: requestParameters, encoder: JSONParameterEncoder.default, headers: headers)
-            .responseData { [weak self] response in
-                guard let self = self else { return }
-                // リクエスト完了後にローディングを終了
-                self.updateLoadingState(isLoading: false)
+        // `CheckedContinuation` を使って非同期的にデータを取得
+        await withCheckedContinuation { (continuation: CheckedContinuation<Void, Never>) in
+            AF.request(url, method: .post, parameters: requestParameters, encoder: JSONParameterEncoder.default, headers: headers)
+                .responseData { [weak self] response in
+                    guard let self = self else { return }
+                    // リクエスト完了後にローディングを終了
+                    self.updateLoadingState(isLoading: false)
 
-                switch response.result {
-                case .success(let data):
-                    self.handleResponseData(data: data)
-                case .failure(let error):
-                    self.handleNetworkError(error: error, data: response.data)
+                    switch response.result {
+                    case .success(let data):
+                        self.handleResponseData(data: data)
+                    case .failure(let error):
+                        self.handleNetworkError(error: error, data: response.data)
+                    }
+                    continuation.resume()
                 }
-            }
+        }
     }
 
     // MARK: - Private Methods
 
-    private func updateLoadingState(isLoading: Bool) {
+    func updateLoadingState(isLoading: Bool) {
         DispatchQueue.main.async {
             self.isLoading = isLoading
             if isLoading {
