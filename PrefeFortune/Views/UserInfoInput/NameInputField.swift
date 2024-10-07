@@ -28,7 +28,6 @@ struct NameInputField: View {
                     TextField("名前を入力してください", text: $name)
                         .font(.body)
                         .padding()
-                        .foregroundColor(.white)
                     Spacer()
                 }
                 .padding(.horizontal)

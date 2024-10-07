@@ -40,10 +40,8 @@ struct BloodTypePickerView: View {
                             Text(bloodType.isEmpty ? "選択してください" : bloodType)
                                 .font(.body)
                                 .padding()
-                                .foregroundColor(.white)
                             Spacer()
                             Image(systemName: "chevron.down")
-                                .foregroundColor(.white)
                         }
                         .padding(.horizontal)
                     }
