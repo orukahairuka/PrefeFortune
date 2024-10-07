@@ -7,16 +7,15 @@
 
 import SwiftUI
 
-struct SearchPrefectureView: View {
+struct SearchPrefectureInputView: View {
     @State private var birthday = YearMonthDay(year: 0, month: 0, day: 0)
     @State private var name: String = ""
     @State private var bloodType: String = "A"
-    @State private var latitude: Double? = nil
-    @State private var longitude: Double? = nil
     @StateObject var fortuneAPIManager: FortuneAPIManager = FortuneAPIManager()
-    @StateObject var latLonManager: LatLonManager = LatLonManager()
     private let currentDay = today()
-    @StateObject var placesAPIManager: PlacesAPIManager = PlacesAPIManager()
+
+    @State private var navigateToResult: Bool = false
+    let bloodTypes = ["A", "B", "O", "AB"]
 
     var isFormComplete: Bool {
         return !name.isEmpty
@@ -24,56 +23,35 @@ struct SearchPrefectureView: View {
         && !bloodType.isEmpty
     }
 
-    let bloodTypes = ["A", "B", "O", "AB"]
-
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                Spacer()
+        NavigationStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    Spacer()
+                    NameInputField(name: $name)
+                    BirthdayInputView(birthday: $birthday)
+                    BloodTypePickerView(bloodType: $bloodType, bloodTypes: bloodTypes)
+                    Spacer()
+                    FortuneButton(isFormComplete: isFormComplete) {
+                        Task {
+                            await fortuneAPIManager.fetchFortune(
+                                name: name,
+                                birthday: birthday,
+                                bloodType: bloodType.lowercased(),
+                                today: currentDay
+                            )
 
-                if let logoURL = fortuneAPIManager.decodedLogoURL {
-                    PrefectureImageView(imageUrl: .constant(logoURL))
-                }
-                
-                if latitude != nil && longitude != nil {
-                    TouristCardView(placesManager: placesAPIManager, latitude: $latitude, longitude: $longitude)
-                }
-
-                NameInputField(name: $name)
-                BirthdayInputView(birthday: $birthday)
-                BloodTypePickerView(bloodType: $bloodType, bloodTypes: bloodTypes)
-
-                Spacer()
-
-                FortuneButton(isFormComplete: isFormComplete) {
-                    fortuneAPIManager.fetchFortune(name: name, birthday: birthday, bloodType: bloodType.lowercased(), today: currentDay)
-                }
-            }
-            .padding()
-            .onChange(of: fortuneAPIManager.prefectureName) { newName in
-                guard let prefectureName = newName, !prefectureName.isEmpty else {
-                    latitude = nil
-                    longitude = nil
-                    print("🐶緯度と経度が取得できなかった")
-                    return
-                }
-
-                Task {
-                    if let location = await latLonManager.getLatLon(forPrefecture: prefectureName) {
-                        DispatchQueue.main.async {
-                            latitude = location.latitude
-                            longitude = location.longitude
-                            print("\(prefectureName)のlatitude: \(latitude!), longitude: \(longitude!)")
-                            // 場所情報を取得する
-                            placesAPIManager.fetchNearbyPlaces(latitude: location.latitude, longitude: location.longitude)
-                        }
-                    } else {
-                        DispatchQueue.main.async {
-                            latitude = nil
-                            longitude = nil
-                            print("🐈緯度と経度がない")
+                            // 運勢情報の取得が完了したら発火
+                            DispatchQueue.main.async {
+                                navigateToResult = true
+                            }
                         }
                     }
+                }
+                .padding()
+                .navigationDestination(isPresented: $navigateToResult) {
+                    // 結果ビューに遷移し、必要なデータを渡す
+                    SearchPrefectureResultView(fortuneAPIManager: fortuneAPIManager)
                 }
             }
         }

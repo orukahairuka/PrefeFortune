@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3B2067532CB000D200941274 /* LatLonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2067522CB000D200941274 /* LatLonManager.swift */; };
 		3B2067562CB0049C00941274 /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2067552CB0049C00941274 /* SwiftCSV */; };
+		3B46D3E82CB3943F002745CC /* SearchPrefectureResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B46D3E72CB3943F002745CC /* SearchPrefectureResultView.swift */; };
 		3B50A1C82CB0CC4200539F07 /* PlacesAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1C72CB0CC4200539F07 /* PlacesAPIManager.swift */; };
 		3B50A1CA2CB0D0DC00539F07 /* TouristCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1C92CB0D0DC00539F07 /* TouristCardView.swift */; };
 		3B50A1CC2CB0D22000539F07 /* PlacesAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1CB2CB0D22000539F07 /* PlacesAPIModel.swift */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		3B2067522CB000D200941274 /* LatLonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatLonManager.swift; sourceTree = "<group>"; };
+		3B46D3E72CB3943F002745CC /* SearchPrefectureResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPrefectureResultView.swift; sourceTree = "<group>"; };
 		3B50A1C72CB0CC4200539F07 /* PlacesAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesAPIManager.swift; sourceTree = "<group>"; };
 		3B50A1C92CB0D0DC00539F07 /* TouristCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristCardView.swift; sourceTree = "<group>"; };
 		3B50A1CB2CB0D22000539F07 /* PlacesAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesAPIModel.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				3BA804732CB16E2500BEDC1C /* MainView.swift */,
+				3B46D3E72CB3943F002745CC /* SearchPrefectureResultView.swift */,
 				3BA8048E2CB1703100BEDC1C /* TouristCard */,
 				3BA804812CB16FB700BEDC1C /* PrefectureImage */,
 				3BB4BF592CAF898A00AD4C29 /* Components */,
@@ -434,6 +437,7 @@
 				3B50A1C82CB0CC4200539F07 /* PlacesAPIManager.swift in Sources */,
 				3B2067532CB000D200941274 /* LatLonManager.swift in Sources */,
 				3BA8048A2CB16FEE00BEDC1C /* BirthdayInputView.swift in Sources */,
+				3B46D3E82CB3943F002745CC /* SearchPrefectureResultView.swift in Sources */,
 				3BD7798A2CB12DD20010D8E1 /* PrefectureImageView.swift in Sources */,
 				3BA8048D2CB16FEE00BEDC1C /* FortuneButton.swift in Sources */,
 				3BA8048C2CB16FEE00BEDC1C /* NameInputField.swift in Sources */,
