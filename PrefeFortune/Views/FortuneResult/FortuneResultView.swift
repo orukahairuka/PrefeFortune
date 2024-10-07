@@ -21,30 +21,77 @@ struct FortuneResultView: View {
             VStack(alignment: .leading, spacing: 20) {
                 Spacer()
 
+                // ロゴ表示
                 if let logoURL = fortuneAPIManager.decodedLogoURL {
                     PrefectureImageView(imageUrl: .constant(logoURL), prefectureName: $fortuneAPIManager.prefectureName)
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(.ultraThinMaterial)
+                                .shadow(color: .black.opacity(0.2), radius: 10, x: 5, y: 5)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(Color.white.opacity(0.5), lineWidth: 1)
+                                )
+                        )
+                        .frame(maxWidth: .infinity)
+                        .padding(.horizontal, 30)
                 }
 
+                // 緯度経度が取得できた場合
                 if let latitude = latitude, let longitude = longitude {
                     if placesAPIManager.nearbyPlaces.isEmpty && retryCount < maxRetryCount {
                         Text("観光情報が見つかりませんでした。もう一度検索中です...")
+                            .font(.body)
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .fill(.ultraThinMaterial)
+                                    .shadow(color: .black.opacity(0.2), radius: 10, x: 5, y: 5)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 20)
+                                            .stroke(Color.white.opacity(0.5), lineWidth: 1)
+                                    )
+                            )
+                            .frame(maxWidth: .infinity)
                             .onAppear {
                                 retryLoadLocationData()
                             }
                     } else {
                         TouristCardView(placesManager: placesAPIManager, latitude: $latitude, longitude: $longitude)
+                            .padding()
+                            .frame(maxWidth: .infinity)
                     }
                 } else {
                     ProgressView("データを読み込んでいます...")
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(.ultraThinMaterial)
+                                .shadow(color: .black.opacity(0.2), radius: 10, x: 5, y: 5)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(Color.white.opacity(0.5), lineWidth: 1)
+                                )
+                        )
+                        .frame(maxWidth: .infinity)
                 }
 
                 Spacer()
             }
-            .padding()
             .onAppear {
                 loadLocationData()
             }
         }
+        .background(
+            LinearGradient(
+                gradient: Gradient(colors: [Color.customPinkColor, Color.customBlueColor]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .ignoresSafeArea()
+        )
+
     }
 
     private func loadLocationData() {

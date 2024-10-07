@@ -12,24 +12,22 @@ struct PlaceImageView: View {
 
     var body: some View {
         if let photoReference = photoReference {
-            let photoURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=\(photoReference)&key=AIzaSyAq-cdDFvJSXTIvfVEkBwWMpbAZSoupLh4"
+            let photoURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=\(photoReference)&key=AIzaSyAq-cdDFvJSXTIvfVEkBwWMpbAZSoupLh4"
 
             AsyncImage(url: URL(string: photoURL)) { phase in
                 switch phase {
                 case .empty:
-                    // ロード中の表示
                     ProgressView()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 case .success(let image):
-                    // 画像が正常にロードされた場合の表示
                     image
                         .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: UIScreen.main.bounds.width * 0.9, height: 200)
-                        .cornerRadius(16)
+                        .aspectRatio(contentMode: .fit) // 画像がフレーム内に収まるように変更
+                        .frame(maxWidth: .infinity) // 親ビューの幅に合わせる
+                        .frame(height: 250) // 高さを統一して指定
+                        .cornerRadius(20)
                         .clipped()
                 case .failure:
-                    // エラーが発生した場合の表示
                     VStack {
                         Image(systemName: "exclamationmark.triangle")
                             .foregroundColor(.red)
@@ -37,18 +35,17 @@ struct PlaceImageView: View {
                             .font(.caption)
                             .foregroundColor(.gray)
                     }
-                    .frame(width: UIScreen.main.bounds.width * 0.9, height: 200)
+                    .frame(maxWidth: .infinity, maxHeight: 250)
                     .background(Color.gray)
-                    .cornerRadius(16)
+                    .cornerRadius(20)
                 @unknown default:
                     EmptyView()
                 }
             }
         } else {
-            // photoReferenceがない場合のプレースホルダー
             Color.gray
-                .frame(width: UIScreen.main.bounds.width * 0.9, height: 200)
-                .cornerRadius(16)
+                .frame(maxWidth: .infinity, maxHeight: 250)
+                .cornerRadius(20)
                 .overlay(
                     Text("画像なし")
                         .foregroundColor(.white)
