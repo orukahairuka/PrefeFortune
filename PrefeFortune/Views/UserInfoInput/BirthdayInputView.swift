@@ -16,20 +16,30 @@ struct BirthdayInputView: View {
         VStack(alignment: .leading, spacing: 5) {
             Text("あなたの誕生日を入れてね")
                 .font(.headline)
+                .foregroundColor(.white)
 
             ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color(UIColor.systemGray6))
-                    .shadow(radius: 2)
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(.ultraThinMaterial)
+                    .shadow(color: .black.opacity(0.2), radius: 10, x: 5, y: 5)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.white.opacity(0.5), lineWidth: 1)
+                    )
                 DatePicker("選択してください", selection: $selectedDate, displayedComponents: [.date])
                     .datePickerStyle(GraphicalDatePickerStyle())
                     .environment(\.locale, Locale(identifier: "ja_JP"))
                     .onChange(of: selectedDate) { newValue in
                         updateBirthday(from: newValue)
                     }
-                    .padding()
+                    .padding(.horizontal, 20)
+                    .foregroundColor(.white)
             }
+            .frame(maxWidth: .infinity, minHeight: 60)
+            .padding(.horizontal, 30)
         }
+        .frame(maxWidth: .infinity)
+        .padding()
         .onAppear {
             if birthday.year == 0 && birthday.month == 0 && birthday.day == 0 {
                 selectedDate = Calendar.current.date(from: DateComponents(year: 2000, month: 1, day: 1)) ?? selectedDate
@@ -37,7 +47,6 @@ struct BirthdayInputView: View {
                 selectedDate = birthday.toDate() ?? selectedDate
             }
         }
-        .padding(.horizontal, 30)
     }
 
     private func updateBirthday(from date: Date) {
@@ -48,16 +57,6 @@ struct BirthdayInputView: View {
     }
 }
 
-// YearMonthDayからDateに変換する拡張機能
-extension YearMonthDay {
-    func toDate() -> Date? {
-        var components = DateComponents()
-        components.year = year != 0 ? year : nil
-        components.month = month != 0 ? month : nil
-        components.day = day != 0 ? day : nil
-        return Calendar.current.date(from: components)
-    }
-}
 
 // MARK: - Preview
 

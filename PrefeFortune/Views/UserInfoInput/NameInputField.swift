@@ -12,23 +12,30 @@ struct NameInputField: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            VStack(alignment: .leading, spacing: 5) {
-                Text("名前")
-                    .font(.headline)
+            Text("名前")
+                .font(.headline)
+                .foregroundColor(.white)
+
+            ZStack {
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(.ultraThinMaterial)
+                    .shadow(color: .black.opacity(0.2), radius: 10, x: 5, y: 5)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.white.opacity(0.5), lineWidth: 1)
+                    )
                 HStack {
                     TextField("名前を入力してください", text: $name)
                         .font(.body)
-                        .padding(.vertical, 12)
-                        .foregroundColor(.primary)
+                        .padding()
                     Spacer()
                 }
                 .padding(.horizontal)
-                .background(Color(.systemGray6))
-                .cornerRadius(10)
-                .shadow(radius: 2)
             }
-            .padding(.horizontal)
+            .frame(maxWidth: .infinity, minHeight: 60)
+            .padding(.horizontal, 30)
         }
+        .frame(maxWidth: .infinity)
         .padding()
     }
 }

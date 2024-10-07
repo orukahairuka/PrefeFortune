@@ -18,6 +18,8 @@
 		3B5BC8702CB3AA5500EB878C /* CatTypeAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B5BC86F2CB3AA5500EB878C /* CatTypeAnimation.json */; };
 		3B5BC8722CB3AA5C00EB878C /* ClackerAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B5BC8712CB3AA5C00EB878C /* ClackerAnimation.json */; };
 		3B5BC8742CB3AA8600EB878C /* ClackerAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BC8732CB3AA8600EB878C /* ClackerAnimationView.swift */; };
+		3B5F71D52CB3B14E00689298 /* CatTypeAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5F71D42CB3B14E00689298 /* CatTypeAnimationView.swift */; };
+		3B5F71D72CB3D4E300689298 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5F71D62CB3D4E300689298 /* ColorExtension.swift */; };
 		3B7044172CB19F2E00EF6553 /* TouristCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7044162CB19F2E00EF6553 /* TouristCard.swift */; };
 		3B7044192CB19F6D00EF6553 /* PlaceImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7044182CB19F6D00EF6553 /* PlaceImageView.swift */; };
 		3B9420A72CB118FB00218C84 /* pref_lat_lon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */; };
@@ -32,6 +34,7 @@
 		3BB4BF562CAF88E700AD4C29 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3BB4BF552CAF88E700AD4C29 /* Alamofire */; };
 		3BB4BF5C2CAF8B4400AD4C29 /* FortuneAPIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB4BF5B2CAF8B4400AD4C29 /* FortuneAPIModels.swift */; };
 		3BB4BF5E2CAF8B7C00AD4C29 /* FortuneAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB4BF5D2CAF8B7C00AD4C29 /* FortuneAPIManager.swift */; };
+		3BCC915C2CB3DE9D00FDB9D1 /* YearMonthDayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCC915B2CB3DE9D00FDB9D1 /* YearMonthDayExtension.swift */; };
 		3BD7798A2CB12DD20010D8E1 /* PrefectureImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD779892CB12DD20010D8E1 /* PrefectureImageView.swift */; };
 		3BF76F0C2CAF80CD009EC2B2 /* PrefeFortuneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF76F0B2CAF80CD009EC2B2 /* PrefeFortuneApp.swift */; };
 		3BF76F102CAF80CE009EC2B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BF76F0F2CAF80CE009EC2B2 /* Assets.xcassets */; };
@@ -69,6 +72,8 @@
 		3B5BC86F2CB3AA5500EB878C /* CatTypeAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CatTypeAnimation.json; sourceTree = "<group>"; };
 		3B5BC8712CB3AA5C00EB878C /* ClackerAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ClackerAnimation.json; sourceTree = "<group>"; };
 		3B5BC8732CB3AA8600EB878C /* ClackerAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClackerAnimationView.swift; sourceTree = "<group>"; };
+		3B5F71D42CB3B14E00689298 /* CatTypeAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatTypeAnimationView.swift; sourceTree = "<group>"; };
+		3B5F71D62CB3D4E300689298 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		3B7044162CB19F2E00EF6553 /* TouristCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristCard.swift; sourceTree = "<group>"; };
 		3B7044182CB19F6D00EF6553 /* PlaceImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceImageView.swift; sourceTree = "<group>"; };
 		3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pref_lat_lon.csv; sourceTree = "<group>"; };
@@ -81,6 +86,7 @@
 		3BA804912CB170BE00BEDC1C /* FailureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailureView.swift; sourceTree = "<group>"; };
 		3BB4BF5B2CAF8B4400AD4C29 /* FortuneAPIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneAPIModels.swift; sourceTree = "<group>"; };
 		3BB4BF5D2CAF8B7C00AD4C29 /* FortuneAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneAPIManager.swift; sourceTree = "<group>"; };
+		3BCC915B2CB3DE9D00FDB9D1 /* YearMonthDayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearMonthDayExtension.swift; sourceTree = "<group>"; };
 		3BD779892CB12DD20010D8E1 /* PrefectureImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefectureImageView.swift; sourceTree = "<group>"; };
 		3BF76F082CAF80CD009EC2B2 /* PrefeFortune.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrefeFortune.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BF76F0B2CAF80CD009EC2B2 /* PrefeFortuneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefeFortuneApp.swift; sourceTree = "<group>"; };
@@ -160,9 +166,9 @@
 		3B5BC86C2CB3A1DE00EB878C /* UserInfoInput */ = {
 			isa = PBXGroup;
 			children = (
+				3BA804732CB16E2500BEDC1C /* UserInfoInputView.swift */,
 				3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */,
 				3BA804862CB16FEE00BEDC1C /* NameInputField.swift */,
-				3BA804732CB16E2500BEDC1C /* UserInfoInputView.swift */,
 				3BA804852CB16FEE00BEDC1C /* BloodTypePickerView.swift */,
 			);
 			path = UserInfoInput;
@@ -184,6 +190,7 @@
 				3B5BC8712CB3AA5C00EB878C /* ClackerAnimation.json */,
 				3B5BC86F2CB3AA5500EB878C /* CatTypeAnimation.json */,
 				3B5BC8732CB3AA8600EB878C /* ClackerAnimationView.swift */,
+				3B5F71D42CB3B14E00689298 /* CatTypeAnimationView.swift */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -247,6 +254,8 @@
 		3BB4BF5A2CAF8A7900AD4C29 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3B5F71D62CB3D4E300689298 /* ColorExtension.swift */,
+				3BCC915B2CB3DE9D00FDB9D1 /* YearMonthDayExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -458,6 +467,7 @@
 			files = (
 				3BA804742CB16E2500BEDC1C /* UserInfoInputView.swift in Sources */,
 				3B50A1CA2CB0D0DC00539F07 /* TouristCardView.swift in Sources */,
+				3B5F71D72CB3D4E300689298 /* ColorExtension.swift in Sources */,
 				3BA8048B2CB16FEE00BEDC1C /* BloodTypePickerView.swift in Sources */,
 				3B50A1D32CB0EA8C00539F07 /* dayModel.swift in Sources */,
 				3B50A1CC2CB0D22000539F07 /* PlacesAPIModel.swift in Sources */,
@@ -470,6 +480,8 @@
 				3B7044192CB19F6D00EF6553 /* PlaceImageView.swift in Sources */,
 				3BA804902CB1709C00BEDC1C /* AsyncImageLoadingView.swift in Sources */,
 				3BF76F0C2CAF80CD009EC2B2 /* PrefeFortuneApp.swift in Sources */,
+				3B5F71D52CB3B14E00689298 /* CatTypeAnimationView.swift in Sources */,
+				3BCC915C2CB3DE9D00FDB9D1 /* YearMonthDayExtension.swift in Sources */,
 				3B50A1C82CB0CC4200539F07 /* PlacesAPIManager.swift in Sources */,
 				3B2067532CB000D200941274 /* LatLonManager.swift in Sources */,
 				3BA8048A2CB16FEE00BEDC1C /* BirthdayInputView.swift in Sources */,

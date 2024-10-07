@@ -20,7 +20,6 @@ struct PrefectureImageView: View {
                             Text(name)
                                 .font(.title)
                                 .fontWeight(.bold)
-                                .foregroundColor(.black)
                         }
                         AsyncImageLoadingView(url: validUrl)
                             .frame(width: geometry.size.width, height: geometry.size.height * 0.9)
