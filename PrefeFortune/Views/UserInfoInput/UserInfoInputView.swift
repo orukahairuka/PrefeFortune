@@ -27,7 +27,9 @@ struct UserInfoInputView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    Spacer()
+                    CatTypeAnimationView(lottieFile: "CatTypeAnimation")
+                        .frame(width: 270, height: 270)
+                        .padding(.horizontal, 10)
                     NameInputField(name: $name)
                     BirthdayInputView(birthday: $birthday)
                     BloodTypePickerView(bloodType: $bloodType, bloodTypes: bloodTypes)

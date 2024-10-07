@@ -22,7 +22,7 @@ struct FortuneResultView: View {
                 Spacer()
 
                 if let logoURL = fortuneAPIManager.decodedLogoURL {
-                    PrefectureImageView(imageUrl: .constant(logoURL))
+                    PrefectureImageView(imageUrl: .constant(logoURL), prefectureName: $fortuneAPIManager.prefectureName)
                 }
 
                 if let latitude = latitude, let longitude = longitude {
