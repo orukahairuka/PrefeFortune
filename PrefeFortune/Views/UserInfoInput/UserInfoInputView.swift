@@ -56,6 +56,10 @@ struct UserInfoInputView: View {
                     FortuneResultView(fortuneAPIManager: fortuneAPIManager)
                 }
             }
+            .background(
+                Color.customRadialGradient
+                    .ignoresSafeArea()
+            )
         }
     }
 }

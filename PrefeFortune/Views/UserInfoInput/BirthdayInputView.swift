@@ -16,11 +16,16 @@ struct BirthdayInputView: View {
         VStack(alignment: .leading, spacing: 5) {
             Text("あなたの誕生日を入れてね")
                 .font(.headline)
+                .foregroundColor(.white)
 
             ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color(UIColor.systemGray6))
-                    .shadow(radius: 2)
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(.ultraThinMaterial)
+                    .shadow(color: .black.opacity(0.2), radius: 10, x: 5, y: 5)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.white.opacity(0.5), lineWidth: 1)
+                    )
                 DatePicker("選択してください", selection: $selectedDate, displayedComponents: [.date])
                     .datePickerStyle(GraphicalDatePickerStyle())
                     .environment(\.locale, Locale(identifier: "ja_JP"))
@@ -28,6 +33,7 @@ struct BirthdayInputView: View {
                         updateBirthday(from: newValue)
                     }
                     .padding()
+                    .foregroundColor(.white)
             }
         }
         .onAppear {
