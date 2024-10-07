@@ -15,6 +15,9 @@
 		3B50A1CC2CB0D22000539F07 /* PlacesAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1CB2CB0D22000539F07 /* PlacesAPIModel.swift */; };
 		3B50A1D12CB0E41100539F07 /* today.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1D02CB0E41100539F07 /* today.swift */; };
 		3B50A1D32CB0EA8C00539F07 /* dayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1D22CB0EA8C00539F07 /* dayModel.swift */; };
+		3B5BC8702CB3AA5500EB878C /* CatTypeAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B5BC86F2CB3AA5500EB878C /* CatTypeAnimation.json */; };
+		3B5BC8722CB3AA5C00EB878C /* ClackerAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B5BC8712CB3AA5C00EB878C /* ClackerAnimation.json */; };
+		3B5BC8742CB3AA8600EB878C /* ClackerAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BC8732CB3AA8600EB878C /* ClackerAnimationView.swift */; };
 		3B7044172CB19F2E00EF6553 /* TouristCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7044162CB19F2E00EF6553 /* TouristCard.swift */; };
 		3B7044192CB19F6D00EF6553 /* PlaceImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7044182CB19F6D00EF6553 /* PlaceImageView.swift */; };
 		3B9420A72CB118FB00218C84 /* pref_lat_lon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */; };
@@ -63,6 +66,9 @@
 		3B50A1CB2CB0D22000539F07 /* PlacesAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesAPIModel.swift; sourceTree = "<group>"; };
 		3B50A1D02CB0E41100539F07 /* today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = today.swift; sourceTree = "<group>"; };
 		3B50A1D22CB0EA8C00539F07 /* dayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dayModel.swift; sourceTree = "<group>"; };
+		3B5BC86F2CB3AA5500EB878C /* CatTypeAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CatTypeAnimation.json; sourceTree = "<group>"; };
+		3B5BC8712CB3AA5C00EB878C /* ClackerAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ClackerAnimation.json; sourceTree = "<group>"; };
+		3B5BC8732CB3AA8600EB878C /* ClackerAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClackerAnimationView.swift; sourceTree = "<group>"; };
 		3B7044162CB19F2E00EF6553 /* TouristCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristCard.swift; sourceTree = "<group>"; };
 		3B7044182CB19F6D00EF6553 /* PlaceImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceImageView.swift; sourceTree = "<group>"; };
 		3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pref_lat_lon.csv; sourceTree = "<group>"; };
@@ -166,6 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				3B46D3E72CB3943F002745CC /* FortuneResultView.swift */,
+				3BA804812CB16FB700BEDC1C /* PrefectureImage */,
+				3BA8048E2CB1703100BEDC1C /* TouristCard */,
 			);
 			path = FortuneResult;
 			sourceTree = "<group>";
@@ -173,6 +181,9 @@
 		3B5BC86E2CB3A22D00EB878C /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				3B5BC8712CB3AA5C00EB878C /* ClackerAnimation.json */,
+				3B5BC86F2CB3AA5500EB878C /* CatTypeAnimation.json */,
+				3B5BC8732CB3AA8600EB878C /* ClackerAnimationView.swift */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -220,8 +231,6 @@
 				3B5BC86E2CB3A22D00EB878C /* Lottie */,
 				3B5BC86D2CB3A20A00EB878C /* FortuneResult */,
 				3B5BC86C2CB3A1DE00EB878C /* UserInfoInput */,
-				3BA8048E2CB1703100BEDC1C /* TouristCard */,
-				3BA804812CB16FB700BEDC1C /* PrefectureImage */,
 				3BB4BF592CAF898A00AD4C29 /* Components */,
 			);
 			path = Views;
@@ -420,7 +429,9 @@
 			files = (
 				3BF76F142CAF80CE009EC2B2 /* Preview Assets.xcassets in Resources */,
 				3B9420A72CB118FB00218C84 /* pref_lat_lon.csv in Resources */,
+				3B5BC8722CB3AA5C00EB878C /* ClackerAnimation.json in Resources */,
 				3BF76F102CAF80CE009EC2B2 /* Assets.xcassets in Resources */,
+				3B5BC8702CB3AA5500EB878C /* CatTypeAnimation.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +461,7 @@
 				3BA8048B2CB16FEE00BEDC1C /* BloodTypePickerView.swift in Sources */,
 				3B50A1D32CB0EA8C00539F07 /* dayModel.swift in Sources */,
 				3B50A1CC2CB0D22000539F07 /* PlacesAPIModel.swift in Sources */,
+				3B5BC8742CB3AA8600EB878C /* ClackerAnimationView.swift in Sources */,
 				3BA804922CB170BE00BEDC1C /* FailureView.swift in Sources */,
 				3BB4BF5C2CAF8B4400AD4C29 /* FortuneAPIModels.swift in Sources */,
 				3B50A1D12CB0E41100539F07 /* today.swift in Sources */,
