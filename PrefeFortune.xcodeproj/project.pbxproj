@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3B2067532CB000D200941274 /* LatLonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2067522CB000D200941274 /* LatLonManager.swift */; };
 		3B2067562CB0049C00941274 /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2067552CB0049C00941274 /* SwiftCSV */; };
+		3B46D3E82CB3943F002745CC /* FortuneResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B46D3E72CB3943F002745CC /* FortuneResultView.swift */; };
 		3B50A1C82CB0CC4200539F07 /* PlacesAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1C72CB0CC4200539F07 /* PlacesAPIManager.swift */; };
 		3B50A1CA2CB0D0DC00539F07 /* TouristCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1C92CB0D0DC00539F07 /* TouristCardView.swift */; };
 		3B50A1CC2CB0D22000539F07 /* PlacesAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50A1CB2CB0D22000539F07 /* PlacesAPIModel.swift */; };
@@ -17,7 +18,7 @@
 		3B7044172CB19F2E00EF6553 /* TouristCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7044162CB19F2E00EF6553 /* TouristCard.swift */; };
 		3B7044192CB19F6D00EF6553 /* PlaceImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7044182CB19F6D00EF6553 /* PlaceImageView.swift */; };
 		3B9420A72CB118FB00218C84 /* pref_lat_lon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */; };
-		3BA804742CB16E2500BEDC1C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804732CB16E2500BEDC1C /* MainView.swift */; };
+		3BA804742CB16E2500BEDC1C /* UserInfoInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804732CB16E2500BEDC1C /* UserInfoInputView.swift */; };
 		3BA8048A2CB16FEE00BEDC1C /* BirthdayInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */; };
 		3BA8048B2CB16FEE00BEDC1C /* BloodTypePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804852CB16FEE00BEDC1C /* BloodTypePickerView.swift */; };
 		3BA8048C2CB16FEE00BEDC1C /* NameInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804862CB16FEE00BEDC1C /* NameInputField.swift */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		3B2067522CB000D200941274 /* LatLonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatLonManager.swift; sourceTree = "<group>"; };
+		3B46D3E72CB3943F002745CC /* FortuneResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneResultView.swift; sourceTree = "<group>"; };
 		3B50A1C72CB0CC4200539F07 /* PlacesAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesAPIManager.swift; sourceTree = "<group>"; };
 		3B50A1C92CB0D0DC00539F07 /* TouristCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristCardView.swift; sourceTree = "<group>"; };
 		3B50A1CB2CB0D22000539F07 /* PlacesAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesAPIModel.swift; sourceTree = "<group>"; };
@@ -64,7 +66,7 @@
 		3B7044162CB19F2E00EF6553 /* TouristCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristCard.swift; sourceTree = "<group>"; };
 		3B7044182CB19F6D00EF6553 /* PlaceImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceImageView.swift; sourceTree = "<group>"; };
 		3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pref_lat_lon.csv; sourceTree = "<group>"; };
-		3BA804732CB16E2500BEDC1C /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		3BA804732CB16E2500BEDC1C /* UserInfoInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoInputView.swift; sourceTree = "<group>"; };
 		3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayInputView.swift; sourceTree = "<group>"; };
 		3BA804852CB16FEE00BEDC1C /* BloodTypePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodTypePickerView.swift; sourceTree = "<group>"; };
 		3BA804862CB16FEE00BEDC1C /* NameInputField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameInputField.swift; sourceTree = "<group>"; };
@@ -149,6 +151,32 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		3B5BC86C2CB3A1DE00EB878C /* UserInfoInput */ = {
+			isa = PBXGroup;
+			children = (
+				3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */,
+				3BA804862CB16FEE00BEDC1C /* NameInputField.swift */,
+				3BA804732CB16E2500BEDC1C /* UserInfoInputView.swift */,
+				3BA804852CB16FEE00BEDC1C /* BloodTypePickerView.swift */,
+			);
+			path = UserInfoInput;
+			sourceTree = "<group>";
+		};
+		3B5BC86D2CB3A20A00EB878C /* FortuneResult */ = {
+			isa = PBXGroup;
+			children = (
+				3B46D3E72CB3943F002745CC /* FortuneResultView.swift */,
+			);
+			path = FortuneResult;
+			sourceTree = "<group>";
+		};
+		3B5BC86E2CB3A22D00EB878C /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
 		3BA804812CB16FB700BEDC1C /* PrefectureImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,7 +217,9 @@
 		3BB4BF582CAF897D00AD4C29 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3BA804732CB16E2500BEDC1C /* MainView.swift */,
+				3B5BC86E2CB3A22D00EB878C /* Lottie */,
+				3B5BC86D2CB3A20A00EB878C /* FortuneResult */,
+				3B5BC86C2CB3A1DE00EB878C /* UserInfoInput */,
 				3BA8048E2CB1703100BEDC1C /* TouristCard */,
 				3BA804812CB16FB700BEDC1C /* PrefectureImage */,
 				3BB4BF592CAF898A00AD4C29 /* Components */,
@@ -201,9 +231,6 @@
 			isa = PBXGroup;
 			children = (
 				3BA804872CB16FEE00BEDC1C /* FortuneButton.swift */,
-				3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */,
-				3BA804852CB16FEE00BEDC1C /* BloodTypePickerView.swift */,
-				3BA804862CB16FEE00BEDC1C /* NameInputField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -418,7 +445,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BA804742CB16E2500BEDC1C /* MainView.swift in Sources */,
+				3BA804742CB16E2500BEDC1C /* UserInfoInputView.swift in Sources */,
 				3B50A1CA2CB0D0DC00539F07 /* TouristCardView.swift in Sources */,
 				3BA8048B2CB16FEE00BEDC1C /* BloodTypePickerView.swift in Sources */,
 				3B50A1D32CB0EA8C00539F07 /* dayModel.swift in Sources */,
@@ -434,6 +461,7 @@
 				3B50A1C82CB0CC4200539F07 /* PlacesAPIManager.swift in Sources */,
 				3B2067532CB000D200941274 /* LatLonManager.swift in Sources */,
 				3BA8048A2CB16FEE00BEDC1C /* BirthdayInputView.swift in Sources */,
+				3B46D3E82CB3943F002745CC /* FortuneResultView.swift in Sources */,
 				3BD7798A2CB12DD20010D8E1 /* PrefectureImageView.swift in Sources */,
 				3BA8048D2CB16FEE00BEDC1C /* FortuneButton.swift in Sources */,
 				3BA8048C2CB16FEE00BEDC1C /* NameInputField.swift in Sources */,
