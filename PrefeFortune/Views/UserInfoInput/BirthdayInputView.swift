@@ -9,7 +9,6 @@ import SwiftUI
 
 struct BirthdayInputView: View {
     @Binding var birthday: YearMonthDay
-
     @State private var selectedDate: Date = Calendar.current.date(from: DateComponents(year: 2000, month: 1, day: 1)) ?? Date()
 
     var body: some View {
@@ -19,14 +18,6 @@ struct BirthdayInputView: View {
                 .foregroundColor(.white)
 
             ZStack {
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(.ultraThinMaterial)
-                    .shadow(color: .black.opacity(0.2), radius: 10, x: 5, y: 5)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.white.opacity(0.5), lineWidth: 1)
-                    )
-
                 DatePicker("選択してください", selection: $selectedDate, displayedComponents: [.date])
                     .datePickerStyle(GraphicalDatePickerStyle())
                     .environment(\.locale, Locale(identifier: "ja_JP"))
@@ -36,8 +27,7 @@ struct BirthdayInputView: View {
                     .padding(.horizontal, 20)
                     .foregroundColor(.white)
             }
-            .frame(maxWidth: .infinity, minHeight: 60)
-            .padding(.horizontal, 30)
+            .inputFieldStyle()
         }
         .frame(maxWidth: .infinity)
         .padding()
@@ -58,6 +48,7 @@ struct BirthdayInputView: View {
         birthday.day = components.day ?? 0
     }
 }
+
 
 
 // MARK: - Preview
