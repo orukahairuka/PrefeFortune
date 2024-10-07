@@ -14,14 +14,12 @@ struct PrefectureImageView: View {
         GeometryReader { geometry in
             if let validUrl = imageUrl {
                 ZStack {
-                        ZStack {
-                            Text("a")
-                                .font(.title)
-                                .fontWeight(.bold)
-                            AsyncImageLoadingView(url: validUrl)
-                                .frame(width: geometry.size.width, height: geometry.size.height * 0.9)
-                                .clipped()
-                        }
+                    Text("a")
+                        .font(.title)
+                        .fontWeight(.bold)
+                    AsyncImageLoadingView(url: validUrl)
+                        .frame(width: geometry.size.width, height: geometry.size.height * 0.9)
+                        .clipped()
                     ClackerAnimationView(lottieFile: "ClackerAnimation")
                 }
             }
