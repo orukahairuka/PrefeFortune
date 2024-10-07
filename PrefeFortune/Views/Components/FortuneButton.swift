@@ -15,7 +15,9 @@ struct FortuneButton: View {
         HStack {
             Spacer()
             Button {
-                action()
+                if isFormComplete {
+                    action()
+                }
             } label: {
                 Text("占う")
                     .font(.headline)
@@ -23,14 +25,22 @@ struct FortuneButton: View {
                     .padding(.vertical, 25)
                     .frame(maxWidth: 200)
                     .frame(minWidth: 100)
+                    .background(
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(Color.customYellowColor)
+                            .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 5)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(Color.white.opacity(0.9), lineWidth: 1)
+                            )
+                    )
+                    .padding(.horizontal, 30)
             }
-            .background(.pink)
-            .cornerRadius(10)
-            .shadow(radius: 3)
-            .frame(height: 100)
             .disabled(!isFormComplete)
+            .opacity(isFormComplete ? 0.8 : 0.5)
             Spacer()
         }
+        .frame(height: 60)
     }
 }
 // MARK: - Preview

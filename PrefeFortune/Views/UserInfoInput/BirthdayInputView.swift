@@ -10,8 +10,8 @@ import SwiftUI
 struct BirthdayInputView: View {
     @Binding var birthday: YearMonthDay
 
-
     @State private var selectedDate: Date = Calendar.current.date(from: DateComponents(year: 2000, month: 1, day: 1)) ?? Date()
+
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             Text("あなたの誕生日を入れてね")
@@ -26,6 +26,7 @@ struct BirthdayInputView: View {
                         RoundedRectangle(cornerRadius: 20)
                             .stroke(Color.white.opacity(0.5), lineWidth: 1)
                     )
+
                 DatePicker("選択してください", selection: $selectedDate, displayedComponents: [.date])
                     .datePickerStyle(GraphicalDatePickerStyle())
                     .environment(\.locale, Locale(identifier: "ja_JP"))
@@ -43,6 +44,7 @@ struct BirthdayInputView: View {
         .onAppear {
             if birthday.year == 0 && birthday.month == 0 && birthday.day == 0 {
                 selectedDate = Calendar.current.date(from: DateComponents(year: 2000, month: 1, day: 1)) ?? selectedDate
+                updateBirthday(from: selectedDate)
             } else {
                 selectedDate = birthday.toDate() ?? selectedDate
             }
