@@ -30,6 +30,8 @@
 		3BA8048D2CB16FEE00BEDC1C /* FortuneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804872CB16FEE00BEDC1C /* FortuneButton.swift */; };
 		3BA804902CB1709C00BEDC1C /* AsyncImageLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8048F2CB1709C00BEDC1C /* AsyncImageLoadingView.swift */; };
 		3BA804922CB170BE00BEDC1C /* FailureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804912CB170BE00BEDC1C /* FailureView.swift */; };
+		3BAA1DBC2CB4DDBF00751344 /* MapAnotationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAA1DBB2CB4DDBF00751344 /* MapAnotationItem.swift */; };
+		3BAA1DBE2CB4DDDB00751344 /* RouteOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAA1DBD2CB4DDDB00751344 /* RouteOverlay.swift */; };
 		3BB0EB1E2CB41FC30048A044 /* TouristCardModifire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB0EB1D2CB41FC30048A044 /* TouristCardModifire.swift */; };
 		3BB0EB202CB420080048A044 /* InputFieldBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB0EB1F2CB420080048A044 /* InputFieldBackgroundModifier.swift */; };
 		3BB4BF532CAF889B00AD4C29 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 3BB4BF522CAF889B00AD4C29 /* Lottie */; };
@@ -38,6 +40,8 @@
 		3BB4BF5E2CAF8B7C00AD4C29 /* FortuneAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB4BF5D2CAF8B7C00AD4C29 /* FortuneAPIManager.swift */; };
 		3BCC915C2CB3DE9D00FDB9D1 /* YearMonthDayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCC915B2CB3DE9D00FDB9D1 /* YearMonthDayExtension.swift */; };
 		3BD1E60F2CB43121005492CC /* BallonTail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD1E60E2CB43121005492CC /* BallonTail.swift */; };
+		3BD1E6132CB4D937005492CC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD1E6122CB4D937005492CC /* LocationManager.swift */; };
+		3BD1E6152CB4D97F005492CC /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD1E6142CB4D97F005492CC /* MapView.swift */; };
 		3BD7798A2CB12DD20010D8E1 /* PrefectureImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD779892CB12DD20010D8E1 /* PrefectureImageView.swift */; };
 		3BF76F0C2CAF80CD009EC2B2 /* PrefeFortuneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF76F0B2CAF80CD009EC2B2 /* PrefeFortuneApp.swift */; };
 		3BF76F102CAF80CE009EC2B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BF76F0F2CAF80CE009EC2B2 /* Assets.xcassets */; };
@@ -87,12 +91,16 @@
 		3BA804872CB16FEE00BEDC1C /* FortuneButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FortuneButton.swift; sourceTree = "<group>"; };
 		3BA8048F2CB1709C00BEDC1C /* AsyncImageLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageLoadingView.swift; sourceTree = "<group>"; };
 		3BA804912CB170BE00BEDC1C /* FailureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailureView.swift; sourceTree = "<group>"; };
+		3BAA1DBB2CB4DDBF00751344 /* MapAnotationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnotationItem.swift; sourceTree = "<group>"; };
+		3BAA1DBD2CB4DDDB00751344 /* RouteOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteOverlay.swift; sourceTree = "<group>"; };
 		3BB0EB1D2CB41FC30048A044 /* TouristCardModifire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristCardModifire.swift; sourceTree = "<group>"; };
 		3BB0EB1F2CB420080048A044 /* InputFieldBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldBackgroundModifier.swift; sourceTree = "<group>"; };
 		3BB4BF5B2CAF8B4400AD4C29 /* FortuneAPIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneAPIModels.swift; sourceTree = "<group>"; };
 		3BB4BF5D2CAF8B7C00AD4C29 /* FortuneAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneAPIManager.swift; sourceTree = "<group>"; };
 		3BCC915B2CB3DE9D00FDB9D1 /* YearMonthDayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearMonthDayExtension.swift; sourceTree = "<group>"; };
 		3BD1E60E2CB43121005492CC /* BallonTail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallonTail.swift; sourceTree = "<group>"; };
+		3BD1E6122CB4D937005492CC /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		3BD1E6142CB4D97F005492CC /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		3BD779892CB12DD20010D8E1 /* PrefectureImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefectureImageView.swift; sourceTree = "<group>"; };
 		3BF76F082CAF80CD009EC2B2 /* PrefeFortune.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrefeFortune.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BF76F0B2CAF80CD009EC2B2 /* PrefeFortuneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefeFortuneApp.swift; sourceTree = "<group>"; };
@@ -233,6 +241,7 @@
 		3BB4BF572CAF895700AD4C29 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3BD1E6112CB4D92B005492CC /* Map */,
 				3B20674F2CB0006500941274 /* CSV */,
 				3B50A1C62CB01F1500539F07 /* PlacesAPI */,
 				3B20674E2CAFFF9300941274 /* FortuneAPI */,
@@ -267,6 +276,17 @@
 				3BCC915B2CB3DE9D00FDB9D1 /* YearMonthDayExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3BD1E6112CB4D92B005492CC /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				3BD1E6122CB4D937005492CC /* LocationManager.swift */,
+				3BD1E6142CB4D97F005492CC /* MapView.swift */,
+				3BAA1DBB2CB4DDBF00751344 /* MapAnotationItem.swift */,
+				3BAA1DBD2CB4DDDB00751344 /* RouteOverlay.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		3BF76EFF2CAF80CD009EC2B2 = {
@@ -488,14 +508,18 @@
 				3BB4BF5E2CAF8B7C00AD4C29 /* FortuneAPIManager.swift in Sources */,
 				3B7044172CB19F2E00EF6553 /* TouristCard.swift in Sources */,
 				3B7044192CB19F6D00EF6553 /* PlaceImageView.swift in Sources */,
+				3BD1E6152CB4D97F005492CC /* MapView.swift in Sources */,
 				3BA804902CB1709C00BEDC1C /* AsyncImageLoadingView.swift in Sources */,
+				3BAA1DBE2CB4DDDB00751344 /* RouteOverlay.swift in Sources */,
 				3BB0EB1E2CB41FC30048A044 /* TouristCardModifire.swift in Sources */,
+				3BAA1DBC2CB4DDBF00751344 /* MapAnotationItem.swift in Sources */,
 				3BF76F0C2CAF80CD009EC2B2 /* PrefeFortuneApp.swift in Sources */,
 				3BB0EB202CB420080048A044 /* InputFieldBackgroundModifier.swift in Sources */,
 				3B5F71D52CB3B14E00689298 /* CatTypeAnimationView.swift in Sources */,
 				3BCC915C2CB3DE9D00FDB9D1 /* YearMonthDayExtension.swift in Sources */,
 				3B50A1C82CB0CC4200539F07 /* PlacesAPIManager.swift in Sources */,
 				3B2067532CB000D200941274 /* LatLonManager.swift in Sources */,
+				3BD1E6132CB4D937005492CC /* LocationManager.swift in Sources */,
 				3BA8048A2CB16FEE00BEDC1C /* BirthdayInputView.swift in Sources */,
 				3B46D3E82CB3943F002745CC /* FortuneResultView.swift in Sources */,
 				3BD7798A2CB12DD20010D8E1 /* PrefectureImageView.swift in Sources */,
@@ -664,6 +688,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "アプリの機能を提供するために現在地を使用します";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -702,6 +727,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "アプリの機能を提供するために現在地を使用します";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
