@@ -30,6 +30,8 @@
 		3BA8048D2CB16FEE00BEDC1C /* FortuneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804872CB16FEE00BEDC1C /* FortuneButton.swift */; };
 		3BA804902CB1709C00BEDC1C /* AsyncImageLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8048F2CB1709C00BEDC1C /* AsyncImageLoadingView.swift */; };
 		3BA804922CB170BE00BEDC1C /* FailureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804912CB170BE00BEDC1C /* FailureView.swift */; };
+		3BAA1DBC2CB4DDBF00751344 /* MapAnotationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAA1DBB2CB4DDBF00751344 /* MapAnotationItem.swift */; };
+		3BAA1DBE2CB4DDDB00751344 /* RouteOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAA1DBD2CB4DDDB00751344 /* RouteOverlay.swift */; };
 		3BB0EB1E2CB41FC30048A044 /* TouristCardModifire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB0EB1D2CB41FC30048A044 /* TouristCardModifire.swift */; };
 		3BB0EB202CB420080048A044 /* InputFieldBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB0EB1F2CB420080048A044 /* InputFieldBackgroundModifier.swift */; };
 		3BB4BF532CAF889B00AD4C29 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 3BB4BF522CAF889B00AD4C29 /* Lottie */; };
@@ -89,6 +91,8 @@
 		3BA804872CB16FEE00BEDC1C /* FortuneButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FortuneButton.swift; sourceTree = "<group>"; };
 		3BA8048F2CB1709C00BEDC1C /* AsyncImageLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageLoadingView.swift; sourceTree = "<group>"; };
 		3BA804912CB170BE00BEDC1C /* FailureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailureView.swift; sourceTree = "<group>"; };
+		3BAA1DBB2CB4DDBF00751344 /* MapAnotationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnotationItem.swift; sourceTree = "<group>"; };
+		3BAA1DBD2CB4DDDB00751344 /* RouteOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteOverlay.swift; sourceTree = "<group>"; };
 		3BB0EB1D2CB41FC30048A044 /* TouristCardModifire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristCardModifire.swift; sourceTree = "<group>"; };
 		3BB0EB1F2CB420080048A044 /* InputFieldBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldBackgroundModifier.swift; sourceTree = "<group>"; };
 		3BB4BF5B2CAF8B4400AD4C29 /* FortuneAPIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneAPIModels.swift; sourceTree = "<group>"; };
@@ -279,6 +283,8 @@
 			children = (
 				3BD1E6122CB4D937005492CC /* LocationManager.swift */,
 				3BD1E6142CB4D97F005492CC /* MapView.swift */,
+				3BAA1DBB2CB4DDBF00751344 /* MapAnotationItem.swift */,
+				3BAA1DBD2CB4DDDB00751344 /* RouteOverlay.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -504,7 +510,9 @@
 				3B7044192CB19F6D00EF6553 /* PlaceImageView.swift in Sources */,
 				3BD1E6152CB4D97F005492CC /* MapView.swift in Sources */,
 				3BA804902CB1709C00BEDC1C /* AsyncImageLoadingView.swift in Sources */,
+				3BAA1DBE2CB4DDDB00751344 /* RouteOverlay.swift in Sources */,
 				3BB0EB1E2CB41FC30048A044 /* TouristCardModifire.swift in Sources */,
+				3BAA1DBC2CB4DDBF00751344 /* MapAnotationItem.swift in Sources */,
 				3BF76F0C2CAF80CD009EC2B2 /* PrefeFortuneApp.swift in Sources */,
 				3BB0EB202CB420080048A044 /* InputFieldBackgroundModifier.swift in Sources */,
 				3B5F71D52CB3B14E00689298 /* CatTypeAnimationView.swift in Sources */,
