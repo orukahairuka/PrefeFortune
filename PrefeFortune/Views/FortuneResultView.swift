@@ -22,9 +22,7 @@ struct FortuneResultView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                if let latitude = latitude, let longitude = longitude {
-                    MapView(latitude: .constant(latitude), longitude: .constant(longitude), destination: .constant(CLLocationCoordinate2D(latitude: latitude, longitude: longitude)), distance: $distance)
-                }
+
                 Spacer()
 
                 if let logoURL = fortuneAPIManager.decodedLogoURL {
@@ -33,13 +31,9 @@ struct FortuneResultView: View {
                         .padding(.horizontal, 30)
                 }
 
-                FirstNavigationView(
-                    distance: $distance,
-                    prefectureName: Binding(
-                        get: { fortuneAPIManager.prefectureName ?? "不明な県" },  // nilなら"不明な県"を返す
-                        set: { fortuneAPIManager.prefectureName = $0 }  // バインディングされた値が変更された場合に更新
-                    )
-                )
+                if let latitude = latitude, let longitude = longitude {
+                    MapView(latitude: .constant(latitude), longitude: .constant(longitude), destination: .constant(CLLocationCoordinate2D(latitude: latitude, longitude: longitude)), distance: $distance)
+                }
 
                 if let latitude = latitude, let longitude = longitude {
                     if placesAPIManager.nearbyPlaces.isEmpty && retryCount < maxRetryCount {
@@ -56,6 +50,14 @@ struct FortuneResultView: View {
                     ProgressView("データを読み込んでいます...")
                         .roundedBackground()
                 }
+
+                FirstNavigationView(
+                    distance: $distance,
+                    prefectureName: Binding(
+                        get: { fortuneAPIManager.prefectureName ?? "不明な県" },  // nilなら"不明な県"を返す
+                        set: { fortuneAPIManager.prefectureName = $0 }  // バインディングされた値が変更された場合に更新
+                    )
+                )
 
                 Spacer()
             }

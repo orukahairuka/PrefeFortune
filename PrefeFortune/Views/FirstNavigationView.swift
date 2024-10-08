@@ -45,16 +45,14 @@ struct CatTravelText: View {
 
     func catTravelAdvice(for distance: Double, prefectureName: String) -> String {
         switch distance {
-        case 0..<60:
-            return "にゃん！\(prefectureName)は近いにゃ！電車でピューっと30分で行けるにゃ〜。"
-        case 60..<150:
-            return "\(prefectureName)まで新幹線で30分くらいかかるにゃん。もう少し時間かけたいなら、特急や車でも2時間くらいにゃ！"
+        case 0..<150:
+            return "\(prefectureName)まで\(String(distance))kmあるにゃん！実は、上のラッキースポットのカードを押すとスポットの検索ができるにゃん。面白そうな場所だね"
         case 150..<500:
-            return "東京まで新幹線なら2時間半くらいかかるにゃ！飛行機もあるけど、車なら6〜7時間かかるにゃ。夜行バスでのんびりもアリ。"
+            return "\(prefectureName)まで\(String(format: "%.2f", distance))kmかかるにゃん!少し時間がかかるけど、面白そうな場所がたくさんあるね！上のラッキースポットのカードを押して調べてみてネ"
         case 500..<700:
-            return "\(prefectureName)は新幹線で4時間くらいにゃ。飛行機だと1時間半くらいでビューンだ！車なら10時間かかるから、慎重に考えてネ。"
+            return "\(prefectureName)まで\(String(format: "%.2f", distance))kmかかるにゃん！遠いけど、面白そうな場所がたくさんあるよ！上のラッキースポットのカードを押して調べてみてネ"
         case 700...:
-            return "ふにゃ〜！\(prefectureName)は遠いにゃ〜。飛行機で2時間が一番楽だにゃ。新幹線で行くなら10時間くらい。車は20時間もかかるからやめたほうがいいヨ。"
+            return "ふにゃ〜！\(prefectureName)まで\(String(format: "%.2f", distance))kmかかるにゃ。だいぶ遠いにゃ〜。けど、面白そうな場所がたくさんあるよ。上のラッキースポットのカードを押して調べてみてネ"
         default:
             return "ごめんね。距離がわからなかったにゃん"
         }

@@ -56,10 +56,11 @@ struct MapView: View {
                 Text("現在地を取得中...")
                     .frame(height: 400)
             }
-
-            Text("Distance: \(calculateDistance(from: locationManager.userLocation ?? region.center, to: destination)) km")
-                .padding()
         }
+        .onAppear {
+                // distance を更新
+                distance = calculateDistance(from: locationManager.userLocation ?? region.center, to: destination)
+            }
     }
 
     func regionWithNewCenter(_ center: CLLocationCoordinate2D) -> MKCoordinateRegion {
