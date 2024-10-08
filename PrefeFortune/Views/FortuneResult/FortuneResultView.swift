@@ -19,6 +19,10 @@ struct FortuneResultView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
+                if let latitude = latitude, let longitude = longitude {
+                    // 緯度と経度をバインディングで渡す
+                    ContentView(latitude: .constant(latitude), longitude: .constant(longitude))
+                }
                 Spacer()
 
                 // ロゴ表示

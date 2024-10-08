@@ -9,17 +9,32 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
+import SwiftUI
+import MapKit
+
 struct ContentView: View {
-    @StateObject private var locationManager = LocationManager()
+    @StateObject private var locationManager = LocationManager()  // 現在地を管理
+
+    // デフォルトの地域（初期値として東京駅を設定）
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 35.6804, longitude: 139.7690),
         span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
     )
 
-    // 北海道の座標を指定
-    @State private var destination = CLLocationCoordinate2D(latitude: 43.06417, longitude: 141.34694)
+    // 緯度と経度を親ビューからバインディングで受け取る
+    @Binding var latitude: Double
+    @Binding var longitude: Double
 
-    @State private var route: MKRoute?
+    // バインディングされた値から目的地の座標を設定
+    @State private var destination: CLLocationCoordinate2D
+
+    @State private var route: MKRoute?  // ルートを格納
+
+    init(latitude: Binding<Double>, longitude: Binding<Double>) {
+        self._latitude = latitude
+        self._longitude = longitude
+        self._destination = State(initialValue: CLLocationCoordinate2D(latitude: latitude.wrappedValue, longitude: longitude.wrappedValue))
+    }
 
     var body: some View {
         VStack {
@@ -36,7 +51,7 @@ struct ContentView: View {
                 )
                 .frame(height: 400)
                 .onAppear {
-                    calculateRoute(from: userLocation, to: destination)
+                    calculateRoute(from: userLocation, to: destination)  // ルート計算
                 }
             } else {
                 Text("現在地を取得中...")
@@ -48,7 +63,6 @@ struct ContentView: View {
         }
     }
 
-    // 現在地を中心にしたマップのリージョンを設定
     func regionWithNewCenter(_ center: CLLocationCoordinate2D) -> MKCoordinateRegion {
         return MKCoordinateRegion(
             center: center,
@@ -56,7 +70,6 @@ struct ContentView: View {
         )
     }
 
-    // 2点間の距離を計算
     func calculateDistance(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D) -> Double {
         let fromLocation = CLLocation(latitude: from.latitude, longitude: from.longitude)
         let toLocation = CLLocation(latitude: to.latitude, longitude: to.longitude)
@@ -65,12 +78,11 @@ struct ContentView: View {
         return distanceInKilometers
     }
 
-    // ルートを計算
     func calculateRoute(from start: CLLocationCoordinate2D, to end: CLLocationCoordinate2D) {
         let request = MKDirections.Request()
         request.source = MKMapItem(placemark: MKPlacemark(coordinate: start))
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: end))
-        request.transportType = .automobile  // 車での移動ルートを計算
+        request.transportType = .automobile  // 車でのルートを計算
 
         let directions = MKDirections(request: request)
         directions.calculate { response, error in
@@ -79,43 +91,6 @@ struct ContentView: View {
                 return
             }
             self.route = route
-        }
-    }
-}
-
-struct MapAnnotationItem: Identifiable {
-    let id = UUID()
-    var coordinate: CLLocationCoordinate2D
-}
-
-// ルートの描画用オーバーレイ
-struct RouteOverlay: UIViewRepresentable {
-    let route: MKRoute
-
-    func makeUIView(context: Context) -> MKMapView {
-        let mapView = MKMapView()
-        mapView.delegate = context.coordinator
-        return mapView
-    }
-
-    func updateUIView(_ uiView: MKMapView, context: Context) {
-        uiView.removeOverlays(uiView.overlays)
-        uiView.addOverlay(route.polyline)  // ルートをオーバーレイとして追加
-    }
-
-    func makeCoordinator() -> Coordinator {
-        return Coordinator()
-    }
-
-    class Coordinator: NSObject, MKMapViewDelegate {
-        func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-            if let polyline = overlay as? MKPolyline {
-                let renderer = MKPolylineRenderer(polyline: polyline)
-                renderer.strokeColor = .blue
-                renderer.lineWidth = 5.0
-                return renderer
-            }
-            return MKOverlayRenderer()
         }
     }
 }
