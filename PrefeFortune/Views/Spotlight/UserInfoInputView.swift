@@ -15,6 +15,8 @@ struct UserInfoInputView: View {
     private let currentDay = today()
 
     @State private var navigateToResult: Bool = false
+    @State private var spotlightEnabled: Bool = true
+    @State private var spotlightingID: SpotlightBoundsKey.ID = 1 // スポットライトの最初のターゲット
     let bloodTypes = ["A", "B", "O", "AB"]
 
     var isFormComplete: Bool {
@@ -24,15 +26,19 @@ struct UserInfoInputView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    CatTypeAnimationView(lottieFile: "CatTypeAnimation")
-                        .frame(width: 270, height: 270)
-                        .padding(.horizontal, 10)
-                    NameInputField(name: $name)
-                    BirthdayInputView(birthday: $birthday)
-                    BloodTypePickerView(bloodType: $bloodType, bloodTypes: bloodTypes)
+
+                        NameInputField(name: $name)
+
+                        BirthdayInputView(birthday: $birthday)
+
+
+                        BloodTypePickerView(bloodType: $bloodType, bloodTypes: bloodTypes)
+                            .padding(.bottom, -30)
+
+
                     Spacer()
+
                     FortuneButton(isFormComplete: isFormComplete) {
                         if isFormComplete {
                             Task {
@@ -50,18 +56,19 @@ struct UserInfoInputView: View {
                             }
                         }
                     }
+
                 }
                 .padding()
                 .navigationDestination(isPresented: $navigateToResult) {
                     // 結果ビューに遷移し、必要なデータを渡す
                     FortuneResultView(fortuneAPIManager: fortuneAPIManager)
                 }
-            }
+
             .background(
                 Color.customRadialGradient
                     .ignoresSafeArea()
             )
+            .modifier(SpotlightModifier(enable: $spotlightEnabled, spotlightingID: $spotlightingID))
         }
     }
 }
-

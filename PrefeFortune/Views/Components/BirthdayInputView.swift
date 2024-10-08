@@ -16,8 +16,8 @@ struct BirthdayInputView: View {
             Text("あなたの誕生日を入れてね")
                 .font(.headline)
                 .foregroundColor(.white)
+                .padding(.bottom, 50)
 
-            ZStack {
                 DatePicker("選択してください", selection: $selectedDate, displayedComponents: [.date])
                     .datePickerStyle(GraphicalDatePickerStyle())
                     .environment(\.locale, Locale(identifier: "ja_JP"))
@@ -26,8 +26,9 @@ struct BirthdayInputView: View {
                     }
                     .padding(.horizontal, 20)
                     .foregroundColor(.white)
-            }
-            .inputFieldStyle()
+                    .inputFieldStyle()
+
+
         }
         .frame(maxWidth: .infinity)
         .padding()

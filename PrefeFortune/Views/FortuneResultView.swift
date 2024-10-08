@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct FortuneResultView: View {
     @ObservedObject var fortuneAPIManager: FortuneAPIManager
@@ -14,72 +15,51 @@ struct FortuneResultView: View {
     @State private var latitude: Double? = nil
     @State private var longitude: Double? = nil
     @State private var retryCount: Int = 0
+    @State private var distance: Double = 0.0
+
     private let maxRetryCount: Int = 3 // リトライの最大回数
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                if let latitude = latitude, let longitude = longitude {
-                    // 緯度と経度をバインディングで渡す
-                    ContentView(latitude: .constant(latitude), longitude: .constant(longitude))
-                }
+
                 Spacer()
 
-                // ロゴ表示
                 if let logoURL = fortuneAPIManager.decodedLogoURL {
                     PrefectureImageView(imageUrl: .constant(logoURL), prefectureName: $fortuneAPIManager.prefectureName)
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 20)
-                                .fill(.ultraThinMaterial)
-                                .shadow(color: .black.opacity(0.2), radius: 10, x: 5, y: 5)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .stroke(Color.white.opacity(0.5), lineWidth: 1)
-                                )
-                        )
-                        .frame(maxWidth: .infinity)
+                        .roundedBackground()
                         .padding(.horizontal, 30)
                 }
 
-                // 緯度経度が取得できた場合
+                if let latitude = latitude, let longitude = longitude {
+                    MapView(latitude: .constant(latitude), longitude: .constant(longitude), destination: .constant(CLLocationCoordinate2D(latitude: latitude, longitude: longitude)), distance: $distance)
+                        .roundedBackground()
+                        .padding(.top, 10)
+                }
+
                 if let latitude = latitude, let longitude = longitude {
                     if placesAPIManager.nearbyPlaces.isEmpty && retryCount < maxRetryCount {
                         Text("観光情報が見つかりませんでした。もう一度検索中です...")
                             .font(.body)
-                            .padding()
-                            .background(
-                                RoundedRectangle(cornerRadius: 20)
-                                    .fill(.ultraThinMaterial)
-                                    .shadow(color: .black.opacity(0.2), radius: 10, x: 5, y: 5)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 20)
-                                            .stroke(Color.white.opacity(0.5), lineWidth: 1)
-                                    )
-                            )
-                            .frame(maxWidth: .infinity)
+                            .roundedBackground()
                             .onAppear {
                                 retryLoadLocationData()
                             }
                     } else {
                         TouristCardView(placesManager: placesAPIManager, latitude: $latitude, longitude: $longitude)
-                            .padding()
-                            .frame(maxWidth: .infinity)
                     }
                 } else {
                     ProgressView("データを読み込んでいます...")
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 20)
-                                .fill(.ultraThinMaterial)
-                                .shadow(color: .black.opacity(0.2), radius: 10, x: 5, y: 5)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .stroke(Color.white.opacity(0.5), lineWidth: 1)
-                                )
-                        )
-                        .frame(maxWidth: .infinity)
+                        .roundedBackground()
                 }
+
+                FirstNavigationView(
+                    distance: $distance,
+                    prefectureName: Binding(
+                        get: { fortuneAPIManager.prefectureName ?? "不明な県" },  // nilなら"不明な県"を返す
+                        set: { fortuneAPIManager.prefectureName = $0 }  // バインディングされた値が変更された場合に更新
+                    )
+                )
 
                 Spacer()
             }
@@ -95,7 +75,6 @@ struct FortuneResultView: View {
             )
             .ignoresSafeArea()
         )
-
     }
 
     private func loadLocationData() {

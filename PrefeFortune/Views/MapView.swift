@@ -9,10 +9,7 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
-import SwiftUI
-import MapKit
-
-struct ContentView: View {
+struct MapView: View {
     @StateObject private var locationManager = LocationManager()  // 現在地を管理
 
     // デフォルトの地域（初期値として東京駅を設定）
@@ -24,42 +21,47 @@ struct ContentView: View {
     // 緯度と経度を親ビューからバインディングで受け取る
     @Binding var latitude: Double
     @Binding var longitude: Double
+    @Binding var distance: Double
 
     // バインディングされた値から目的地の座標を設定
-    @State private var destination: CLLocationCoordinate2D
+    @Binding private var destination: CLLocationCoordinate2D
 
     @State private var route: MKRoute?  // ルートを格納
 
-    init(latitude: Binding<Double>, longitude: Binding<Double>) {
+    init(latitude: Binding<Double>, longitude: Binding<Double>, destination: Binding<CLLocationCoordinate2D>, distance: Binding<Double>) {
         self._latitude = latitude
         self._longitude = longitude
-        self._destination = State(initialValue: CLLocationCoordinate2D(latitude: latitude.wrappedValue, longitude: longitude.wrappedValue))
+        self._destination = destination
+        self._distance = distance
     }
 
     var body: some View {
         VStack {
             if let userLocation = locationManager.userLocation {
                 Map(coordinateRegion: Binding(
-                        get: { regionWithNewCenter(userLocation) },
-                        set: { region = $0 }
+                    get: { regionWithNewCenter(userLocation) },
+                    set: { region = $0 }
                 ),
-                annotationItems: [MapAnnotationItem(coordinate: userLocation), MapAnnotationItem(coordinate: destination)]) { item in
+                    annotationItems: [MapAnnotationItem(coordinate: userLocation), MapAnnotationItem(coordinate: destination)]) { item in
                     MapPin(coordinate: item.coordinate, tint: .blue)
                 }
-                .overlay(
-                    route != nil ? AnyView(RouteOverlay(route: route!)) : AnyView(EmptyView())
-                )
-                .frame(height: 400)
-                .onAppear {
-                    calculateRoute(from: userLocation, to: destination)  // ルート計算
-                }
+                    .overlay(
+                        route != nil ? AnyView(RouteOverlay(route: route!)) : AnyView(EmptyView())
+                    )
+                    .modifier(CommonCardModifier())  // 統一されたスタイルを適用
+                    .frame(width: UIScreen.main.bounds.width * 0.85)
+                    .frame(height: UIScreen.main.bounds.width * 0.75)
+                    .cornerRadius(5)
+                    .onAppear {
+                        calculateRoute(from: userLocation, to: destination)
+                    }
             } else {
-                Text("現在地を取得中...")
-                    .frame(height: 400)
+                LoadingView()  // TouristCardViewと同じスタイルのローディングビュー
+                    .frame(height: 440)
             }
-
-            Text("Distance: \(calculateDistance(from: locationManager.userLocation ?? region.center, to: destination)) km")
-                .padding()
+        }
+        .onAppear {
+            distance = calculateDistance(from: locationManager.userLocation ?? region.center, to: destination)
         }
     }
 
