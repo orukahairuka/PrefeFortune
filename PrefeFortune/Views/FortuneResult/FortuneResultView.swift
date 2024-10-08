@@ -40,7 +40,6 @@ struct FortuneResultView: View {
                             }
                     } else {
                         TouristCardView(placesManager: placesAPIManager, latitude: $latitude, longitude: $longitude)
-                            .roundedBackground()
                     }
                 } else {
                     ProgressView("データを読み込んでいます...")

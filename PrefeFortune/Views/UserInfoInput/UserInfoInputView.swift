@@ -26,21 +26,23 @@ struct UserInfoInputView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    CatTypeAnimationView(lottieFile: "CatTypeAnimation")
-                        .frame(width: 270, height: 270)
-                        .padding(.horizontal, 10)
-                        .spotlightAnchor(at: 1) // スポットライトID 1
+//                    CatTypeAnimationView(lottieFile: "CatTypeAnimation")
+//                        .frame(width: 270, height: 270)
+//                        .padding(.horizontal, 10)
+//                        .spotlightAnchor(at: 1) // スポットライトID 1
 
                     NameInputField(name: $name)
-                        .spotlightAnchor(at: 2) // スポットライトID 2
+                        .spotlightAnchor(at: 1) // スポットライトID 2
 
                     BirthdayInputView(birthday: $birthday)
-                        .spotlightAnchor(at: 3) // スポットライトID 3
+
+                        .spotlightAnchor(at: 2) // スポットライトID 3
 
                     BloodTypePickerView(bloodType: $bloodType, bloodTypes: bloodTypes)
-                        .spotlightAnchor(at: 4) // スポットライトID 4
+                        .padding(.bottom, -30)
+
+                        .spotlightAnchor(at: 3) // スポットライトID 4
 
                     Spacer()
 
@@ -61,13 +63,16 @@ struct UserInfoInputView: View {
                             }
                         }
                     }
+                    .border(Color.black)
+                    .spotlightAnchor(at: 4) // スポットライトID 4
+
                 }
                 .padding()
                 .navigationDestination(isPresented: $navigateToResult) {
                     // 結果ビューに遷移し、必要なデータを渡す
                     FortuneResultView(fortuneAPIManager: fortuneAPIManager)
                 }
-            }
+
             .background(
                 Color.customRadialGradient
                     .ignoresSafeArea()
