@@ -27,7 +27,7 @@
 		3B8006962CB5303D00D3010B /* SpotlightModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8006952CB5303D00D3010B /* SpotlightModifier.swift */; };
 		3B8006982CB5305C00D3010B /* SpotlightBoundsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8006972CB5305C00D3010B /* SpotlightBoundsKey.swift */; };
 		3B80069E2CB55E9E00D3010B /* UserInfoInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B80069D2CB55E9D00D3010B /* UserInfoInputView.swift */; };
-		3B8006A02CB55EC200D3010B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B80069F2CB55EC100D3010B /* ContentView.swift */; };
+		3B8006A22CB5632200D3010B /* FirstNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8006A12CB5632200D3010B /* FirstNavigationView.swift */; };
 		3B9420A72CB118FB00218C84 /* pref_lat_lon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */; };
 		3BA8048A2CB16FEE00BEDC1C /* BirthdayInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */; };
 		3BA8048B2CB16FEE00BEDC1C /* BloodTypePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804852CB16FEE00BEDC1C /* BloodTypePickerView.swift */; };
@@ -92,7 +92,7 @@
 		3B8006952CB5303D00D3010B /* SpotlightModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightModifier.swift; sourceTree = "<group>"; };
 		3B8006972CB5305C00D3010B /* SpotlightBoundsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightBoundsKey.swift; sourceTree = "<group>"; };
 		3B80069D2CB55E9D00D3010B /* UserInfoInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfoInputView.swift; path = Spotlight/UserInfoInputView.swift; sourceTree = "<group>"; };
-		3B80069F2CB55EC100D3010B /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3B8006A12CB5632200D3010B /* FirstNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstNavigationView.swift; sourceTree = "<group>"; };
 		3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pref_lat_lon.csv; sourceTree = "<group>"; };
 		3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayInputView.swift; sourceTree = "<group>"; };
 		3BA804852CB16FEE00BEDC1C /* BloodTypePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodTypePickerView.swift; sourceTree = "<group>"; };
@@ -251,12 +251,12 @@
 				3B8006912CB52D0300D3010B /* GoogleSearchWebView.swift */,
 				3B46D3E72CB3943F002745CC /* FortuneResultView.swift */,
 				3B80069D2CB55E9D00D3010B /* UserInfoInputView.swift */,
-				3B80069F2CB55EC100D3010B /* ContentView.swift */,
 				3BA8048E2CB1703100BEDC1C /* TouristCard */,
 				3BA804812CB16FB700BEDC1C /* PrefectureImage */,
 				3BB4BF592CAF898A00AD4C29 /* Components */,
 				3B5BC86E2CB3A22D00EB878C /* Lottie */,
 				3B5BC86C2CB3A1DE00EB878C /* Spotlight */,
+				3B8006A12CB5632200D3010B /* FirstNavigationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -498,6 +498,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B8006A22CB5632200D3010B /* FirstNavigationView.swift in Sources */,
 				3B8006922CB52D0300D3010B /* GoogleSearchWebView.swift in Sources */,
 				3B50A1CA2CB0D0DC00539F07 /* TouristCardView.swift in Sources */,
 				3B5F71D72CB3D4E300689298 /* ColorExtension.swift in Sources */,
@@ -514,7 +515,6 @@
 				3B7044172CB19F2E00EF6553 /* TouristCard.swift in Sources */,
 				3B7044192CB19F6D00EF6553 /* PlaceImageView.swift in Sources */,
 				3B8006942CB52DE600D3010B /* RoudedBackground.swift in Sources */,
-				3B8006A02CB55EC200D3010B /* ContentView.swift in Sources */,
 				3BD1E6152CB4D97F005492CC /* MapView.swift in Sources */,
 				3BA804902CB1709C00BEDC1C /* AsyncImageLoadingView.swift in Sources */,
 				3BAA1DBE2CB4DDDB00751344 /* RouteOverlay.swift in Sources */,

@@ -12,7 +12,7 @@ import CoreLocation
 import SwiftUI
 import MapKit
 
-struct ContentView: View {
+struct MapView: View {
     @StateObject private var locationManager = LocationManager()  // 現在地を管理
 
     // デフォルトの地域（初期値として東京駅を設定）
