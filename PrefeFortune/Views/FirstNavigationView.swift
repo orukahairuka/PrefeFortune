@@ -19,7 +19,7 @@ struct FirstNavigationView: View {
                     .scaledToFit()
                     .scaleEffect(x: -1, y: 1)
                 CatTravelText(distance: distance, prefectureName: prefectureName)
-                    .frame(width: 350, height: 200)
+                    .frame(width: 360, height: 210)
             }
                 .offset(y: 30)
             CatTypeAnimationView(lottieFile: "CatTypeAnimation")
@@ -46,7 +46,7 @@ struct CatTravelText: View {
     func catTravelAdvice(for distance: Double, prefectureName: String) -> String {
         switch distance {
         case 0..<150:
-            return "\(prefectureName)まで\(String(distance))kmあるにゃん！実は、上のラッキースポットのカードを押すとスポットの検索ができるにゃん。面白そうな場所だね"
+            return "\(prefectureName)まで\(String(format: "%.2f", distance)) kmあるにゃん！実は、上のラッキースポットのカードを押すとスポットの検索ができるにゃん。面白そうな場所だね"
         case 150..<500:
             return "\(prefectureName)まで\(String(format: "%.2f", distance))kmかかるにゃん!少し時間がかかるけど、面白そうな場所がたくさんあるね！上のラッキースポットのカードを押して調べてみてネ"
         case 500..<700:

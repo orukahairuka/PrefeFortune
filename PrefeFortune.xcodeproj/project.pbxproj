@@ -188,7 +188,6 @@
 		3B5BC86C2CB3A1DE00EB878C /* Spotlight */ = {
 			isa = PBXGroup;
 			children = (
-				3B8006952CB5303D00D3010B /* SpotlightModifier.swift */,
 				3B8006972CB5305C00D3010B /* SpotlightBoundsKey.swift */,
 			);
 			path = Spotlight;
@@ -221,7 +220,6 @@
 				3B50A1C92CB0D0DC00539F07 /* TouristCardView.swift */,
 				3B7044162CB19F2E00EF6553 /* TouristCard.swift */,
 				3B7044182CB19F6D00EF6553 /* PlaceImageView.swift */,
-				3BB0EB1D2CB41FC30048A044 /* TouristCardModifire.swift */,
 			);
 			path = TouristCard;
 			sourceTree = "<group>";
@@ -267,7 +265,6 @@
 				3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */,
 				3BA804862CB16FEE00BEDC1C /* NameInputField.swift */,
 				3BA804852CB16FEE00BEDC1C /* BloodTypePickerView.swift */,
-				3BB0EB1F2CB420080048A044 /* InputFieldBackgroundModifier.swift */,
 				3BA804872CB16FEE00BEDC1C /* FortuneButton.swift */,
 			);
 			path = Components;
@@ -276,6 +273,9 @@
 		3BB4BF5A2CAF8A7900AD4C29 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3B8006952CB5303D00D3010B /* SpotlightModifier.swift */,
+				3BB0EB1D2CB41FC30048A044 /* TouristCardModifire.swift */,
+				3BB0EB1F2CB420080048A044 /* InputFieldBackgroundModifier.swift */,
 				3B5F71D62CB3D4E300689298 /* ColorExtension.swift */,
 				3BCC915B2CB3DE9D00FDB9D1 /* YearMonthDayExtension.swift */,
 				3B8006932CB52DE600D3010B /* RoudedBackground.swift */,

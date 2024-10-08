@@ -33,6 +33,8 @@ struct FortuneResultView: View {
 
                 if let latitude = latitude, let longitude = longitude {
                     MapView(latitude: .constant(latitude), longitude: .constant(longitude), destination: .constant(CLLocationCoordinate2D(latitude: latitude, longitude: longitude)), distance: $distance)
+                        .roundedBackground()
+                        .padding(.top, 10)
                 }
 
                 if let latitude = latitude, let longitude = longitude {

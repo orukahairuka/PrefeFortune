@@ -39,28 +39,30 @@ struct MapView: View {
         VStack {
             if let userLocation = locationManager.userLocation {
                 Map(coordinateRegion: Binding(
-                        get: { regionWithNewCenter(userLocation) },
-                        set: { region = $0 }
+                    get: { regionWithNewCenter(userLocation) },
+                    set: { region = $0 }
                 ),
-                annotationItems: [MapAnnotationItem(coordinate: userLocation), MapAnnotationItem(coordinate: destination)]) { item in
+                    annotationItems: [MapAnnotationItem(coordinate: userLocation), MapAnnotationItem(coordinate: destination)]) { item in
                     MapPin(coordinate: item.coordinate, tint: .blue)
                 }
-                .overlay(
-                    route != nil ? AnyView(RouteOverlay(route: route!)) : AnyView(EmptyView())
-                )
-                .frame(height: 400)
-                .onAppear {
-                    calculateRoute(from: userLocation, to: destination)  // ルート計算
-                }
+                    .overlay(
+                        route != nil ? AnyView(RouteOverlay(route: route!)) : AnyView(EmptyView())
+                    )
+                    .modifier(CommonCardModifier())  // 統一されたスタイルを適用
+                    .frame(width: UIScreen.main.bounds.width * 0.85)
+                    .frame(height: UIScreen.main.bounds.width * 0.75)
+                    .cornerRadius(5)
+                    .onAppear {
+                        calculateRoute(from: userLocation, to: destination)
+                    }
             } else {
-                Text("現在地を取得中...")
-                    .frame(height: 400)
+                LoadingView()  // TouristCardViewと同じスタイルのローディングビュー
+                    .frame(height: 440)
             }
         }
         .onAppear {
-                // distance を更新
-                distance = calculateDistance(from: locationManager.userLocation ?? region.center, to: destination)
-            }
+            distance = calculateDistance(from: locationManager.userLocation ?? region.center, to: destination)
+        }
     }
 
     func regionWithNewCenter(_ center: CLLocationCoordinate2D) -> MKCoordinateRegion {
