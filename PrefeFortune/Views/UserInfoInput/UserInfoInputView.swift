@@ -15,6 +15,8 @@ struct UserInfoInputView: View {
     private let currentDay = today()
 
     @State private var navigateToResult: Bool = false
+    @State private var spotlightEnabled: Bool = true
+    @State private var spotlightingID: SpotlightBoundsKey.ID = 1 // スポットライトの最初のターゲット
     let bloodTypes = ["A", "B", "O", "AB"]
 
     var isFormComplete: Bool {
@@ -29,10 +31,19 @@ struct UserInfoInputView: View {
                     CatTypeAnimationView(lottieFile: "CatTypeAnimation")
                         .frame(width: 270, height: 270)
                         .padding(.horizontal, 10)
+                        .spotlightAnchor(at: 1) // スポットライトID 1
+
                     NameInputField(name: $name)
+                        .spotlightAnchor(at: 2) // スポットライトID 2
+
                     BirthdayInputView(birthday: $birthday)
+                        .spotlightAnchor(at: 3) // スポットライトID 3
+
                     BloodTypePickerView(bloodType: $bloodType, bloodTypes: bloodTypes)
+                        .spotlightAnchor(at: 4) // スポットライトID 4
+
                     Spacer()
+
                     FortuneButton(isFormComplete: isFormComplete) {
                         if isFormComplete {
                             Task {
@@ -61,7 +72,7 @@ struct UserInfoInputView: View {
                 Color.customRadialGradient
                     .ignoresSafeArea()
             )
+            .modifier(SpotlightModifier(enable: $spotlightEnabled, spotlightingID: $spotlightingID))
         }
     }
 }
-

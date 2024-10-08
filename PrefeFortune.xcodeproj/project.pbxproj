@@ -24,6 +24,8 @@
 		3B7044192CB19F6D00EF6553 /* PlaceImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7044182CB19F6D00EF6553 /* PlaceImageView.swift */; };
 		3B8006922CB52D0300D3010B /* GoogleSearchWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8006912CB52D0300D3010B /* GoogleSearchWebView.swift */; };
 		3B8006942CB52DE600D3010B /* RoudedBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8006932CB52DE600D3010B /* RoudedBackground.swift */; };
+		3B8006962CB5303D00D3010B /* SpotlightModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8006952CB5303D00D3010B /* SpotlightModifier.swift */; };
+		3B8006982CB5305C00D3010B /* SpotlightBoundsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8006972CB5305C00D3010B /* SpotlightBoundsKey.swift */; };
 		3B9420A72CB118FB00218C84 /* pref_lat_lon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */; };
 		3BA804742CB16E2500BEDC1C /* UserInfoInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804732CB16E2500BEDC1C /* UserInfoInputView.swift */; };
 		3BA8048A2CB16FEE00BEDC1C /* BirthdayInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */; };
@@ -87,6 +89,8 @@
 		3B7044182CB19F6D00EF6553 /* PlaceImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceImageView.swift; sourceTree = "<group>"; };
 		3B8006912CB52D0300D3010B /* GoogleSearchWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleSearchWebView.swift; sourceTree = "<group>"; };
 		3B8006932CB52DE600D3010B /* RoudedBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoudedBackground.swift; sourceTree = "<group>"; };
+		3B8006952CB5303D00D3010B /* SpotlightModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightModifier.swift; sourceTree = "<group>"; };
+		3B8006972CB5305C00D3010B /* SpotlightBoundsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightBoundsKey.swift; sourceTree = "<group>"; };
 		3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pref_lat_lon.csv; sourceTree = "<group>"; };
 		3BA804732CB16E2500BEDC1C /* UserInfoInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoInputView.swift; sourceTree = "<group>"; };
 		3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayInputView.swift; sourceTree = "<group>"; };
@@ -261,6 +265,8 @@
 				3B5BC86D2CB3A20A00EB878C /* FortuneResult */,
 				3B5BC86C2CB3A1DE00EB878C /* UserInfoInput */,
 				3BB4BF592CAF898A00AD4C29 /* Components */,
+				3B8006952CB5303D00D3010B /* SpotlightModifier.swift */,
+				3B8006972CB5305C00D3010B /* SpotlightBoundsKey.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -507,9 +513,11 @@
 				3BA8048B2CB16FEE00BEDC1C /* BloodTypePickerView.swift in Sources */,
 				3B50A1D32CB0EA8C00539F07 /* dayModel.swift in Sources */,
 				3B50A1CC2CB0D22000539F07 /* PlacesAPIModel.swift in Sources */,
+				3B8006962CB5303D00D3010B /* SpotlightModifier.swift in Sources */,
 				3B5BC8742CB3AA8600EB878C /* ClackerAnimationView.swift in Sources */,
 				3BD1E60F2CB43121005492CC /* BallonTail.swift in Sources */,
 				3BA804922CB170BE00BEDC1C /* FailureView.swift in Sources */,
+				3B8006982CB5305C00D3010B /* SpotlightBoundsKey.swift in Sources */,
 				3BB4BF5C2CAF8B4400AD4C29 /* FortuneAPIModels.swift in Sources */,
 				3B50A1D12CB0E41100539F07 /* today.swift in Sources */,
 				3BB4BF5E2CAF8B7C00AD4C29 /* FortuneAPIManager.swift in Sources */,
