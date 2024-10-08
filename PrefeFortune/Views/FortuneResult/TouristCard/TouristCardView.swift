@@ -14,50 +14,20 @@ struct TouristCardView: View {
     var body: some View {
         VStack {
             if placesManager.isLoading {
-                ProgressView("Loading nearby places...")
+                LoadingView()
                     .frame(height: 360)
-                    .background(
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(.ultraThinMaterial)
-                            .shadow(color: .black.opacity(0.2), radius: 10, x: 5, y: 5)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 20)
-                                    .stroke(Color.white.opacity(0.5), lineWidth: 1)
-                            )
-                    )
-                    .padding(.horizontal)
             } else if placesManager.nearbyPlaces.isEmpty {
-                Text("No nearby tourist spots found.")
+                MessageView(message: "No nearby tourist spots found.")
                     .frame(height: 360)
-                    .foregroundColor(.gray)
-                    .background(
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(.ultraThinMaterial)
-                            .shadow(color: .black.opacity(0.2), radius: 5, x: 0.2, y: 2)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 20)
-                                    .stroke(Color.white.opacity(0.5), lineWidth: 1)
-                            )
-                    )
-                    .padding(.horizontal)
             } else {
-                TabView {
-                    ForEach(placesManager.nearbyPlaces) { place in
-                        TouristCard(place: place)
-                    }
-                }
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-                .frame(height: 440)
-                .padding(.bottom, 10)
+                TouristPlacesTabView(places: placesManager.nearbyPlaces)
+                    .frame(height: 440)
+                    .padding(.bottom, 10)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .onChange(of: latitude) { _ in
-            updatePlaces()
-        }
-        .onChange(of: longitude) { _ in
-            updatePlaces()
-        }
+        .onChange(of: latitude) { _ in updatePlaces() }
+        .onChange(of: longitude) { _ in updatePlaces() }
     }
 
     private func updatePlaces() {
@@ -66,3 +36,27 @@ struct TouristCardView: View {
         }
     }
 }
+
+struct MessageView: View {
+    let message: String
+
+    var body: some View {
+        Text(message)
+            .foregroundColor(.gray)
+            .modifier(CommonCardModifier())
+    }
+}
+
+struct TouristPlacesTabView: View {
+    let places: [Place]
+
+    var body: some View {
+        TabView {
+            ForEach(places) { place in
+                TouristCard(place: place)
+            }
+        }
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+    }
+}
+

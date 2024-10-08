@@ -17,13 +17,6 @@ struct NameInputField: View {
                 .foregroundColor(.white)
 
             ZStack {
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(.ultraThinMaterial)
-                    .shadow(color: .black.opacity(0.2), radius: 10, x: 5, y: 5)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.white.opacity(0.5), lineWidth: 1)
-                    )
                 HStack {
                     TextField("名前を入力してください", text: $name)
                         .font(.body)
@@ -32,13 +25,13 @@ struct NameInputField: View {
                 }
                 .padding(.horizontal)
             }
-            .frame(maxWidth: .infinity, minHeight: 60)
-            .padding(.horizontal, 30)
+            .inputFieldStyle()
         }
         .frame(maxWidth: .infinity)
         .padding()
     }
 }
+
 // MARK: - Preview
 
 //#Preview内でStateが使えないためラップビュー追加

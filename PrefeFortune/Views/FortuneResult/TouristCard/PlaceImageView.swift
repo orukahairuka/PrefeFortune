@@ -22,9 +22,9 @@ struct PlaceImageView: View {
                 case .success(let image):
                     image
                         .resizable()
-                        .aspectRatio(contentMode: .fit) // 画像がフレーム内に収まるように変更
-                        .frame(maxWidth: .infinity) // 親ビューの幅に合わせる
-                        .frame(height: 250) // 高さを統一して指定
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 250)
                         .cornerRadius(20)
                         .clipped()
                 case .failure:
