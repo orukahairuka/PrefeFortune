@@ -22,6 +22,8 @@
 		3B5F71D72CB3D4E300689298 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5F71D62CB3D4E300689298 /* ColorExtension.swift */; };
 		3B7044172CB19F2E00EF6553 /* TouristCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7044162CB19F2E00EF6553 /* TouristCard.swift */; };
 		3B7044192CB19F6D00EF6553 /* PlaceImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7044182CB19F6D00EF6553 /* PlaceImageView.swift */; };
+		3B8006922CB52D0300D3010B /* GoogleSearchWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8006912CB52D0300D3010B /* GoogleSearchWebView.swift */; };
+		3B8006942CB52DE600D3010B /* RoudedBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8006932CB52DE600D3010B /* RoudedBackground.swift */; };
 		3B9420A72CB118FB00218C84 /* pref_lat_lon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */; };
 		3BA804742CB16E2500BEDC1C /* UserInfoInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804732CB16E2500BEDC1C /* UserInfoInputView.swift */; };
 		3BA8048A2CB16FEE00BEDC1C /* BirthdayInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */; };
@@ -83,6 +85,8 @@
 		3B5F71D62CB3D4E300689298 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		3B7044162CB19F2E00EF6553 /* TouristCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristCard.swift; sourceTree = "<group>"; };
 		3B7044182CB19F6D00EF6553 /* PlaceImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceImageView.swift; sourceTree = "<group>"; };
+		3B8006912CB52D0300D3010B /* GoogleSearchWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleSearchWebView.swift; sourceTree = "<group>"; };
+		3B8006932CB52DE600D3010B /* RoudedBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoudedBackground.swift; sourceTree = "<group>"; };
 		3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pref_lat_lon.csv; sourceTree = "<group>"; };
 		3BA804732CB16E2500BEDC1C /* UserInfoInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoInputView.swift; sourceTree = "<group>"; };
 		3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayInputView.swift; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				3B46D3E72CB3943F002745CC /* FortuneResultView.swift */,
+				3B8006912CB52D0300D3010B /* GoogleSearchWebView.swift */,
 				3BA804812CB16FB700BEDC1C /* PrefectureImage */,
 				3BA8048E2CB1703100BEDC1C /* TouristCard */,
 			);
@@ -274,6 +279,7 @@
 			children = (
 				3B5F71D62CB3D4E300689298 /* ColorExtension.swift */,
 				3BCC915B2CB3DE9D00FDB9D1 /* YearMonthDayExtension.swift */,
+				3B8006932CB52DE600D3010B /* RoudedBackground.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -494,6 +500,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B8006922CB52D0300D3010B /* GoogleSearchWebView.swift in Sources */,
 				3BA804742CB16E2500BEDC1C /* UserInfoInputView.swift in Sources */,
 				3B50A1CA2CB0D0DC00539F07 /* TouristCardView.swift in Sources */,
 				3B5F71D72CB3D4E300689298 /* ColorExtension.swift in Sources */,
@@ -508,6 +515,7 @@
 				3BB4BF5E2CAF8B7C00AD4C29 /* FortuneAPIManager.swift in Sources */,
 				3B7044172CB19F2E00EF6553 /* TouristCard.swift in Sources */,
 				3B7044192CB19F6D00EF6553 /* PlaceImageView.swift in Sources */,
+				3B8006942CB52DE600D3010B /* RoudedBackground.swift in Sources */,
 				3BD1E6152CB4D97F005492CC /* MapView.swift in Sources */,
 				3BA804902CB1709C00BEDC1C /* AsyncImageLoadingView.swift in Sources */,
 				3BAA1DBE2CB4DDDB00751344 /* RouteOverlay.swift in Sources */,
