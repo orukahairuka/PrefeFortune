@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct FortuneResultView: View {
     @ObservedObject var fortuneAPIManager: FortuneAPIManager
@@ -14,13 +15,15 @@ struct FortuneResultView: View {
     @State private var latitude: Double? = nil
     @State private var longitude: Double? = nil
     @State private var retryCount: Int = 0
+    @State private var distance: Double = 0.0
+
     private let maxRetryCount: Int = 3 // リトライの最大回数
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 if let latitude = latitude, let longitude = longitude {
-                    ContentView(latitude: .constant(latitude), longitude: .constant(longitude))
+                    MapView(latitude: .constant(latitude), longitude: .constant(longitude), destination: .constant(CLLocationCoordinate2D(latitude: latitude, longitude: longitude)), distance: $distance)
                 }
                 Spacer()
 
@@ -29,6 +32,14 @@ struct FortuneResultView: View {
                         .roundedBackground()
                         .padding(.horizontal, 30)
                 }
+
+                FirstNavigationView(
+                    distance: $distance,
+                    prefectureName: Binding(
+                        get: { fortuneAPIManager.prefectureName ?? "不明な県" },  // nilなら"不明な県"を返す
+                        set: { fortuneAPIManager.prefectureName = $0 }  // バインディングされた値が変更された場合に更新
+                    )
+                )
 
                 if let latitude = latitude, let longitude = longitude {
                     if placesAPIManager.nearbyPlaces.isEmpty && retryCount < maxRetryCount {

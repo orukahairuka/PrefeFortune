@@ -9,9 +9,6 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
-import SwiftUI
-import MapKit
-
 struct MapView: View {
     @StateObject private var locationManager = LocationManager()  // 現在地を管理
 
@@ -24,16 +21,18 @@ struct MapView: View {
     // 緯度と経度を親ビューからバインディングで受け取る
     @Binding var latitude: Double
     @Binding var longitude: Double
+    @Binding var distance: Double
 
     // バインディングされた値から目的地の座標を設定
-    @State private var destination: CLLocationCoordinate2D
+    @Binding private var destination: CLLocationCoordinate2D
 
     @State private var route: MKRoute?  // ルートを格納
 
-    init(latitude: Binding<Double>, longitude: Binding<Double>) {
+    init(latitude: Binding<Double>, longitude: Binding<Double>, destination: Binding<CLLocationCoordinate2D>, distance: Binding<Double>) {
         self._latitude = latitude
         self._longitude = longitude
-        self._destination = State(initialValue: CLLocationCoordinate2D(latitude: latitude.wrappedValue, longitude: longitude.wrappedValue))
+        self._destination = destination
+        self._distance = distance
     }
 
     var body: some View {

@@ -20,11 +20,9 @@ struct SpotlightModifier: ViewModifier {
                         Rectangle()
                             .fill(.ultraThinMaterial)
                             .environment(\.colorScheme, .dark)
-                            .opacity(enable ? 0.5 : 0)
+                            .opacity(enable ? 0.7 : 0)
                             .reverseMask(alignment: .topLeading) { // 修正された reverseMask を適用
                                 RoundedRectangle(cornerRadius: 8)
-                                    .frame(width: rect.width, height: rect.height)
-                                    .offset(x: rect.minX, y: rect.minY)
                             }
                             .onTapGesture {
                                 if spotlightingID < 3 {
