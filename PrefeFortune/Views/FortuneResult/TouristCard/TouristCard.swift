@@ -6,38 +6,42 @@
 //
 
 import SwiftUI
+import WebKit
 
 struct TouristCard: View {
 
     let place: Place
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            PlaceImageView(photoReference: place.photoReference)
-                .frame(height: 250)
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-                .clipped()
+        NavigationLink(destination: PlaceSearchWebView(query: place.name)) {
+            VStack(alignment: .leading, spacing: 8) {
+                PlaceImageView(photoReference: place.photoReference)
+                    .frame(height: 250)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .clipped()
 
-            VStack(alignment: .leading, spacing: 4) {
-                Text(place.name)
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .lineLimit(1)
-                    .foregroundColor(.white)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(place.name)
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .lineLimit(1)
+                        .foregroundColor(.white)
 
-                Text(place.vicinity)
-                    .font(.subheadline)
-                    .foregroundColor(.white.opacity(0.7))
-                    .lineLimit(2)
+                    Text(place.vicinity)
+                        .font(.subheadline)
+                        .foregroundColor(.white.opacity(0.7))
+                        .lineLimit(2)
 
-                if let rating = place.rating {
-                    RatingView(rating: rating)
+                    if let rating = place.rating {
+                        RatingView(rating: rating)
+                    }
                 }
+                .padding([.horizontal, .bottom])
             }
-            .padding([.horizontal, .bottom])
+            .frame(width: UIScreen.main.bounds.width * 0.85)
+            .modifier(CommonCardModifier())
+            .padding(.horizontal, 10)
         }
-        .frame(width: UIScreen.main.bounds.width * 0.85)
-        .modifier(CommonCardModifier())
-        .padding(.horizontal, 10)
+        .buttonStyle(PlainButtonStyle())
     }
 }
 
@@ -58,5 +62,24 @@ struct RatingView: View {
     }
 }
 
+struct PlaceSearchWebView: UIViewRepresentable {
+    let query: String
 
+    func makeUIView(context: Context) -> WKWebView {
+        let webView = WKWebView()
 
+        if let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+            let urlString = "https://www.google.com/search?q=\(encodedQuery)"
+            if let url = URL(string: urlString) {
+                let request = URLRequest(url: url)
+                webView.load(request)
+            }
+        }
+
+        return webView
+    }
+
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        print("🤩")
+    }
+}
