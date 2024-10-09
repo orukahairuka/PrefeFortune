@@ -5,10 +5,12 @@
 //  Created by 櫻井絵理香 on 2024/10/08.
 //
 
+//白いすけた透明部分のフレーム
+
 import SwiftUI
 
 extension View {
-    func roundedBackground() -> some View {
+    func whiteRounded() -> some View {
         self
             .padding()
             .background(

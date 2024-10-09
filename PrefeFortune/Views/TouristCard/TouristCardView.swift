@@ -43,7 +43,7 @@ struct MessageView: View {
     var body: some View {
         Text(message)
             .foregroundColor(.gray)
-            .modifier(CommonCardModifier())
+            .whiteRounded()
     }
 }
 

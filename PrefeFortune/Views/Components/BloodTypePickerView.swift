@@ -40,7 +40,7 @@ struct BloodTypePickerView: View {
                 }
                 .padding()
             }
-            .inputFieldStyle()
+            .whiteRounded()
         }
         .frame(maxWidth: .infinity)
         .padding()

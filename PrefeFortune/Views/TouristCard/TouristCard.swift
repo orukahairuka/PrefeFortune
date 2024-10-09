@@ -38,7 +38,7 @@ struct TouristCard: View {
                 .padding([.horizontal, .bottom])
             }
             .frame(width: UIScreen.main.bounds.width * 0.85)
-            .modifier(CommonCardModifier())
+            .whiteRounded()
             .padding(.horizontal, 10)
         }
         .buttonStyle(PlainButtonStyle())

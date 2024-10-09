@@ -26,7 +26,6 @@ struct FirstNavigationView: View {
             CatTypeAnimationView(lottieFile: "CatTypeAnimation")
                 .frame(width:400, height: 300)
                 .padding(.horizontal, 10)
-                .spotlightAnchor(at: 1)
         }
     }
 }

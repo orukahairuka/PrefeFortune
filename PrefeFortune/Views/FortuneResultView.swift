@@ -27,13 +27,13 @@ struct FortuneResultView: View {
 
                 if let logoURL = fortuneAPIManager.decodedLogoURL {
                     PrefectureImageView(imageUrl: .constant(logoURL), prefectureName: $fortuneAPIManager.prefectureName)
-                        .roundedBackground()
+                        .whiteRounded()
                         .padding(.horizontal, 30)
                 }
 
                 if let latitude = latitude, let longitude = longitude {
                     MapView(latitude: .constant(latitude), longitude: .constant(longitude), destination: .constant(CLLocationCoordinate2D(latitude: latitude, longitude: longitude)), distance: $distance)
-                        .roundedBackground()
+                        .whiteRounded()
                         .padding(.top, 10)
                 }
 
@@ -41,7 +41,7 @@ struct FortuneResultView: View {
                     if placesAPIManager.nearbyPlaces.isEmpty && retryCount < maxRetryCount {
                         Text("観光情報が見つかりませんでした。もう一度検索中です...")
                             .font(.body)
-                            .roundedBackground()
+                            .whiteRounded()
                             .onAppear {
                                 retryLoadLocationData()
                             }
@@ -50,7 +50,7 @@ struct FortuneResultView: View {
                     }
                 } else {
                     ProgressView("データを読み込んでいます...")
-                        .roundedBackground()
+                        .whiteRounded()
                 }
 
                 FirstNavigationView(
@@ -67,8 +67,6 @@ struct FortuneResultView: View {
                 loadLocationData()
             }
         }
-        // カスタムナビゲーションバーを設定
-        .customNavigationBar(title: "占い結果")
         .background(
             LinearGradient(
                 gradient: Gradient(colors: [Color.customPinkColor, Color.customBlueColor]),

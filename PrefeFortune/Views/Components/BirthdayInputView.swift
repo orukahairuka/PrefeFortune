@@ -27,7 +27,7 @@ struct BirthdayInputView: View {
                     .padding(.horizontal, 20)
                     .padding(.bottom, 10)
                     .foregroundColor(.white)
-                    .inputFieldStyle()
+                    .whiteRounded()
 
 
         }
