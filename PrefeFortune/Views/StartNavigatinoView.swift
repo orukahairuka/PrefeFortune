@@ -63,6 +63,7 @@ struct StartNavigationView: View {
                 .shadow(color: .black.opacity(0.3), radius: 10, x: 1, y: 1)
 
             Text(displayedText)
+                .foregroundStyle(Color.black)
                 .fontWeight(.bold)
                 .frame(width: 360, height: 210)
                 .multilineTextAlignment(.center)

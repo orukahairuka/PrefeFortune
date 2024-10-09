@@ -19,6 +19,7 @@ struct FirstNavigationView: View {
                     .scaledToFit()
                     .scaleEffect(x: -1, y: 1)
                 CatTravelText(distance: distance, prefectureName: prefectureName)
+                    .foregroundColor(Color.black)
                     .frame(width: 360, height: 210)
             }
                 .offset(y: 30)
