@@ -67,6 +67,8 @@ struct FortuneResultView: View {
                 loadLocationData()
             }
         }
+        // カスタムナビゲーションバーを設定
+        .customNavigationBar(title: "占い結果")
         .background(
             LinearGradient(
                 gradient: Gradient(colors: [Color.customPinkColor, Color.customBlueColor]),
