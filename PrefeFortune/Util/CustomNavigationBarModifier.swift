@@ -41,12 +41,6 @@ struct CustomNavigationBarModifier: ViewModifier {
                     }
                 }
 
-                ToolbarItem(placement: .principal) {
-                    Text(title)
-                        .font(.headline)
-                        .foregroundColor(.white) // タイトルの色
-                }
-
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         print("右側のボタンが押されました")
