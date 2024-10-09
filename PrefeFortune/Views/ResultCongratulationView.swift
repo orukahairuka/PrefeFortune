@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CongratulationView: View {
+struct ResultCongratulationView: View {
     @ObservedObject var fortuneAPIManager: FortuneAPIManager
     @State private var navigateToResultView = false // 画面遷移用の状態変数
 

@@ -56,7 +56,7 @@ struct MapView: View {
                         calculateRoute(from: userLocation, to: destination)
                     }
             } else {
-                LoadingView()  // TouristCardViewと同じスタイルのローディングビュー
+                LoadingView()
                     .frame(height: 440)
             }
         }

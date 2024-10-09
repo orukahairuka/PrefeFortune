@@ -11,11 +11,12 @@ struct UserInfoInputView: View {
     @State private var birthday = YearMonthDay(year: 0, month: 0, day: 0)
     @State private var name: String = ""
     @State private var bloodType: String = "A"
+    @State private var navigateToResult: Bool = false
+    @State private var spotlightEnabled: Bool = true
+    //fortuneAPIが初期化されるからStateObjectを使用
     @StateObject var fortuneAPIManager: FortuneAPIManager = FortuneAPIManager()
     private let currentDay = today()
 
-    @State private var navigateToResult: Bool = false
-    @State private var spotlightEnabled: Bool = true
     let bloodTypes = ["A", "B", "O", "AB"]
 
     var isFormComplete: Bool {
@@ -32,10 +33,7 @@ struct UserInfoInputView: View {
 
                     BirthdayInputView(birthday: $birthday)
 
-
                     BloodTypePickerView(bloodType: $bloodType, bloodTypes: bloodTypes)
-                        .padding(.bottom, -30)
-
 
                     Spacer()
 
@@ -56,13 +54,11 @@ struct UserInfoInputView: View {
                             }
                         }
                     }
-
                 }
             }
             .scrollIndicators(.hidden)
             .navigationDestination(isPresented: $navigateToResult) {
-                //                    FortuneResultView(fortuneAPIManager: fortuneAPIManager)
-                CongratulationView(fortuneAPIManager: fortuneAPIManager)
+                ResultCongratulationView(fortuneAPIManager: fortuneAPIManager)
             }
             .background(
                 Color.customRadialGradient

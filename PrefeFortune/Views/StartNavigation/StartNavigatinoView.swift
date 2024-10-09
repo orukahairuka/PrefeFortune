@@ -16,7 +16,7 @@ struct StartNavigationView: View {
     ]
     @State private var currentStepIndex = 0
     @State private var buttonText = "Tap"
-    @State private var tapCount = 0
+    @State private var tapCount = 1
     @State private var isInputViewActive = false
     @AppStorage("hasSeenTutorial") private var hasSeenTutorial: Bool = false
 
@@ -73,11 +73,11 @@ struct StartNavigationView: View {
     }
 
     private var actionButton: some View {
-        Button(action: {
+        Button {
             withAnimation {
                 handleButtonTap()
             }
-        }) {
+        }label: {
             Text(buttonText)
         }
         .ButtonStyleModifier()

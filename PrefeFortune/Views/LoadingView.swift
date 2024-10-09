@@ -23,13 +23,13 @@ struct LanchLoadingView: View {
     }
 }
 
-#Preview {
-    LanchLoadingView()
-}
-
 struct LoadingView: View {
     var body: some View {
         LoadingAnimationView(lottieFile: "LoadingAnimation")
             .frame(width: 100, height: 100)
     }
+}
+
+#Preview {
+    LanchLoadingView()
 }
