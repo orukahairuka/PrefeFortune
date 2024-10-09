@@ -28,6 +28,11 @@
 		3B8006982CB5305C00D3010B /* SpotlightBoundsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8006972CB5305C00D3010B /* SpotlightBoundsKey.swift */; };
 		3B80069E2CB55E9E00D3010B /* UserInfoInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B80069D2CB55E9D00D3010B /* UserInfoInputView.swift */; };
 		3B8006A22CB5632200D3010B /* FirstNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8006A12CB5632200D3010B /* FirstNavigationView.swift */; };
+		3B8AE2932CB61CCC0055628D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8AE2922CB61CCC0055628D /* LoadingView.swift */; };
+		3B8AE2952CB61F6D0055628D /* LoadingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B8AE2942CB61F6D0055628D /* LoadingAnimation.json */; };
+		3B8AE2972CB61F730055628D /* dogAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B8AE2962CB61F720055628D /* dogAnimation.json */; };
+		3B8AE2992CB61F970055628D /* DogAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8AE2982CB61F970055628D /* DogAnimationView.swift */; };
+		3B8AE29B2CB61FA80055628D /* LoadingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8AE29A2CB61FA80055628D /* LoadingAnimationView.swift */; };
 		3B9420A72CB118FB00218C84 /* pref_lat_lon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */; };
 		3BA8048A2CB16FEE00BEDC1C /* BirthdayInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */; };
 		3BA8048B2CB16FEE00BEDC1C /* BloodTypePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804852CB16FEE00BEDC1C /* BloodTypePickerView.swift */; };
@@ -93,6 +98,11 @@
 		3B8006972CB5305C00D3010B /* SpotlightBoundsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightBoundsKey.swift; sourceTree = "<group>"; };
 		3B80069D2CB55E9D00D3010B /* UserInfoInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfoInputView.swift; path = Spotlight/UserInfoInputView.swift; sourceTree = "<group>"; };
 		3B8006A12CB5632200D3010B /* FirstNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstNavigationView.swift; sourceTree = "<group>"; };
+		3B8AE2922CB61CCC0055628D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		3B8AE2942CB61F6D0055628D /* LoadingAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoadingAnimation.json; sourceTree = "<group>"; };
+		3B8AE2962CB61F720055628D /* dogAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dogAnimation.json; sourceTree = "<group>"; };
+		3B8AE2982CB61F970055628D /* DogAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogAnimationView.swift; sourceTree = "<group>"; };
+		3B8AE29A2CB61FA80055628D /* LoadingAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAnimationView.swift; sourceTree = "<group>"; };
 		3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pref_lat_lon.csv; sourceTree = "<group>"; };
 		3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayInputView.swift; sourceTree = "<group>"; };
 		3BA804852CB16FEE00BEDC1C /* BloodTypePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodTypePickerView.swift; sourceTree = "<group>"; };
@@ -196,10 +206,14 @@
 		3B5BC86E2CB3A22D00EB878C /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				3B8AE2962CB61F720055628D /* dogAnimation.json */,
+				3B8AE2942CB61F6D0055628D /* LoadingAnimation.json */,
 				3B5BC8712CB3AA5C00EB878C /* ClackerAnimation.json */,
 				3B5BC86F2CB3AA5500EB878C /* CatTypeAnimation.json */,
 				3B5BC8732CB3AA8600EB878C /* ClackerAnimationView.swift */,
 				3B5F71D42CB3B14E00689298 /* CatTypeAnimationView.swift */,
+				3B8AE2982CB61F970055628D /* DogAnimationView.swift */,
+				3B8AE29A2CB61FA80055628D /* LoadingAnimationView.swift */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -246,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				3BD1E6142CB4D97F005492CC /* MapView.swift */,
+				3B8AE2922CB61CCC0055628D /* LoadingView.swift */,
 				3B8006912CB52D0300D3010B /* GoogleSearchWebView.swift */,
 				3B46D3E72CB3943F002745CC /* FortuneResultView.swift */,
 				3B80069D2CB55E9D00D3010B /* UserInfoInputView.swift */,
@@ -470,8 +485,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BF76F142CAF80CE009EC2B2 /* Preview Assets.xcassets in Resources */,
+				3B8AE2952CB61F6D0055628D /* LoadingAnimation.json in Resources */,
 				3B9420A72CB118FB00218C84 /* pref_lat_lon.csv in Resources */,
 				3B5BC8722CB3AA5C00EB878C /* ClackerAnimation.json in Resources */,
+				3B8AE2972CB61F730055628D /* dogAnimation.json in Resources */,
 				3BF76F102CAF80CE009EC2B2 /* Assets.xcassets in Resources */,
 				3B5BC8702CB3AA5500EB878C /* CatTypeAnimation.json in Resources */,
 			);
@@ -498,6 +515,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B8AE2992CB61F970055628D /* DogAnimationView.swift in Sources */,
 				3B8006A22CB5632200D3010B /* FirstNavigationView.swift in Sources */,
 				3B8006922CB52D0300D3010B /* GoogleSearchWebView.swift in Sources */,
 				3B50A1CA2CB0D0DC00539F07 /* TouristCardView.swift in Sources */,
@@ -515,9 +533,11 @@
 				3B7044172CB19F2E00EF6553 /* TouristCard.swift in Sources */,
 				3B7044192CB19F6D00EF6553 /* PlaceImageView.swift in Sources */,
 				3B8006942CB52DE600D3010B /* RoudedBackground.swift in Sources */,
+				3B8AE2932CB61CCC0055628D /* LoadingView.swift in Sources */,
 				3BD1E6152CB4D97F005492CC /* MapView.swift in Sources */,
 				3BA804902CB1709C00BEDC1C /* AsyncImageLoadingView.swift in Sources */,
 				3BAA1DBE2CB4DDDB00751344 /* RouteOverlay.swift in Sources */,
+				3B8AE29B2CB61FA80055628D /* LoadingAnimationView.swift in Sources */,
 				3BB0EB1E2CB41FC30048A044 /* TouristCardModifire.swift in Sources */,
 				3BAA1DBC2CB4DDBF00751344 /* MapAnotationItem.swift in Sources */,
 				3BF76F0C2CAF80CD009EC2B2 /* PrefeFortuneApp.swift in Sources */,
