@@ -1,20 +1,20 @@
 //
-//  ClackerAnimationView.swift
+//  minCatAnimationView.swift
 //  PrefeFortune
 //
-//  Created by 櫻井絵理香 on 2024/10/07.
+//  Created by 櫻井絵理香 on 2024/10/09.
 //
 
 import SwiftUI
 import Lottie
 
-struct ClackerAnimationView: UIViewRepresentable {
+struct minCatAnimationView: UIViewRepresentable {
 
     var lottieFile: String
-    var loopMode: LottieLoopMode = .playOnce
+    var loopMode: LottieLoopMode = .loop
     var animationView = LottieAnimationView()
 
-    func makeUIView(context: UIViewRepresentableContext<ClackerAnimationView>) -> UIView {
+    func makeUIView(context: UIViewRepresentableContext<minCatAnimationView>) -> UIView {
         let view = UIView()
 
         animationView.animation = LottieAnimation.named(lottieFile)
@@ -29,17 +29,14 @@ struct ClackerAnimationView: UIViewRepresentable {
             animationView.heightAnchor.constraint(equalTo: view.heightAnchor)
         ])
 
+        // アニメーションを初回表示時に再生する
+        animationView.play()
+
         return view
     }
 
-    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<ClackerAnimationView>) {
-        animationView.play { (finished) in
-            if finished {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    animationView.play { secondFinished in
-                    }
-                }
-            }
-        }
+    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<minCatAnimationView>) {
+        // アニメーションを必要に応じて再生
+        animationView.play()
     }
 }

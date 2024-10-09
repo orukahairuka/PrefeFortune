@@ -16,7 +16,6 @@ struct UserInfoInputView: View {
 
     @State private var navigateToResult: Bool = false
     @State private var spotlightEnabled: Bool = true
-    @State private var spotlightingID: SpotlightBoundsKey.ID = 1 // スポットライトの最初のターゲット
     let bloodTypes = ["A", "B", "O", "AB"]
 
     var isFormComplete: Bool {
@@ -60,8 +59,8 @@ struct UserInfoInputView: View {
                 }
                 .padding()
                 .navigationDestination(isPresented: $navigateToResult) {
-                    // 結果ビューに遷移し、必要なデータを渡す
-                    FortuneResultView(fortuneAPIManager: fortuneAPIManager)
+//                    FortuneResultView(fortuneAPIManager: fortuneAPIManager)
+                    CongratulationView(fortuneAPIManager: fortuneAPIManager)
                 }
 
             .background(
