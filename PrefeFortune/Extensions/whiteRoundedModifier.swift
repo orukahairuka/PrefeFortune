@@ -9,16 +9,18 @@
 import SwiftUI
 
 extension View {
-    func ButtonStyleModifier() -> some View {
+    func whiteRoundedModifier() -> some View {
         self
             .padding()
-            .font(.title3)
-            .fontWeight(.bold)
-            .frame(width: 200, height: 100)
-            .background(Color.customYellowColor)
-            .foregroundColor(.white)
-            .cornerRadius(50)
-            .opacity(0.8)
-            .shadow(color: .black.opacity(0.3), radius: 10, x: 3, y: 3)
+            .background(
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(.ultraThinMaterial)
+                    .shadow(color: .black.opacity(0.2), radius: 10, x: 5, y: 5)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.white.opacity(0.5), lineWidth: 1)
+                    )
+            )
+            .frame(maxWidth: .infinity)
     }
 }

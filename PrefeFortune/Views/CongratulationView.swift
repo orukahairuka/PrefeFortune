@@ -40,15 +40,7 @@ struct CongratulationView: View {
                 } label: {
                     Text("おすすめスポットを見る")
                 }
-                .padding()
-                .font(.title3)
-                .fontWeight(.bold)
-                .frame(width: 200, height: 100)
-                .background(Color.customYellowColor)
-                .foregroundColor(.white)
-                .cornerRadius(50)
-                .opacity(0.8)
-                .shadow(color: .black.opacity(0.3), radius: 10, x: 3, y: 3)
+                .ButtonStyleModifier()
             }
 
             ClackerAnimationView(lottieFile: "ClackerAnimation")
