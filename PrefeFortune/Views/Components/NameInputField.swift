@@ -25,7 +25,7 @@ struct NameInputField: View {
                 }
                 .padding(.horizontal)
             }
-            .whiteRounded()
+            .whiteRoundedModifier()
         }
         .frame(maxWidth: .infinity)
         .padding()

@@ -36,7 +36,7 @@ struct BloodTypePickerView: View {
                     .padding(.horizontal)
                 }
             }
-            .whiteRounded()
+            .whiteRoundedModifier()
             .padding()
         }
         .frame(maxWidth: .infinity)

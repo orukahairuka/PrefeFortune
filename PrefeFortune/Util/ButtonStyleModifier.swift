@@ -1,16 +1,14 @@
 //
-//  RoudedBackground.swift
+//  ButtonStyleModifier.swift
 //  PrefeFortune
 //
-//  Created by 櫻井絵理香 on 2024/10/08.
+//  Created by 櫻井絵理香 on 2024/10/09.
 //
-
-//白いすけた透明部分のフレーム
 
 import SwiftUI
 
 extension View {
-    func whiteRounded() -> some View {
+    func whiteRoundedModifier() -> some View {
         self
             .padding()
             .background(
