@@ -11,11 +11,12 @@ struct UserInfoInputView: View {
     @State private var birthday = YearMonthDay(year: 0, month: 0, day: 0)
     @State private var name: String = ""
     @State private var bloodType: String = "A"
+    @State private var navigateToResult: Bool = false
+    @State private var spotlightEnabled: Bool = true
+    //fortuneAPIが初期化されるからStateObjectを使用
     @StateObject var fortuneAPIManager: FortuneAPIManager = FortuneAPIManager()
     private let currentDay = today()
 
-    @State private var navigateToResult: Bool = false
-    @State private var spotlightEnabled: Bool = true
     let bloodTypes = ["A", "B", "O", "AB"]
 
     var isFormComplete: Bool {
@@ -25,16 +26,14 @@ struct UserInfoInputView: View {
 
     var body: some View {
         NavigationStack {
+            ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
 
-                        NameInputField(name: $name)
+                    NameInputField(name: $name)
 
-                        BirthdayInputView(birthday: $birthday)
+                    BirthdayInputView(birthday: $birthday)
 
-
-                        BloodTypePickerView(bloodType: $bloodType, bloodTypes: bloodTypes)
-                            .padding(.bottom, -30)
-
+                    BloodTypePickerView(bloodType: $bloodType, bloodTypes: bloodTypes)
 
                     Spacer()
 
@@ -55,14 +54,12 @@ struct UserInfoInputView: View {
                             }
                         }
                     }
-
                 }
-                .padding()
-                .navigationDestination(isPresented: $navigateToResult) {
-//                    FortuneResultView(fortuneAPIManager: fortuneAPIManager)
-                    CongratulationView(fortuneAPIManager: fortuneAPIManager)
-                }
-
+            }
+            .scrollIndicators(.hidden)
+            .navigationDestination(isPresented: $navigateToResult) {
+                ResultCongratulationView(fortuneAPIManager: fortuneAPIManager)
+            }
             .background(
                 Color.customRadialGradient
                     .ignoresSafeArea()

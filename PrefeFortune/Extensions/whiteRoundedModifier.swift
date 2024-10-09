@@ -1,15 +1,17 @@
 //
-//  TouristCardModifire.swift
+//  ButtonStyleModifier.swift
 //  PrefeFortune
 //
-//  Created by 櫻井絵理香 on 2024/10/07.
+//  Created by 櫻井絵理香 on 2024/10/08.
 //
+
 
 import SwiftUI
 
-struct CommonCardModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        content
+extension View {
+    func whiteRoundedModifier() -> some View {
+        self
+            .padding()
             .background(
                 RoundedRectangle(cornerRadius: 20)
                     .fill(.ultraThinMaterial)
@@ -19,6 +21,6 @@ struct CommonCardModifier: ViewModifier {
                             .stroke(Color.white.opacity(0.5), lineWidth: 1)
                     )
             )
-            .padding(.horizontal)
+            .frame(maxWidth: .infinity)
     }
 }

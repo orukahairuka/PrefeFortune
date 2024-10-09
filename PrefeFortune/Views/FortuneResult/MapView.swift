@@ -48,7 +48,7 @@ struct MapView: View {
                     .overlay(
                         route != nil ? AnyView(RouteOverlay(route: route!)) : AnyView(EmptyView())
                     )
-                    .modifier(CommonCardModifier())  // 統一されたスタイルを適用
+                    .whiteRoundedModifier()  // 統一されたスタイルを適用
                     .frame(width: UIScreen.main.bounds.width * 0.85)
                     .frame(height: UIScreen.main.bounds.width * 0.75)
                     .cornerRadius(5)
@@ -56,7 +56,7 @@ struct MapView: View {
                         calculateRoute(from: userLocation, to: destination)
                     }
             } else {
-                LoadingView()  // TouristCardViewと同じスタイルのローディングビュー
+                LoadingView()
                     .frame(height: 440)
             }
         }

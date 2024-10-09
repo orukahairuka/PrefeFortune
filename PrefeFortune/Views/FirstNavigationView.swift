@@ -26,7 +26,6 @@ struct FirstNavigationView: View {
             CatTypeAnimationView(lottieFile: "CatTypeAnimation")
                 .frame(width:400, height: 300)
                 .padding(.horizontal, 10)
-                .spotlightAnchor(at: 1)
         }
     }
 }
@@ -34,8 +33,8 @@ struct FirstNavigationView: View {
 
 
 struct CatTravelText: View {
-    var distance: Double
-    var prefectureName: String
+    let distance: Double
+    let prefectureName: String
 
     var body: some View {
         Text(catTravelAdvice(for: distance, prefectureName: prefectureName))

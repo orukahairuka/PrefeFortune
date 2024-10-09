@@ -18,7 +18,7 @@ struct PrefectureAnimationView: View {
         if let logoURL = fortuneAPIManager.decodedLogoURL {
             ZStack {
                 PrefectureImageView(imageUrl: .constant(logoURL), prefectureName: $fortuneAPIManager.prefectureName)
-                    .roundedBackground()
+                    .whiteRoundedModifier()
                     .padding(.horizontal, 30)
                     // X軸方向に回転（奥に向かって回る感じ）
                     .rotation3DEffect(.degrees(rotationAngle), axis: (x: 0, y: 1, z: 0))

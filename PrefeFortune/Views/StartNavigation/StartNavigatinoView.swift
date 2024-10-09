@@ -8,17 +8,21 @@
 import SwiftUI
 
 struct StartNavigationView: View {
-    @State private var displayedText = "あなたと相性のいい都道府県を占うにゃん"
-    private let tutorialSteps = [
-        "準備はいい？",
+    @State private var displayedText: String
+    let tutorialSteps = [
+        "あなたと相性のいい都道府県を占うにゃん",
         "次の画面であなたの名前と誕生日,血液型を入力して、占うボタンを押すにゃん",
         "そしたらあなたにぴったりの都道府県を見つけることができるにゃん。",
+        "準備はいい？",
     ]
     @State private var currentStepIndex = 0
     @State private var buttonText = "Tap"
-    @State private var tapCount = 0
     @State private var isInputViewActive = false
     @AppStorage("hasSeenTutorial") private var hasSeenTutorial: Bool = false
+
+    init() {
+        _displayedText = State(initialValue: tutorialSteps[0])
+    }
 
     var body: some View {
         if !hasSeenTutorial {
@@ -73,40 +77,31 @@ struct StartNavigationView: View {
     }
 
     private var actionButton: some View {
-        Button(action: {
+        Button {
             withAnimation {
                 handleButtonTap()
             }
-        }) {
+        }label: {
             Text(buttonText)
-                .padding()
-                .font(.title2)
-                .fontWeight(.bold)
-                .frame(width: 200, height: 100)
-                .background(Color.customYellowColor)
-                .foregroundColor(.white)
-                .cornerRadius(50)
-                .opacity(0.8)
-                .shadow(color: .black.opacity(0.3), radius: 10, x: 3, y: 3)
+                .ButtonStyleModifier()
         }
     }
 
     private func handleButtonTap() {
-        if tapCount < 3 {
-            updateDisplayedText()
-        }
+        if currentStepIndex < tutorialSteps.count - 1 {
+            currentStepIndex += 1
+            displayedText = tutorialSteps[currentStepIndex]
 
-        tapCount += 1
-
-        if tapCount == 3 {
-            buttonText = "OK"
-        } else if tapCount == 4 {
+            if currentStepIndex == tutorialSteps.count - 1 {
+                buttonText = "OK"
+            }
+        } else {
             navigateToInputView()
         }
     }
 
     private func updateDisplayedText() {
-        currentStepIndex = (currentStepIndex + 1) % tutorialSteps.count
+        currentStepIndex = currentStepIndex + 1
         displayedText = tutorialSteps[currentStepIndex]
     }
 

@@ -23,9 +23,7 @@
 		3B7044172CB19F2E00EF6553 /* TouristCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7044162CB19F2E00EF6553 /* TouristCard.swift */; };
 		3B7044192CB19F6D00EF6553 /* PlaceImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7044182CB19F6D00EF6553 /* PlaceImageView.swift */; };
 		3B8006922CB52D0300D3010B /* GoogleSearchWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8006912CB52D0300D3010B /* GoogleSearchWebView.swift */; };
-		3B8006942CB52DE600D3010B /* RoudedBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8006932CB52DE600D3010B /* RoudedBackground.swift */; };
-		3B8006962CB5303D00D3010B /* SpotlightModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8006952CB5303D00D3010B /* SpotlightModifier.swift */; };
-		3B8006982CB5305C00D3010B /* SpotlightBoundsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8006972CB5305C00D3010B /* SpotlightBoundsKey.swift */; };
+		3B8006942CB52DE600D3010B /* whiteRoundedModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8006932CB52DE600D3010B /* whiteRoundedModifier.swift */; };
 		3B80069E2CB55E9E00D3010B /* UserInfoInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B80069D2CB55E9D00D3010B /* UserInfoInputView.swift */; };
 		3B8006A22CB5632200D3010B /* FirstNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8006A12CB5632200D3010B /* FirstNavigationView.swift */; };
 		3B8AE2932CB61CCC0055628D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8AE2922CB61CCC0055628D /* LoadingView.swift */; };
@@ -37,7 +35,7 @@
 		3B8AE2A12CB633A60055628D /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8AE2A02CB633A60055628D /* StateManager.swift */; };
 		3B9420A72CB118FB00218C84 /* pref_lat_lon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */; };
 		3B9FF7642CB6663400BCE31F /* PrefectureAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9FF7632CB6663400BCE31F /* PrefectureAnimationView.swift */; };
-		3B9FF7662CB66A4F00BCE31F /* CongratulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9FF7652CB66A4F00BCE31F /* CongratulationView.swift */; };
+		3B9FF7662CB66A4F00BCE31F /* ResultCongratulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9FF7652CB66A4F00BCE31F /* ResultCongratulationView.swift */; };
 		3B9FF76A2CB66EA500BCE31F /* minCatAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B9FF7692CB66EA500BCE31F /* minCatAnimation.json */; };
 		3B9FF76C2CB66EB700BCE31F /* minCatAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9FF76B2CB66EB700BCE31F /* minCatAnimationView.swift */; };
 		3BA8048A2CB16FEE00BEDC1C /* BirthdayInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */; };
@@ -48,8 +46,6 @@
 		3BA804922CB170BE00BEDC1C /* FailureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804912CB170BE00BEDC1C /* FailureView.swift */; };
 		3BAA1DBC2CB4DDBF00751344 /* MapAnotationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAA1DBB2CB4DDBF00751344 /* MapAnotationItem.swift */; };
 		3BAA1DBE2CB4DDDB00751344 /* RouteOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAA1DBD2CB4DDDB00751344 /* RouteOverlay.swift */; };
-		3BB0EB1E2CB41FC30048A044 /* TouristCardModifire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB0EB1D2CB41FC30048A044 /* TouristCardModifire.swift */; };
-		3BB0EB202CB420080048A044 /* InputFieldBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB0EB1F2CB420080048A044 /* InputFieldBackgroundModifier.swift */; };
 		3BB4BF532CAF889B00AD4C29 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 3BB4BF522CAF889B00AD4C29 /* Lottie */; };
 		3BB4BF562CAF88E700AD4C29 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3BB4BF552CAF88E700AD4C29 /* Alamofire */; };
 		3BB4BF5C2CAF8B4400AD4C29 /* FortuneAPIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB4BF5B2CAF8B4400AD4C29 /* FortuneAPIModels.swift */; };
@@ -58,6 +54,8 @@
 		3BD1E6132CB4D937005492CC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD1E6122CB4D937005492CC /* LocationManager.swift */; };
 		3BD1E6152CB4D97F005492CC /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD1E6142CB4D97F005492CC /* MapView.swift */; };
 		3BD7798A2CB12DD20010D8E1 /* PrefectureImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD779892CB12DD20010D8E1 /* PrefectureImageView.swift */; };
+		3BDA438F2CB6A82800F091F8 /* CustomNavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA438E2CB6A82800F091F8 /* CustomNavigationBarModifier.swift */; };
+		3BDA43922CB6CDEE00F091F8 /* ButtonStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA43912CB6CDEE00F091F8 /* ButtonStyleModifier.swift */; };
 		3BF76F0C2CAF80CD009EC2B2 /* PrefeFortuneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF76F0B2CAF80CD009EC2B2 /* PrefeFortuneApp.swift */; };
 		3BF76F102CAF80CE009EC2B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BF76F0F2CAF80CE009EC2B2 /* Assets.xcassets */; };
 		3BF76F142CAF80CE009EC2B2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BF76F132CAF80CE009EC2B2 /* Preview Assets.xcassets */; };
@@ -99,10 +97,8 @@
 		3B7044162CB19F2E00EF6553 /* TouristCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristCard.swift; sourceTree = "<group>"; };
 		3B7044182CB19F6D00EF6553 /* PlaceImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceImageView.swift; sourceTree = "<group>"; };
 		3B8006912CB52D0300D3010B /* GoogleSearchWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleSearchWebView.swift; sourceTree = "<group>"; };
-		3B8006932CB52DE600D3010B /* RoudedBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoudedBackground.swift; sourceTree = "<group>"; };
-		3B8006952CB5303D00D3010B /* SpotlightModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightModifier.swift; sourceTree = "<group>"; };
-		3B8006972CB5305C00D3010B /* SpotlightBoundsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightBoundsKey.swift; sourceTree = "<group>"; };
-		3B80069D2CB55E9D00D3010B /* UserInfoInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfoInputView.swift; path = Spotlight/UserInfoInputView.swift; sourceTree = "<group>"; };
+		3B8006932CB52DE600D3010B /* whiteRoundedModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = whiteRoundedModifier.swift; sourceTree = "<group>"; };
+		3B80069D2CB55E9D00D3010B /* UserInfoInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoInputView.swift; sourceTree = "<group>"; };
 		3B8006A12CB5632200D3010B /* FirstNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstNavigationView.swift; sourceTree = "<group>"; };
 		3B8AE2922CB61CCC0055628D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		3B8AE2942CB61F6D0055628D /* LoadingAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoadingAnimation.json; sourceTree = "<group>"; };
@@ -113,7 +109,7 @@
 		3B8AE2A02CB633A60055628D /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pref_lat_lon.csv; sourceTree = "<group>"; };
 		3B9FF7632CB6663400BCE31F /* PrefectureAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefectureAnimationView.swift; sourceTree = "<group>"; };
-		3B9FF7652CB66A4F00BCE31F /* CongratulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationView.swift; sourceTree = "<group>"; };
+		3B9FF7652CB66A4F00BCE31F /* ResultCongratulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCongratulationView.swift; sourceTree = "<group>"; };
 		3B9FF7692CB66EA500BCE31F /* minCatAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = minCatAnimation.json; sourceTree = "<group>"; };
 		3B9FF76B2CB66EB700BCE31F /* minCatAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = minCatAnimationView.swift; sourceTree = "<group>"; };
 		3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayInputView.swift; sourceTree = "<group>"; };
@@ -124,14 +120,14 @@
 		3BA804912CB170BE00BEDC1C /* FailureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailureView.swift; sourceTree = "<group>"; };
 		3BAA1DBB2CB4DDBF00751344 /* MapAnotationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnotationItem.swift; sourceTree = "<group>"; };
 		3BAA1DBD2CB4DDDB00751344 /* RouteOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteOverlay.swift; sourceTree = "<group>"; };
-		3BB0EB1D2CB41FC30048A044 /* TouristCardModifire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristCardModifire.swift; sourceTree = "<group>"; };
-		3BB0EB1F2CB420080048A044 /* InputFieldBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldBackgroundModifier.swift; sourceTree = "<group>"; };
 		3BB4BF5B2CAF8B4400AD4C29 /* FortuneAPIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneAPIModels.swift; sourceTree = "<group>"; };
 		3BB4BF5D2CAF8B7C00AD4C29 /* FortuneAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneAPIManager.swift; sourceTree = "<group>"; };
 		3BCC915B2CB3DE9D00FDB9D1 /* YearMonthDayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearMonthDayExtension.swift; sourceTree = "<group>"; };
 		3BD1E6122CB4D937005492CC /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3BD1E6142CB4D97F005492CC /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		3BD779892CB12DD20010D8E1 /* PrefectureImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefectureImageView.swift; sourceTree = "<group>"; };
+		3BDA438E2CB6A82800F091F8 /* CustomNavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBarModifier.swift; sourceTree = "<group>"; };
+		3BDA43912CB6CDEE00F091F8 /* ButtonStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyleModifier.swift; sourceTree = "<group>"; };
 		3BF76F082CAF80CD009EC2B2 /* PrefeFortune.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrefeFortune.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BF76F0B2CAF80CD009EC2B2 /* PrefeFortuneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefeFortuneApp.swift; sourceTree = "<group>"; };
 		3BF76F0F2CAF80CE009EC2B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -201,37 +197,20 @@
 		3B50A1CF2CB0E3FB00539F07 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				3B8006932CB52DE600D3010B /* RoudedBackground.swift */,
-				3BB0EB1F2CB420080048A044 /* InputFieldBackgroundModifier.swift */,
-				3BB0EB1D2CB41FC30048A044 /* TouristCardModifire.swift */,
-				3B8006952CB5303D00D3010B /* SpotlightModifier.swift */,
 				3B50A1D02CB0E41100539F07 /* today.swift */,
 				3B50A1D22CB0EA8C00539F07 /* dayModel.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
 		};
-		3B5BC86C2CB3A1DE00EB878C /* Spotlight */ = {
-			isa = PBXGroup;
-			children = (
-				3B8006972CB5305C00D3010B /* SpotlightBoundsKey.swift */,
-			);
-			path = Spotlight;
-			sourceTree = "<group>";
-		};
 		3B5BC86E2CB3A22D00EB878C /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				3B9FF7692CB66EA500BCE31F /* minCatAnimation.json */,
-				3B8AE2962CB61F720055628D /* dogAnimation.json */,
-				3B8AE2942CB61F6D0055628D /* LoadingAnimation.json */,
-				3B5BC8712CB3AA5C00EB878C /* ClackerAnimation.json */,
-				3B5BC86F2CB3AA5500EB878C /* CatTypeAnimation.json */,
-				3B5BC8732CB3AA8600EB878C /* ClackerAnimationView.swift */,
-				3B5F71D42CB3B14E00689298 /* CatTypeAnimationView.swift */,
-				3B9FF76B2CB66EB700BCE31F /* minCatAnimationView.swift */,
-				3B8AE2982CB61F970055628D /* DogAnimationView.swift */,
-				3B8AE29A2CB61FA80055628D /* LoadingAnimationView.swift */,
+				3BDA43972CB6D12900F091F8 /* CatTypeAnimation */,
+				3BDA43962CB6D11800F091F8 /* ClackerAnimation */,
+				3BDA43952CB6D10400F091F8 /* LoadingAnimation */,
+				3BDA43942CB6D0F300F091F8 /* dogAnimation */,
+				3BDA43932CB6D0E400F091F8 /* minCatAnimation */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -278,38 +257,25 @@
 		3BB4BF582CAF897D00AD4C29 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3B8AE29E2CB62A450055628D /* StartNavigatinoView.swift */,
-				3B9FF7632CB6663400BCE31F /* PrefectureAnimationView.swift */,
-				3B9FF7652CB66A4F00BCE31F /* CongratulationView.swift */,
-				3BD1E6142CB4D97F005492CC /* MapView.swift */,
+				3B8006A12CB5632200D3010B /* FirstNavigationView.swift */,
+				3B9FF7652CB66A4F00BCE31F /* ResultCongratulationView.swift */,
 				3B8AE2922CB61CCC0055628D /* LoadingView.swift */,
-				3B8006912CB52D0300D3010B /* GoogleSearchWebView.swift */,
-				3B46D3E72CB3943F002745CC /* FortuneResultView.swift */,
-				3B80069D2CB55E9D00D3010B /* UserInfoInputView.swift */,
+				3BDA43992CB6D56200F091F8 /* FortuneResult */,
+				3BDA43982CB6D35200F091F8 /* UserInfoInput */,
+				3BDA43902CB6C76D00F091F8 /* StartNavigation */,
 				3BA8048E2CB1703100BEDC1C /* TouristCard */,
 				3BA804812CB16FB700BEDC1C /* PrefectureImage */,
-				3BB4BF592CAF898A00AD4C29 /* Components */,
 				3B5BC86E2CB3A22D00EB878C /* Lottie */,
-				3B5BC86C2CB3A1DE00EB878C /* Spotlight */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		3BB4BF592CAF898A00AD4C29 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				3B8006A12CB5632200D3010B /* FirstNavigationView.swift */,
-				3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */,
-				3BA804862CB16FEE00BEDC1C /* NameInputField.swift */,
-				3BA804852CB16FEE00BEDC1C /* BloodTypePickerView.swift */,
-				3BA804872CB16FEE00BEDC1C /* FortuneButton.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		3BB4BF5A2CAF8A7900AD4C29 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3BDA438E2CB6A82800F091F8 /* CustomNavigationBarModifier.swift */,
+				3BDA43912CB6CDEE00F091F8 /* ButtonStyleModifier.swift */,
+				3B8006932CB52DE600D3010B /* whiteRoundedModifier.swift */,
 				3B5F71D62CB3D4E300689298 /* ColorExtension.swift */,
 				3BCC915B2CB3DE9D00FDB9D1 /* YearMonthDayExtension.swift */,
 			);
@@ -324,6 +290,82 @@
 				3BAA1DBD2CB4DDDB00751344 /* RouteOverlay.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		3BDA43902CB6C76D00F091F8 /* StartNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				3B8AE29E2CB62A450055628D /* StartNavigatinoView.swift */,
+				3B9FF7632CB6663400BCE31F /* PrefectureAnimationView.swift */,
+			);
+			path = StartNavigation;
+			sourceTree = "<group>";
+		};
+		3BDA43932CB6D0E400F091F8 /* minCatAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				3B9FF7692CB66EA500BCE31F /* minCatAnimation.json */,
+				3B9FF76B2CB66EB700BCE31F /* minCatAnimationView.swift */,
+			);
+			path = minCatAnimation;
+			sourceTree = "<group>";
+		};
+		3BDA43942CB6D0F300F091F8 /* dogAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				3B8AE2962CB61F720055628D /* dogAnimation.json */,
+				3B8AE2982CB61F970055628D /* DogAnimationView.swift */,
+			);
+			path = dogAnimation;
+			sourceTree = "<group>";
+		};
+		3BDA43952CB6D10400F091F8 /* LoadingAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				3B8AE2942CB61F6D0055628D /* LoadingAnimation.json */,
+				3B8AE29A2CB61FA80055628D /* LoadingAnimationView.swift */,
+			);
+			path = LoadingAnimation;
+			sourceTree = "<group>";
+		};
+		3BDA43962CB6D11800F091F8 /* ClackerAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				3B5BC8732CB3AA8600EB878C /* ClackerAnimationView.swift */,
+				3B5BC8712CB3AA5C00EB878C /* ClackerAnimation.json */,
+			);
+			path = ClackerAnimation;
+			sourceTree = "<group>";
+		};
+		3BDA43972CB6D12900F091F8 /* CatTypeAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				3B5F71D42CB3B14E00689298 /* CatTypeAnimationView.swift */,
+				3B5BC86F2CB3AA5500EB878C /* CatTypeAnimation.json */,
+			);
+			path = CatTypeAnimation;
+			sourceTree = "<group>";
+		};
+		3BDA43982CB6D35200F091F8 /* UserInfoInput */ = {
+			isa = PBXGroup;
+			children = (
+				3BA804852CB16FEE00BEDC1C /* BloodTypePickerView.swift */,
+				3BA804872CB16FEE00BEDC1C /* FortuneButton.swift */,
+				3BA804862CB16FEE00BEDC1C /* NameInputField.swift */,
+				3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */,
+				3B80069D2CB55E9D00D3010B /* UserInfoInputView.swift */,
+			);
+			path = UserInfoInput;
+			sourceTree = "<group>";
+		};
+		3BDA43992CB6D56200F091F8 /* FortuneResult */ = {
+			isa = PBXGroup;
+			children = (
+				3BD1E6142CB4D97F005492CC /* MapView.swift */,
+				3B8006912CB52D0300D3010B /* GoogleSearchWebView.swift */,
+				3B46D3E72CB3943F002745CC /* FortuneResultView.swift */,
+			);
+			path = FortuneResult;
 			sourceTree = "<group>";
 		};
 		3BF76EFF2CAF80CD009EC2B2 = {
@@ -539,30 +581,28 @@
 				3B8006922CB52D0300D3010B /* GoogleSearchWebView.swift in Sources */,
 				3B50A1CA2CB0D0DC00539F07 /* TouristCardView.swift in Sources */,
 				3B5F71D72CB3D4E300689298 /* ColorExtension.swift in Sources */,
+				3BDA43922CB6CDEE00F091F8 /* ButtonStyleModifier.swift in Sources */,
 				3BA8048B2CB16FEE00BEDC1C /* BloodTypePickerView.swift in Sources */,
 				3B50A1D32CB0EA8C00539F07 /* dayModel.swift in Sources */,
 				3B50A1CC2CB0D22000539F07 /* PlacesAPIModel.swift in Sources */,
-				3B8006962CB5303D00D3010B /* SpotlightModifier.swift in Sources */,
 				3B5BC8742CB3AA8600EB878C /* ClackerAnimationView.swift in Sources */,
 				3BA804922CB170BE00BEDC1C /* FailureView.swift in Sources */,
-				3B8006982CB5305C00D3010B /* SpotlightBoundsKey.swift in Sources */,
 				3BB4BF5C2CAF8B4400AD4C29 /* FortuneAPIModels.swift in Sources */,
+				3BDA438F2CB6A82800F091F8 /* CustomNavigationBarModifier.swift in Sources */,
 				3B50A1D12CB0E41100539F07 /* today.swift in Sources */,
 				3BB4BF5E2CAF8B7C00AD4C29 /* FortuneAPIManager.swift in Sources */,
 				3B7044172CB19F2E00EF6553 /* TouristCard.swift in Sources */,
 				3B7044192CB19F6D00EF6553 /* PlaceImageView.swift in Sources */,
-				3B8006942CB52DE600D3010B /* RoudedBackground.swift in Sources */,
+				3B8006942CB52DE600D3010B /* whiteRoundedModifier.swift in Sources */,
 				3B8AE2932CB61CCC0055628D /* LoadingView.swift in Sources */,
 				3B9FF76C2CB66EB700BCE31F /* minCatAnimationView.swift in Sources */,
 				3BD1E6152CB4D97F005492CC /* MapView.swift in Sources */,
 				3BA804902CB1709C00BEDC1C /* AsyncImageLoadingView.swift in Sources */,
 				3BAA1DBE2CB4DDDB00751344 /* RouteOverlay.swift in Sources */,
-				3B9FF7662CB66A4F00BCE31F /* CongratulationView.swift in Sources */,
+				3B9FF7662CB66A4F00BCE31F /* ResultCongratulationView.swift in Sources */,
 				3B8AE29B2CB61FA80055628D /* LoadingAnimationView.swift in Sources */,
-				3BB0EB1E2CB41FC30048A044 /* TouristCardModifire.swift in Sources */,
 				3BAA1DBC2CB4DDBF00751344 /* MapAnotationItem.swift in Sources */,
 				3BF76F0C2CAF80CD009EC2B2 /* PrefeFortuneApp.swift in Sources */,
-				3BB0EB202CB420080048A044 /* InputFieldBackgroundModifier.swift in Sources */,
 				3B5F71D52CB3B14E00689298 /* CatTypeAnimationView.swift in Sources */,
 				3BCC915C2CB3DE9D00FDB9D1 /* YearMonthDayExtension.swift in Sources */,
 				3B50A1C82CB0CC4200539F07 /* PlacesAPIManager.swift in Sources */,
@@ -749,6 +789,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
@@ -788,6 +829,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
