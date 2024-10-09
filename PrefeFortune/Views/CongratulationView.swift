@@ -52,6 +52,8 @@ struct CongratulationView: View {
             }
 
             ClackerAnimationView(lottieFile: "ClackerAnimation")
+                .frame(width: UIScreen.main.bounds.width)
+                .frame(height: UIScreen.main.bounds.width * 0.7)
 
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -70,3 +72,4 @@ struct CongratulationView: View {
         .ignoresSafeArea()
     }
 }
+
