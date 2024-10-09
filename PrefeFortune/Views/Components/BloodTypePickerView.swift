@@ -16,31 +16,28 @@ struct BloodTypePickerView: View {
             Text("血液型を選択してね")
                 .font(.headline)
                 .foregroundColor(.white)
-
-            ZStack {
-                HStack {
-                    Menu {
-                        ForEach(bloodTypes, id: \.self) { type in
-                            Button(action: {
-                                bloodType = type
-                            }) {
-                                Text(type)
-                            }
+            HStack {
+                Menu {
+                    ForEach(bloodTypes, id: \.self) { type in
+                        Button(action: {
+                            bloodType = type
+                        }) {
+                            Text(type)
                         }
-                    } label: {
-                        HStack {
-                            Text(bloodType.isEmpty ? "選択してください" : bloodType)
-                                .font(.body)
-                                .padding()
-                            Spacer()
-                            Image(systemName: "chevron.down")
-                        }
-                        .padding(.horizontal)
                     }
+                } label: {
+                    HStack {
+                        Text(bloodType.isEmpty ? "選択してください" : bloodType)
+                            .font(.body)
+                            .padding()
+                        Spacer()
+                        Image(systemName: "chevron.down")
+                    }
+                    .padding(.horizontal)
                 }
-                .padding()
             }
             .whiteRounded()
+            .padding()
         }
         .frame(maxWidth: .infinity)
         .padding()
