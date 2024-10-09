@@ -9,31 +9,52 @@ import SwiftUI
 
 struct CongratulationView: View {
     @ObservedObject var fortuneAPIManager: FortuneAPIManager
+    @State private var navigateToResultView = false // 画面遷移用の状態変数
 
     var body: some View {
-        VStack {
+        ZStack {
             VStack {
-                Text("あなたと相性のいい都道府県は \(fortuneAPIManager.prefectureName ?? "不明な県")！")
-                    .font(.title2)
-                    .fontWeight(.bold)
+                VStack {
+                    Text("あなたと相性のいい都道府県は\n \(fortuneAPIManager.prefectureName ?? "不明な県")！")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .padding()
 
-                if let logoURL = fortuneAPIManager.decodedLogoURL {
-                    PrefectureAnimationView(fortuneAPIManager: fortuneAPIManager)
+                    if let logoURL = fortuneAPIManager.decodedLogoURL {
+                        PrefectureAnimationView(fortuneAPIManager: fortuneAPIManager)
+                    }
                 }
+                .padding()
+
+                HStack {
+                    Text("ボタンを押して、茨城県のおすすめスポットを見てみよう")
+                    minCatAnimationView(lottieFile: "minCatAnimation")
+                        .frame(width: 100, height: 100)
+                }
+                .padding()
+
+                Button {
+                    // ボタンを押すと遷移フラグをtrueに
+                    navigateToResultView = true
+                    print("navigatieToResultView: \(navigateToResultView)")
+                } label: {
+                    Text("おすすめスポットを見る")
+                }
+                .padding()
+                .font(.title3)
+                .fontWeight(.bold)
+                .frame(width: 200, height: 100)
+                .background(Color.customYellowColor)
+                .foregroundColor(.white)
+                .cornerRadius(50)
+                .opacity(0.8)
+                .shadow(color: .black.opacity(0.3), radius: 10, x: 3, y: 3)
             }
-            ZStack {
-                Image("PopUpImage2")
-                    .resizable()
-                    .frame(width: 300, height: 100)
-                    .scaledToFit()
-                    .scaleEffect(x: -1, y: 1)
-                    .opacity(0.9)
-                    .shadow(color: .black.opacity(0.3), radius: 10, x: 1, y: 1)
-                Text("おめでとう")
-            }
-            minCatAnimationView(lottieFile: "minCatAnimation")
-                .frame(width: 100, height: 100)
+
+            ClackerAnimationView(lottieFile: "ClackerAnimation")
+
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(
             LinearGradient(
                 gradient: Gradient(colors: [Color.customPinkColor, Color.customBlueColor]),
@@ -42,5 +63,10 @@ struct CongratulationView: View {
             )
             .ignoresSafeArea()
         )
+        .navigationDestination(isPresented: $navigateToResultView) {
+            FortuneResultView(fortuneAPIManager: fortuneAPIManager)
+        }
+        .navigationBarBackButtonHidden(true) // Backボタンを非表示
+        .ignoresSafeArea()
     }
 }
