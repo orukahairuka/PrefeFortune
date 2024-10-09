@@ -25,15 +25,16 @@ struct UserInfoInputView: View {
 
     var body: some View {
         NavigationStack {
+            ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
 
-                        NameInputField(name: $name)
+                    NameInputField(name: $name)
 
-                        BirthdayInputView(birthday: $birthday)
+                    BirthdayInputView(birthday: $birthday)
 
 
-                        BloodTypePickerView(bloodType: $bloodType, bloodTypes: bloodTypes)
-                            .padding(.bottom, -30)
+                    BloodTypePickerView(bloodType: $bloodType, bloodTypes: bloodTypes)
+                        .padding(.bottom, -30)
 
 
                     Spacer()
@@ -57,12 +58,12 @@ struct UserInfoInputView: View {
                     }
 
                 }
-                .padding()
-                .navigationDestination(isPresented: $navigateToResult) {
-//                    FortuneResultView(fortuneAPIManager: fortuneAPIManager)
-                    CongratulationView(fortuneAPIManager: fortuneAPIManager)
-                }
-
+            }
+            .scrollIndicators(.hidden)
+            .navigationDestination(isPresented: $navigateToResult) {
+                //                    FortuneResultView(fortuneAPIManager: fortuneAPIManager)
+                CongratulationView(fortuneAPIManager: fortuneAPIManager)
+            }
             .background(
                 Color.customRadialGradient
                     .ignoresSafeArea()
