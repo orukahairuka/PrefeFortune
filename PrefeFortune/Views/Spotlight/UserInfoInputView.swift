@@ -68,7 +68,6 @@ struct UserInfoInputView: View {
                 Color.customRadialGradient
                     .ignoresSafeArea()
             )
-            .modifier(SpotlightModifier(enable: $spotlightEnabled, spotlightingID: $spotlightingID))
         }
     }
 }
