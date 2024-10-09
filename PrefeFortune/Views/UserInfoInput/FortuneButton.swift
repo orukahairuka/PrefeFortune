@@ -20,8 +20,8 @@ struct FortuneButton: View {
                 }
             } label: {
                 Text("占う")
+                    .ButtonStyleModifier()
             }
-            .ButtonStyleModifier()
             .disabled(!isFormComplete)
             .opacity(isFormComplete ? 0.8 : 0.5)
             Spacer()

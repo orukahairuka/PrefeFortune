@@ -31,6 +31,7 @@ struct FortuneResultView: View {
                         .padding(.horizontal, 30)
                 }
 
+                    //.constant(longitude)使用によりlongitudeは読み取り専用
                 if let latitude = latitude, let longitude = longitude {
                     MapView(latitude: .constant(latitude), longitude: .constant(longitude), destination: .constant(CLLocationCoordinate2D(latitude: latitude, longitude: longitude)), distance: $distance)
                         .whiteRoundedModifier()
@@ -56,7 +57,7 @@ struct FortuneResultView: View {
                 FirstNavigationView(
                     distance: $distance,
                     prefectureName: Binding(
-                        get: { fortuneAPIManager.prefectureName ?? "不明な県" },  // nilなら"不明な県"を返す
+                        get: { fortuneAPIManager.prefectureName ?? "不明な県" },  // 値を取得nilなら"不明な県"を返す
                         set: { fortuneAPIManager.prefectureName = $0 }  // バインディングされた値が変更された場合に更新
                     )
                 )
