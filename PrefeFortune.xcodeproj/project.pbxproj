@@ -58,6 +58,7 @@
 		3BD1E6132CB4D937005492CC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD1E6122CB4D937005492CC /* LocationManager.swift */; };
 		3BD1E6152CB4D97F005492CC /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD1E6142CB4D97F005492CC /* MapView.swift */; };
 		3BD7798A2CB12DD20010D8E1 /* PrefectureImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD779892CB12DD20010D8E1 /* PrefectureImageView.swift */; };
+		3BDA438F2CB6A82800F091F8 /* CustomNavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA438E2CB6A82800F091F8 /* CustomNavigationBarModifier.swift */; };
 		3BF76F0C2CAF80CD009EC2B2 /* PrefeFortuneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF76F0B2CAF80CD009EC2B2 /* PrefeFortuneApp.swift */; };
 		3BF76F102CAF80CE009EC2B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BF76F0F2CAF80CE009EC2B2 /* Assets.xcassets */; };
 		3BF76F142CAF80CE009EC2B2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BF76F132CAF80CE009EC2B2 /* Preview Assets.xcassets */; };
@@ -132,6 +133,7 @@
 		3BD1E6122CB4D937005492CC /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3BD1E6142CB4D97F005492CC /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		3BD779892CB12DD20010D8E1 /* PrefectureImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefectureImageView.swift; sourceTree = "<group>"; };
+		3BDA438E2CB6A82800F091F8 /* CustomNavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBarModifier.swift; sourceTree = "<group>"; };
 		3BF76F082CAF80CD009EC2B2 /* PrefeFortune.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrefeFortune.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BF76F0B2CAF80CD009EC2B2 /* PrefeFortuneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefeFortuneApp.swift; sourceTree = "<group>"; };
 		3BF76F0F2CAF80CE009EC2B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				3B8006932CB52DE600D3010B /* RoudedBackground.swift */,
 				3BB0EB1F2CB420080048A044 /* InputFieldBackgroundModifier.swift */,
 				3BB0EB1D2CB41FC30048A044 /* TouristCardModifire.swift */,
+				3BDA438E2CB6A82800F091F8 /* CustomNavigationBarModifier.swift */,
 				3B8006952CB5303D00D3010B /* SpotlightModifier.swift */,
 				3B50A1D02CB0E41100539F07 /* today.swift */,
 				3B50A1D22CB0EA8C00539F07 /* dayModel.swift */,
@@ -547,6 +550,7 @@
 				3BA804922CB170BE00BEDC1C /* FailureView.swift in Sources */,
 				3B8006982CB5305C00D3010B /* SpotlightBoundsKey.swift in Sources */,
 				3BB4BF5C2CAF8B4400AD4C29 /* FortuneAPIModels.swift in Sources */,
+				3BDA438F2CB6A82800F091F8 /* CustomNavigationBarModifier.swift in Sources */,
 				3B50A1D12CB0E41100539F07 /* today.swift in Sources */,
 				3BB4BF5E2CAF8B7C00AD4C29 /* FortuneAPIManager.swift in Sources */,
 				3B7044172CB19F2E00EF6553 /* TouristCard.swift in Sources */,
