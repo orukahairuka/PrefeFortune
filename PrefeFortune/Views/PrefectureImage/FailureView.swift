@@ -17,12 +17,6 @@ struct FailureView: View {
     }
 }
 
-struct LoadingView: View {
-    var body: some View {
-        ProgressView()
-            .frame(width: 240, height: 126)
-    }
-}
 
 //MARK: - Preview
 
