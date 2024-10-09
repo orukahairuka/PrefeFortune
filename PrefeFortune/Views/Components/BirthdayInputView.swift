@@ -25,6 +25,7 @@ struct BirthdayInputView: View {
                         updateBirthday(from: newValue)
                     }
                     .padding(.horizontal, 20)
+                    .padding(.bottom, 10)
                     .foregroundColor(.white)
                     .inputFieldStyle()
 
