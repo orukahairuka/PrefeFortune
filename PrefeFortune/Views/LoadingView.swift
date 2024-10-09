@@ -7,11 +7,13 @@
 
 import SwiftUI
 
-struct LoadingView: View {
+struct LanchLoadingView: View {
     var body: some View {
         VStack {
-            ProgressView()
-
+            LoadingAnimationView(lottieFile: "LoadingAnimation")
+                .frame(width: 360, height: 330)
+            DogAnimationView(lottieFile: "dogAnimation")
+                .frame(width: 300, height: 300)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(
@@ -22,5 +24,12 @@ struct LoadingView: View {
 }
 
 #Preview {
-    LoadingView()
+    LanchLoadingView()
+}
+
+struct LoadingView: View {
+    var body: some View {
+        LoadingAnimationView(lottieFile: "LoadingAnimation")
+            .frame(width: 100, height: 100)
+    }
 }
