@@ -34,6 +34,7 @@
 		3B8AE2992CB61F970055628D /* DogAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8AE2982CB61F970055628D /* DogAnimationView.swift */; };
 		3B8AE29B2CB61FA80055628D /* LoadingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8AE29A2CB61FA80055628D /* LoadingAnimationView.swift */; };
 		3B8AE29F2CB62A450055628D /* StartNavigatinoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8AE29E2CB62A450055628D /* StartNavigatinoView.swift */; };
+		3B8AE2A12CB633A60055628D /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8AE2A02CB633A60055628D /* StateManager.swift */; };
 		3B9420A72CB118FB00218C84 /* pref_lat_lon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */; };
 		3BA8048A2CB16FEE00BEDC1C /* BirthdayInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */; };
 		3BA8048B2CB16FEE00BEDC1C /* BloodTypePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA804852CB16FEE00BEDC1C /* BloodTypePickerView.swift */; };
@@ -105,6 +106,7 @@
 		3B8AE2982CB61F970055628D /* DogAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogAnimationView.swift; sourceTree = "<group>"; };
 		3B8AE29A2CB61FA80055628D /* LoadingAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAnimationView.swift; sourceTree = "<group>"; };
 		3B8AE29E2CB62A450055628D /* StartNavigatinoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartNavigatinoView.swift; sourceTree = "<group>"; };
+		3B8AE2A02CB633A60055628D /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		3B9420A62CB118FB00218C84 /* pref_lat_lon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pref_lat_lon.csv; sourceTree = "<group>"; };
 		3BA804842CB16FEE00BEDC1C /* BirthdayInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayInputView.swift; sourceTree = "<group>"; };
 		3BA804852CB16FEE00BEDC1C /* BloodTypePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodTypePickerView.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 		3BB4BF572CAF895700AD4C29 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3B8AE2A02CB633A60055628D /* StateManager.swift */,
 				3BD1E6112CB4D92B005492CC /* Map */,
 				3B20674F2CB0006500941274 /* CSV */,
 				3B50A1C62CB01F1500539F07 /* PlacesAPI */,
@@ -261,6 +264,7 @@
 		3BB4BF582CAF897D00AD4C29 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3B8AE29E2CB62A450055628D /* StartNavigatinoView.swift */,
 				3BD1E6142CB4D97F005492CC /* MapView.swift */,
 				3B8AE2922CB61CCC0055628D /* LoadingView.swift */,
 				3B8006912CB52D0300D3010B /* GoogleSearchWebView.swift */,
@@ -283,7 +287,6 @@
 				3BA804862CB16FEE00BEDC1C /* NameInputField.swift */,
 				3BA804852CB16FEE00BEDC1C /* BloodTypePickerView.swift */,
 				3BA804872CB16FEE00BEDC1C /* FortuneButton.swift */,
-				3B8AE29E2CB62A450055628D /* StartNavigatinoView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				3B2067532CB000D200941274 /* LatLonManager.swift in Sources */,
 				3BD1E6132CB4D937005492CC /* LocationManager.swift in Sources */,
 				3BA8048A2CB16FEE00BEDC1C /* BirthdayInputView.swift in Sources */,
+				3B8AE2A12CB633A60055628D /* StateManager.swift in Sources */,
 				3B46D3E82CB3943F002745CC /* FortuneResultView.swift in Sources */,
 				3BD7798A2CB12DD20010D8E1 /* PrefectureImageView.swift in Sources */,
 				3B8AE29F2CB62A450055628D /* StartNavigatinoView.swift in Sources */,
