@@ -26,8 +26,17 @@ struct TouristCardView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .onAppear {
+            updatePlacesIfNeeded()
+        }
         .onChange(of: latitude) { _ in updatePlaces() }
         .onChange(of: longitude) { _ in updatePlaces() }
+    }
+
+    private func updatePlacesIfNeeded() {
+        if placesManager.nearbyPlaces.isEmpty {
+            updatePlaces()
+        }
     }
 
     private func updatePlaces() {
@@ -36,6 +45,7 @@ struct TouristCardView: View {
         }
     }
 }
+
 
 struct MessageView: View {
     let message: String

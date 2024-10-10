@@ -12,53 +12,59 @@ struct FortuneResultView: View {
     @ObservedObject var fortuneAPIManager: FortuneAPIManager
     @StateObject var latLonManager: LatLonManager = LatLonManager()
     @StateObject var placesAPIManager: PlacesAPIManager = PlacesAPIManager()
+
     @State private var latitude: Double? = nil
     @State private var longitude: Double? = nil
     @State private var retryCount: Int = 0
     @State private var distance: Double = 0.0
+    @State private var isLoading: Bool = true
+    @State private var isRetrying: Bool = false
 
     private let maxRetryCount: Int = 3 // リトライの最大回数
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-
                 Spacer()
 
+                // ロゴ表示
                 if let logoURL = fortuneAPIManager.decodedLogoURL {
                     PrefectureImageView(imageUrl: .constant(logoURL), prefectureName: $fortuneAPIManager.prefectureName)
                         .whiteRoundedModifier()
                         .padding(.horizontal, 30)
                 }
 
-                    //.constant(longitude)使用によりlongitudeは読み取り専用
+                // 地図表示（緯度・経度が取得できた場合）
                 if let latitude = latitude, let longitude = longitude {
                     MapView(latitude: .constant(latitude), longitude: .constant(longitude), destination: .constant(CLLocationCoordinate2D(latitude: latitude, longitude: longitude)), distance: $distance)
                         .whiteRoundedModifier()
                         .padding(.top, 10)
                 }
 
-                if let latitude = latitude, let longitude = longitude {
-                    if placesAPIManager.nearbyPlaces.isEmpty && retryCount < maxRetryCount {
-                        Text("観光情報が見つかりませんでした。もう一度検索中です...")
+                // 観光情報表示
+                if isLoading {
+                    ProgressView("データを読み込んでいます...")
+                        .whiteRoundedModifier()
+                } else if isRetrying {
+                    Text("観光情報が見つかりませんでした。もう一度検索中です...")
+                        .font(.body)
+                        .whiteRoundedModifier()
+                } else {
+                    if placesAPIManager.nearbyPlaces.isEmpty {
+                        Text("観光情報が見つかりませんでした。")
                             .font(.body)
                             .whiteRoundedModifier()
-                            .onAppear {
-                                retryLoadLocationData()
-                            }
                     } else {
                         TouristCardView(placesManager: placesAPIManager, latitude: $latitude, longitude: $longitude)
                     }
-                } else {
-                    ProgressView("データを読み込んでいます...")
-                        .whiteRoundedModifier()
                 }
 
+                // ナビゲーションボタン
                 FirstNavigationView(
                     distance: $distance,
                     prefectureName: Binding(
-                        get: { fortuneAPIManager.prefectureName ?? "不明な県" },  // 値を取得nilなら"不明な県"を返す
-                        set: { fortuneAPIManager.prefectureName = $0 }  // バインディングされた値が変更された場合に更新
+                        get: { fortuneAPIManager.prefectureName ?? "不明な県" },
+                        set: { fortuneAPIManager.prefectureName = $0 }
                     )
                 )
 
@@ -81,57 +87,82 @@ struct FortuneResultView: View {
 
     private func loadLocationData() {
         retryCount = 0
-        executeLoadLocationData()
+        attemptToLoadDataWithRetry()
     }
 
-    private func retryLoadLocationData() {
-        retryCount += 1
-        if retryCount <= maxRetryCount {
-            print("リトライ中: \(retryCount) 回目")
-            executeLoadLocationData()
-        } else {
-            print("リトライの上限に達したため、停止しました。")
+    private func attemptToLoadDataWithRetry() {
+        Task {
+            let success = await executeLoadLocationData()
+            if !success && retryCount < maxRetryCount {
+                retryCount += 1
+                print("リトライ中: \(retryCount) 回目")
+                attemptToLoadDataWithRetry()
+            } else {
+                DispatchQueue.main.async {
+                    self.isLoading = false
+                    self.isRetrying = !success
+                }
+                if !success {
+                    print("リトライの上限に達したため、停止しました。")
+                }
+            }
         }
     }
 
-    private func executeLoadLocationData() {
+
+    private func executeLoadLocationData() async -> Bool {
         guard let prefectureName = fortuneAPIManager.prefectureName, !prefectureName.isEmpty else {
             print("場所の名前が見つからないため、終了します。")
-            return
+            DispatchQueue.main.async {
+                self.isLoading = false
+            }
+            return false
         }
 
-        Task {
-            if let location = await latLonManager.getLatLon(forPrefecture: prefectureName) {
-                DispatchQueue.main.async {
-                    self.latitude = location.latitude
-                    self.longitude = location.longitude
-                }
-                await fetchPlacesData(latitude: location.latitude, longitude: location.longitude)
-            } else {
-                handleLocationFetchFailure()
+        if let location = await latLonManager.getLatLon(forPrefecture: prefectureName) {
+            DispatchQueue.main.async {
+                self.latitude = location.latitude
+                self.longitude = location.longitude
             }
+            let placesLoaded = await fetchPlacesData(latitude: location.latitude, longitude: location.longitude)
+            DispatchQueue.main.async {
+                self.isLoading = false
+            }
+            return placesLoaded
+        } else {
+            DispatchQueue.main.async {
+                self.isLoading = false
+            }
+            return false
         }
     }
 
-    private func fetchPlacesData(latitude: Double, longitude: Double) async {
-        await placesAPIManager.fetchNearbyPlaces(latitude: latitude, longitude: longitude)
 
-        DispatchQueue.main.async {
-            if placesAPIManager.nearbyPlaces.isEmpty && retryCount < maxRetryCount {
-                retryLoadLocationData()
+    private func fetchPlacesData(latitude: Double, longitude: Double) async -> Bool {
+        print("Fetching places for latitude: \(latitude), longitude: \(longitude)")
+        do {
+            await placesAPIManager.fetchNearbyPlaces(latitude: latitude, longitude: longitude)
+
+            DispatchQueue.main.async {
+                self.distance = calculateDistance(from: CLLocation(latitude: latitude, longitude: longitude))
             }
+
+            let placesLoaded = !placesAPIManager.nearbyPlaces.isEmpty
+            print("Places loaded: \(placesLoaded)")
+            return placesLoaded
+        } catch {
+            print("Error fetching places: \(error.localizedDescription)")
+            return false
         }
     }
 
-    private func handleLocationFetchFailure() {
-        DispatchQueue.main.async {
-            latitude = nil
-            longitude = nil
-            if retryCount < maxRetryCount {
-                retryLoadLocationData()
-            } else {
-                print("🐈 緯度と経度が見つからず、リトライ終了")
-            }
+    // calculateDistance 関数を追加
+    private func calculateDistance(from location: CLLocation) -> Double {
+        // 距離計算のために現在地を取得し、場所までの距離を計算
+        guard let userLocation = CLLocationManager().location else {
+            return 0.0
         }
+        let distanceInMeters = userLocation.distance(from: location)
+        return distanceInMeters / 1000.0 // 距離をキロメートルで返す
     }
 }
