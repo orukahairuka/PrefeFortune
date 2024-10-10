@@ -48,14 +48,6 @@ struct CustomNavigationBarModifier: ViewModifier {
                         }
                     }
 
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            print("右側のボタンが押されました")
-                        }) {
-                            Image(systemName: "square.and.arrow.up")
-                        }
-                        .tint(Color.customTextColor)
-                    }
                 }
                 .navigationDestination(isPresented: $navigateToUserInfoInput) {
                     UserInfoInputView()

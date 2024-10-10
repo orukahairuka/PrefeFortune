@@ -48,13 +48,16 @@ struct MapView: View {
                     .overlay(
                         route != nil ? AnyView(RouteOverlay(route: route!)) : AnyView(EmptyView())
                     )
-                    .whiteRoundedModifier()  // 統一されたスタイルを適用
+                      // 統一されたスタイルを適用
                     .frame(width: UIScreen.main.bounds.width * 0.85)
-                    .frame(height: UIScreen.main.bounds.width * 0.75)
+                    .frame(height: UIScreen.main.bounds.width * 0.85)
+                    .padding(10)
                     .cornerRadius(5)
                     .onAppear {
                         calculateRoute(from: userLocation, to: destination)
                     }
+                Text("\(String(format: "%.2f", distance))kmあるよ！")
+                    .fontWeight(.bold)
             } else {
                 LoadingView()
                     .frame(height: 440)

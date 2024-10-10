@@ -21,8 +21,8 @@ struct BirthdayInputView: View {
                 DatePicker("選択してください", selection: $selectedDate, displayedComponents: [.date])
                     .datePickerStyle(GraphicalDatePickerStyle())
                     .environment(\.locale, Locale(identifier: "ja_JP"))
-                    .onChange(of: selectedDate) { newValue in
-                        updateBirthday(from: newValue)
+                    .onChange(of: selectedDate) {
+                        updateBirthday(from: selectedDate)
                     }
                     .padding(.horizontal, 20)
                     .padding(.bottom, 10)

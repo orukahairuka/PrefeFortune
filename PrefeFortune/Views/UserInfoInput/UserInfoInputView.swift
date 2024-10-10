@@ -56,6 +56,7 @@ struct UserInfoInputView: View {
                     }
                 }
             }
+            .scrollDismissesKeyboard(.immediately)
             .scrollIndicators(.hidden)
             .navigationDestination(isPresented: $navigateToResult) {
                 ResultCongratulationView(fortuneAPIManager: fortuneAPIManager)
