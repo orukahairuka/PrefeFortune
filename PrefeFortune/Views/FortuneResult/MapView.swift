@@ -56,6 +56,8 @@ struct MapView: View {
                     .onAppear {
                         calculateRoute(from: userLocation, to: destination)
                     }
+                Text("\(String(format: "%.2f", distance))kmあるよ！")
+                    .fontWeight(.bold)
             } else {
                 LoadingView()
                     .frame(height: 440)
