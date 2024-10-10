@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FirstNavigationView: View {
+struct CatDistanceNavigationView: View {
     @Binding var distance: Double
     @Binding var prefectureName: String
     var body: some View {

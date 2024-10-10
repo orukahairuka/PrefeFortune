@@ -60,7 +60,7 @@ struct FortuneResultView: View {
                 }
 
                 // ナビゲーションボタン
-                FirstNavigationView(
+                CatDistanceNavigationView(
                     distance: $distance,
                     prefectureName: Binding(
                         get: { fortuneAPIManager.prefectureName ?? "不明な県" },

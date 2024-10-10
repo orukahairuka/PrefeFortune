@@ -20,7 +20,7 @@ struct ResultCongratulationView: View {
                         .fontWeight(.bold)
                         .padding()
 
-                    if let logoURL = fortuneAPIManager.decodedLogoURL {
+                    if fortuneAPIManager.decodedLogoURL != nil {
                         PrefectureAnimationView(fortuneAPIManager: fortuneAPIManager)
                     }
                 }
