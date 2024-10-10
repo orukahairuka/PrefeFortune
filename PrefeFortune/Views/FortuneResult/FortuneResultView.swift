@@ -76,6 +76,7 @@ struct FortuneResultView: View {
             )
             .ignoresSafeArea()
         )
+        .customNavigationBar()
     }
 
     private func loadLocationData() {

@@ -11,7 +11,7 @@ import SwiftUI
 extension View {
     func whiteRoundedModifier() -> some View {
         self
-            .padding()
+            .padding(10)
             .background(
                 RoundedRectangle(cornerRadius: 20)
                     .fill(.ultraThinMaterial)

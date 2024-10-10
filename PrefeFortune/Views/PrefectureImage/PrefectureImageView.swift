@@ -22,7 +22,7 @@ struct PrefectureImageView: View {
                                 .fontWeight(.bold)
                         }
                         AsyncImageLoadingView(url: validUrl)
-                            .frame(width: geometry.size.width, height: geometry.size.height * 0.9)
+                            .frame(width: geometry.size.width * 0.7, height: geometry.size.height * 0.7)
                             .clipped()
                     }
                     ClackerAnimationView(lottieFile: "ClackerAnimation")

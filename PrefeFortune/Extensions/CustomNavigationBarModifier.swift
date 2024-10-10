@@ -8,56 +8,64 @@
 import SwiftUI
 import CoreLocation
 
-// カスタムナビゲーションバーのViewModifierを作成
 struct CustomNavigationBarModifier: ViewModifier {
     @Environment(\.dismiss) var dismiss
-
-    var title: String
+    @State private var navigateToUserInfoInput = false
 
     func body(content: Content) -> some View {
-        content
-            .navigationBarBackButtonHidden(true) // デフォルトの戻るボタンを隠す
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    HStack {
-                        // カスタム戻るボタン
-                        Button(action: {
-                            dismiss() // 戻る機能を持つ
-                        }) {
-                            HStack {
-                                Image(systemName: "chevron.backward")
-                                Text("戻る")
+        ZStack {
+            Color.clear
+                .background(
+                    Color.customRadialGradient
+                        .ignoresSafeArea(edges: .top)
+                )
+
+            content
+                .navigationBarBackButtonHidden(true)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        HStack {
+                            // カスタム戻るボタン
+                            Button(action: {
+                                dismiss()
+                            }) {
+                                HStack {
+                                    Image(systemName: "chevron.backward")
+                                    Text("戻る")
+                                }
                             }
+                            .tint(Color.customTextColor)
                         }
-                        .tint(.white) // ボタンの色
+                    }
 
-                        // カスタムのアクションボタン
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
+                            navigateToUserInfoInput = true
+                        } label: {
+                            Text("もう一度占う")
+                                .foregroundStyle(Color.customTextColor)
+                                .whiteRoundedModifier()
+                        }
+                    }
+
+                    ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {
-                            print("カスタムボタンが押されました")
+                            print("右側のボタンが押されました")
                         }) {
-                            Image(systemName: "star.fill")
+                            Image(systemName: "square.and.arrow.up")
                         }
-                        .tint(.white) // ボタンの色
+                        .tint(Color.customTextColor)
                     }
                 }
-
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        print("右側のボタンが押されました")
-                    }) {
-                        Image(systemName: "square.and.arrow.up")
-                    }
-                    .tint(.white) // 右側のカスタムボタン
+                .navigationDestination(isPresented: $navigateToUserInfoInput) {
+                    UserInfoInputView()
                 }
-            }
-            .toolbarBackground(Color.blue, for: .navigationBar) // ナビゲーションバーの背景色
-            .toolbarBackground(.visible, for: .navigationBar)
+        }
     }
 }
 
-// Viewのextensionにすることで再利用可能に
 extension View {
-    func customNavigationBar(title: String) -> some View {
-        self.modifier(CustomNavigationBarModifier(title: title))
+    func customNavigationBar() -> some View {
+        self.modifier(CustomNavigationBarModifier())
     }
 }
