@@ -96,7 +96,9 @@ struct FortuneResultView: View {
             if !success && retryCount < maxRetryCount {
                 retryCount += 1
                 print("リトライ中: \(retryCount) 回目")
-                attemptToLoadDataWithRetry()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    attemptToLoadDataWithRetry()
+                }
             } else {
                 DispatchQueue.main.async {
                     self.isLoading = false
@@ -132,6 +134,7 @@ struct FortuneResultView: View {
         } else {
             DispatchQueue.main.async {
                 self.isLoading = false
+                self.isRetrying = true // エラー表示用にリトライ状態を設定
             }
             return false
         }
@@ -142,16 +145,17 @@ struct FortuneResultView: View {
         print("Fetching places for latitude: \(latitude), longitude: \(longitude)")
         do {
             await placesAPIManager.fetchNearbyPlaces(latitude: latitude, longitude: longitude)
-
             DispatchQueue.main.async {
                 self.distance = calculateDistance(from: CLLocation(latitude: latitude, longitude: longitude))
             }
-
             let placesLoaded = !placesAPIManager.nearbyPlaces.isEmpty
             print("Places loaded: \(placesLoaded)")
             return placesLoaded
         } catch {
             print("Error fetching places: \(error.localizedDescription)")
+            DispatchQueue.main.async {
+                self.isRetrying = true // エラー時にリトライフラグを立てる
+            }
             return false
         }
     }
