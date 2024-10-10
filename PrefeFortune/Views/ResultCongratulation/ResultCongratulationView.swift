@@ -27,7 +27,7 @@ struct ResultCongratulationView: View {
                 .padding()
 
                 HStack {
-                    Text("ボタンを押して、茨城県のおすすめスポットを見てみよう")
+                    Text("ボタンを押して、\(fortuneAPIManager.prefectureName)のおすすめスポットを見てみよう")
                     minCatAnimationView(lottieFile: "minCatAnimation")
                         .frame(width: 100, height: 100)
                 }
