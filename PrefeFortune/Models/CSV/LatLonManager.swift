@@ -16,7 +16,7 @@ class LatLonManager: ObservableObject {
     }
 
     /// 指定された県名に対応する緯度・経度を取得
-    func getLatLon(forPrefecture name: String) -> (latitude: Double, longitude: Double)? {
+    func getLatLon(forPrefecture name: String) async -> (latitude: Double, longitude: Double)? {
         guard let csvData = csvData else {
             print("CSVデータが読み込まれていません")
             return nil

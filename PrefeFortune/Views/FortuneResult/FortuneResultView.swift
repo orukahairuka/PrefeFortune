@@ -143,21 +143,13 @@ struct FortuneResultView: View {
 
     private func fetchPlacesData(latitude: Double, longitude: Double) async -> Bool {
         print("Fetching places for latitude: \(latitude), longitude: \(longitude)")
-        do {
-            await placesAPIManager.fetchNearbyPlaces(latitude: latitude, longitude: longitude)
-            DispatchQueue.main.async {
-                self.distance = calculateDistance(from: CLLocation(latitude: latitude, longitude: longitude))
-            }
-            let placesLoaded = !placesAPIManager.nearbyPlaces.isEmpty
-            print("Places loaded: \(placesLoaded)")
-            return placesLoaded
-        } catch {
-            print("Error fetching places: \(error.localizedDescription)")
-            DispatchQueue.main.async {
-                self.isRetrying = true // エラー時にリトライフラグを立てる
-            }
-            return false
+        await placesAPIManager.fetchNearbyPlaces(latitude: latitude, longitude: longitude)
+        DispatchQueue.main.async {
+            self.distance = calculateDistance(from: CLLocation(latitude: latitude, longitude: longitude))
         }
+        let placesLoaded = !placesAPIManager.nearbyPlaces.isEmpty
+        print("Places loaded: \(placesLoaded)")
+        return placesLoaded
     }
 
     // calculateDistance 関数を追加
