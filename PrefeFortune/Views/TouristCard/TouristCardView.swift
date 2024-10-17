@@ -29,8 +29,12 @@ struct TouristCardView: View {
         .onAppear {
             updatePlacesIfNeeded()
         }
-        .onChange(of: latitude) { _ in updatePlaces() }
-        .onChange(of: longitude) { _ in updatePlaces() }
+        .onChange(of: latitude) {
+            updatePlaces()
+        }
+        .onChange(of: longitude) {
+            updatePlaces()
+        }
     }
 
     private func updatePlacesIfNeeded() {
@@ -41,7 +45,9 @@ struct TouristCardView: View {
 
     private func updatePlaces() {
         if let lat = latitude, let lon = longitude {
-            placesManager.fetchNearbyPlaces(latitude: lat, longitude: lon)
+            Task {
+                await placesManager.fetchNearbyPlaces(latitude: lat, longitude: lon)
+            }
         }
     }
 }

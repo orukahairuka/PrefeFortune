@@ -14,24 +14,44 @@ class PlacesAPIManager: ObservableObject {
     @Published var nearbyPlaces: [Place] = []
     @Published var isLoading: Bool = false
 
-    func fetchNearbyPlaces(latitude: Double, longitude: Double, radius: Int = 5000, type: String = "tourist_attraction") {
-        isLoading = true
+    func fetchNearbyPlaces(latitude: Double, longitude: Double, radius: Int = 5000, type: String = "tourist_attraction") async {
+        // メインスレッドでisLoadingをtrueに設定
+        DispatchQueue.main.async {
+            self.isLoading = true
+        }
+
         let parameters = createRequestParameters(latitude: latitude, longitude: longitude, radius: radius, type: type)
 
-        // APIリクエスト
-        AF.request(baseURL, parameters: parameters).responseData { [weak self] response in
-            guard let self = self else { return }
-            self.isLoading = false
-            switch response.result {
-            case .success(let data):
-                self.handleSuccessResponse(data)
-            case .failure(let error):
-                self.handleFailureResponse(error)
+        // APIリクエスト (非同期で待機)
+        do {
+            let data = try await performRequest(with: parameters)
+            DispatchQueue.main.async {
+                self.isLoading = false
+                self.handleSuccessResponse(data) // メインスレッドでレスポンス処理
+            }
+        } catch {
+            DispatchQueue.main.async {
+                self.isLoading = false
+                self.handleFailureResponse(error as? AFError) // エラー処理もメインスレッドで行う
             }
         }
     }
 
     // MARK: - Private Methods
+
+    /// 非同期APIリクエスト
+    private func performRequest(with parameters: [String: Any]) async throws -> Data {
+        return try await withCheckedThrowingContinuation { continuation in
+            AF.request(baseURL, parameters: parameters).responseData { response in
+                switch response.result {
+                case .success(let data):
+                    continuation.resume(returning: data)
+                case .failure(let error):
+                    continuation.resume(throwing: error)
+                }
+            }
+        }
+    }
 
     /// リクエストパラメータを生成
     private func createRequestParameters(latitude: Double, longitude: Double, radius: Int, type: String) -> [String: Any] {
@@ -48,9 +68,7 @@ class PlacesAPIManager: ObservableObject {
     private func handleSuccessResponse(_ data: Data) {
         do {
             let decodedResponse = try JSONDecoder().decode(PlacesResponse.self, from: data)
-            DispatchQueue.main.async {
-                self.nearbyPlaces = decodedResponse.results
-            }
+            self.nearbyPlaces = decodedResponse.results
         } catch {
             print("デコードエラー: \(error)")
             updateNearbyPlaces(with: [])
@@ -58,15 +76,13 @@ class PlacesAPIManager: ObservableObject {
     }
 
     /// 失敗レスポンスを処理
-    private func handleFailureResponse(_ error: AFError) {
-        print("ネットワークエラー: \(error)")
+    private func handleFailureResponse(_ error: AFError?) {
+        print("ネットワークエラー: \(error?.localizedDescription ?? "不明なエラー")")
         updateNearbyPlaces(with: [])
     }
 
     /// NearbyPlacesの更新
     private func updateNearbyPlaces(with places: [Place]) {
-        DispatchQueue.main.async {
-            self.nearbyPlaces = places
-        }
+        self.nearbyPlaces = places
     }
 }

@@ -51,7 +51,9 @@ class StateManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 
     func fetchNearbyPlaces() {
         if let userLocation = userLocation {
-            placesAPIManager.fetchNearbyPlaces(latitude: userLocation.latitude, longitude: userLocation.longitude)
+            Task {
+                await placesAPIManager.fetchNearbyPlaces(latitude: userLocation.latitude, longitude: userLocation.longitude)
+            }
         }
     }
 }
